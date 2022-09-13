@@ -2,6 +2,8 @@ package com.example.hydrohomies;
 
 import Model.Cards.DeckOfCards;
 import Model.Cards.IDeckOfCards;
+import Model.Dice.Dice;
+import Model.Dice.Die;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -21,11 +23,11 @@ public class HelloApplication extends Application {
 
     public static void main(String[] args) {
         System.out.println("Starting Program.");
-        tests();
+        diceTests();
         launch();
     }
 
-    public static void tests(){
+    public static void deckTests(){
         IDeckOfCards deck = new DeckOfCards();
         deck.shuffle();
         System.out.println("----------Shuffled deck----------");
@@ -37,5 +39,13 @@ public class HelloApplication extends Application {
         deck.returnDiscardPile();
         System.out.println("Returned the discard pile to the deck.");
         deck.showDeck();
+    }
+
+    public static void diceTests(){
+        Dice dice = new Dice(5); // Create 5 die
+        System.out.println(dice.getDieValue(dice.getDie(0)));
+        dice.rollDie(dice.getDie(0));
+        System.out.println(dice.getDieValue(dice.getDie(0)));
+
     }
 }
