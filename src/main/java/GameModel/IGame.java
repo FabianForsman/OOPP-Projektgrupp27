@@ -1,7 +1,10 @@
 package GameModel;
 
 public interface IGame {
-    void setPlayerAmount();
+/*
+    void setPlayerAmount(int amount);
+
+    void addPlayer(Player player);
 
     void setCurrentPlayer();
 
@@ -14,7 +17,6 @@ public interface IGame {
     void startGame();
 
     void startRound();
-
-
+*/
 
 }
