@@ -30,4 +30,14 @@ public class Player implements iPlayer{
     public void passTurn() {
 
     }
+
+    @Override
+    public void joinGame() {
+
+    }
+
+    @Override
+    public void leaveGame() {
+
+    }
 }
