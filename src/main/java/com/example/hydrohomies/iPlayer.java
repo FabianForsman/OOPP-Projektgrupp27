@@ -9,4 +9,8 @@ void getScore();
 void takeTurn();
 
 void passTurn();
+
+void joinGame();
+
+void leaveGame();
 }
