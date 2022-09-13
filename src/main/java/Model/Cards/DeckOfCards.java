@@ -28,7 +28,7 @@ public class DeckOfCards implements IDeckOfCards {
         }
     }
 
-    public void shuffle() {
+    public void shuffle() { //Shuffles the deck
         Collections.shuffle(this.cards);
     }
 

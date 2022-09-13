@@ -3,17 +3,23 @@ package Model.Dice;
 import java.util.Random;
 
 public class Die {
-    private int maxValue;
+    private final int maxValue;
+    private int faceValue;
 
     public Die() {
-        this.maxValue = 6; //Default dice size.
+        this.maxValue = 6; //Default dice nr of sides.
+        this.faceValue = 1; //Default face value.
     }
 
     public Die(int sides) {
-        this.maxValue = sides; //Flexible dice size.
+        this.maxValue = sides; //Flexible dice nr of sides.
     }
 
-    public int rollDie() {
-        return new Random().nextInt(maxValue);
+    public void rollDie() {
+       this.faceValue = new Random().nextInt(maxValue); //Sets the current value to a random "side" of the dice.
+    }
+
+    public int getFaceValue() {
+        return faceValue;
     }
 }

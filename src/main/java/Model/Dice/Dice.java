@@ -5,13 +5,14 @@ import java.util.List;
 
 public class Dice {
     List<Die> dice = new ArrayList<>();
-    public Dice(int nrOfDie) {
+
+    public Dice(int nrOfDie) { //For 6-sided dice
         for(int i = 0; i < nrOfDie; i++) {
             dice.add(new Die());
         }
     }
 
-    public Dice(int nrOfDie, int dieSides){
+    public Dice(int nrOfDie, int dieSides){ //For x-sided dice
         for(int i = 0; i < nrOfDie; i++) {
             dice.add(new Die(dieSides));
         }
@@ -28,15 +29,20 @@ public class Dice {
             System.out.println("Cannot remove all die!");
     }
 
-    public List<Integer> rollAllDice() {
-        List<Integer> rolledDice = new ArrayList<>();
+    public void rollAllDice() {
         for(Die die : dice) {
-            rolledDice.add(die.rollDie());
+            die.rollDie();
         }
-        return rolledDice;
     }
 
-    public int rollDie(Die die) {
-        return die.rollDie();
+    public void rollDie(Die die) { //Roll a single die
+        die.rollDie();
+    }
+    public Die getDie(int i){
+        return dice.get(i);
+    }
+
+    public int getDieValue(Die die) {
+        return die.getFaceValue();
     }
 }
