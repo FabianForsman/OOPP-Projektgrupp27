@@ -1,5 +1,10 @@
 package Model.Cards;
 
 public interface IDeckOfCards {
-    void ShowDeck();
+    void showDeck();
+    void shuffle();
+    void discardCard(Card card);
+    Card drawCard();
+    DiscardPile getDiscardPile();
+    void returnDiscardPile();
 }
