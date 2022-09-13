@@ -14,7 +14,6 @@ public class Die {
     }
 
     public int rollDie() {
-        Random rand = new Random();
-        return rand.nextInt(maxValue);
+        return new Random().nextInt(maxValue);
     }
 }
