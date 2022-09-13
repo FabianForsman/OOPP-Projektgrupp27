@@ -1,9 +1,9 @@
 package Model.Cards;
 
 enum Suits {
-    SPADES,
     HEARTS,
     DIAMONDS,
+    SPADES,
     CLUBS
 }
 
@@ -35,6 +35,6 @@ public class Card {
     }
 
     public void DisplayCard() {
-        System.out.println(suit + " " + rank + " " + rank.ordinal());
+        System.out.println(suit + " " + rank + " " + (rank.ordinal() + 1));
     }
 }
