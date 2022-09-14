@@ -1,9 +1,8 @@
 package com.example.hydrohomies;
 
-import Model.Cards.DeckOfCards;
-import Model.Cards.IDeckOfCards;
-import Model.Dice.Dice;
-import Model.Dice.Die;
+import Model.CardGames.Cards.DeckOfCards;
+import Model.CardGames.Cards.IDeckOfCards;
+import Model.DiceGames.Dice.Dice;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -43,9 +42,9 @@ public class HelloApplication extends Application {
 
     public static void diceTests(){
         Dice dice = new Dice(5); // Create 5 die
-        System.out.println(dice.getDieValue(dice.getDie(0)));
-        dice.rollDie(dice.getDie(0));
-        System.out.println(dice.getDieValue(dice.getDie(0)));
+        System.out.println(dice.getDiceValues());
+        dice.rollAllDice();
+        System.out.println(dice.getDiceValues());
 
     }
 }

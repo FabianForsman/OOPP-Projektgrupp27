@@ -1,4 +1,4 @@
-package Model.Dice;
+package Model.DiceGames.Dice;
 
 import java.util.Random;
 
@@ -16,7 +16,7 @@ public class Die {
     }
 
     public void rollDie() {
-       this.faceValue = new Random().nextInt(maxValue); //Sets the current value to a random "side" of the dice.
+       this.faceValue = new Random().nextInt(maxValue) + 1; //Sets the current value to a random "side" of the dice.
     }
 
     public int getFaceValue() {
