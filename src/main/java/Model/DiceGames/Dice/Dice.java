@@ -1,4 +1,4 @@
-package Model.Dice;
+package Model.DiceGames.Dice;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,8 +38,17 @@ public class Dice {
     public void rollDie(Die die) { //Roll a single die
         die.rollDie();
     }
+
     public Die getDie(int i){
         return dice.get(i);
+    }
+
+    public List<Integer> getDiceValues() {
+        List<Integer> returnList = new ArrayList<>();
+        for(Die die: dice){
+            returnList.add(die.getFaceValue());
+        }
+        return returnList;
     }
 
     public int getDieValue(Die die) {
