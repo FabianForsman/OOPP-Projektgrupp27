@@ -2,11 +2,15 @@ package Model.Player;
 
 public interface iPlayer {
 
-String getName();
+    String getName();
 
-void getScore();
+    void getScore();
 
-void takeTurn();
+    void takeTurn();
 
-void passTurn();
+    void passTurn();
+
+    void joinGame();
+
+    void leaveGame();
 }
