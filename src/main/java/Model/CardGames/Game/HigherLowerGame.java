@@ -1,17 +1,17 @@
 
-package Model.Game;
-import Model.Cards.Card;
-import Model.Cards.DeckOfCards;
+package Model.CardGames.Game;
+import Model.CardGames.Cards.Card;
+import Model.CardGames.Cards.DeckOfCards;
 
 import java.util.ArrayList;
 
-public class HigherLowerGame extends CardGame{
+public class HigherLowerGame extends Game{
 
     ArrayList<Card> startingBoard = new ArrayList<>();
     DeckOfCards deck = new DeckOfCards();
 
     public HigherLowerGame(String rules){
-        super(rules, new DeckOfCards());
+        super(rules);
 
     }
 

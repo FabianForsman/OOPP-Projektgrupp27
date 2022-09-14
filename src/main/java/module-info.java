@@ -7,5 +7,5 @@ module com.example.hydrohomies {
     exports com.example.hydrohomies;
     exports Model.Player;
     opens Model.Player to javafx.fxml;
-    exports Model.Game;
+    exports Model.CardGames.Game;
 }
