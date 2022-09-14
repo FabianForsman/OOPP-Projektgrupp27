@@ -1,7 +1,7 @@
 package com.example.hydrohomies;
 
-import Model.Cards.DeckOfCards;
-import Model.Cards.IDeckOfCards;
+import Model.CardGames.Cards.DeckOfCards;
+import Model.CardGames.Cards.IDeckOfCards;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
