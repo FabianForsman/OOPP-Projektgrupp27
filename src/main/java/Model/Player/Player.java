@@ -20,7 +20,6 @@ public class Player implements iPlayer {
     public void getScore() {
 
     }
-
     @Override
     public void takeTurn() {
 
@@ -28,6 +27,16 @@ public class Player implements iPlayer {
 
     @Override
     public void passTurn() {
+
+    }
+
+    @Override
+    public void joinGame() {
+
+    }
+
+    @Override
+    public void leaveGame() {
 
     }
 }

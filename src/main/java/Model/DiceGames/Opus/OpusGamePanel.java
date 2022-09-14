@@ -1,4 +1,6 @@
-package com.example.hydrohomies;
+package Model.DiceGames.Opus;
+
+import Model.Player.Player;
 
 import java.util.ArrayList;
 

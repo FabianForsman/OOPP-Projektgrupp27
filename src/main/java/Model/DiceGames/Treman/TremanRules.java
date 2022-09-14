@@ -1,4 +1,4 @@
-package Model.DiceGames.Dice.Treman;
+package Model.DiceGames.Treman;
 
 import Model.DiceGames.Dice.Dice;
 import Model.DiceGames.Dice.Die;
