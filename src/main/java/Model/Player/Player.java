@@ -1,6 +1,6 @@
-package com.example.hydrohomies;
+package Model.Player;
 
-public class Player implements iPlayer{
+public class Player implements iPlayer {
     private String playerName;
 
     public Player(String name) {

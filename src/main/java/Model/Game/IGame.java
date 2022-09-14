@@ -1,4 +1,4 @@
-package GameModel;
+package Model.Game;
 
 public interface IGame {
 /*

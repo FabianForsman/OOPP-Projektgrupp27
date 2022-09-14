@@ -1,4 +1,4 @@
-package com.example.hydrohomies;
+package Model.Player;
 
 public interface iPlayer {
 
