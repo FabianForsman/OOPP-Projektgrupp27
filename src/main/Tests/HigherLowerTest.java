@@ -1,4 +1,4 @@
-import Model.Game.HigherLowerGame;
+import Model.CardGames.Game.HigherLowerGame;
 import Model.Player.Player;
 import org.junit.jupiter.api.Test;
 

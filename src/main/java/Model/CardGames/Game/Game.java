@@ -1,5 +1,5 @@
 
-package Model.Game;
+package Model.CardGames.Game;
 import Model.Player.Player;
 import java.util.ArrayList;
 
@@ -10,7 +10,7 @@ public abstract class Game {
     private Player currentPlayer;
 
     public Game(String rules){
-        playerList = new ArrayList<Player>();
+        playerList = new ArrayList<>();
         this.rules = rules;
     }
 

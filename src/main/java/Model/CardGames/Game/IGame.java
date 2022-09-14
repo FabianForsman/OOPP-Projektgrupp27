@@ -1,4 +1,4 @@
-package Model.Game;
+package Model.CardGames.Game;
 
 public interface IGame {
 /*
