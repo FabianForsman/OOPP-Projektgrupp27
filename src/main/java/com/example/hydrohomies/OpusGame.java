@@ -1,5 +1,7 @@
 package com.example.hydrohomies;
 
+import Model.Player.Player;
+
 import java.util.ArrayList;
 
 public class OpusGame {
