@@ -1,4 +1,4 @@
-package Model.Cards;
+package Model.CardGames.Cards;
 
 public interface IDeckOfCards {
     void showDeck();
