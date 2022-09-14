@@ -1,4 +1,4 @@
-package Model.Cards;
+package Model.CardGames.Cards;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -28,7 +28,7 @@ public class DeckOfCards implements IDeckOfCards {
         }
     }
 
-    public void shuffle() {
+    public void shuffle() { //Shuffles the deck
         Collections.shuffle(this.cards);
     }
 
