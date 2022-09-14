@@ -2,6 +2,7 @@ package com.example.hydrohomies;
 
 import Model.Cards.DeckOfCards;
 import Model.Cards.IDeckOfCards;
+import Model.Game.HigherLowerGame;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -24,5 +25,23 @@ public class HelloApplication extends Application {
         DeckOfCards deck = new DeckOfCards();
         deck.ShowDeck();
         launch();
+        tests();
+        //launch();
+    }
+
+    public static void tests(){
+       /* IDeckOfCards deck = new DeckOfCards();
+        deck.shuffle();
+        System.out.println("----------Shuffled deck----------");
+        deck.showDeck();
+        for(int i = 0; i < 40; i++)
+            deck.discardCard(deck.drawCard());
+        System.out.println("Removed 40 cards from the deck.");
+        deck.showDeck();
+        deck.returnDiscardPile();
+        System.out.println("Returned the discard pile to the deck.");
+        deck.showDeck();*/
+
+
     }
 }
