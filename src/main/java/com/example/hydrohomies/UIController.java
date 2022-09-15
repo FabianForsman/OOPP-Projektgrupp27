@@ -5,7 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 
-public class UIController {
+public class UIController  {
 
     @FXML public Button startCardGameButton, startDiceGameButton, startInformationButton, allItemsButton, exitButton;  //startPage
     @FXML public Label  chooseGameLabel;
