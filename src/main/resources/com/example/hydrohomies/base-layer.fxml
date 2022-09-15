@@ -69,6 +69,20 @@
                   </ImageView>
                </graphic>
             </Button>
+            <Button fx:id="startInformationButton" layoutX="498.0" layoutY="301.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="79.0" style="-fx-background-radius: 100;" styleClass="round_button" stylesheets="@button-css.css">
+               <graphic>
+                  <ImageView fx:id="informationimage" fitHeight="67.0" fitWidth="68.0" preserveRatio="true" styleClass="button-css.css">
+                     <image>
+                        <Image url="@../../../resources_img/cloud-info-outline-information-tag-icon-with-png-and-vector-646957%201.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label fx:id="chooseGameLabel" layoutX="200.0" layoutY="150.0" prefHeight="58.0" prefWidth="221.0" text="Choose Game" textAlignment="CENTER">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="33.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>
