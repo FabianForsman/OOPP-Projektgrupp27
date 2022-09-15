@@ -1,6 +1,8 @@
 package com.example.hydrohomies;
 
 import Model.Cards.DeckOfCards;
+import Model.CardGames.Cards.DeckOfCards;
+import Model.CardGames.Cards.IDeckOfCards;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -20,11 +22,8 @@ public class HydroApplication extends Application {
 
     public static void main(String[] args) {
         System.out.println("Starting Program.");
-        DeckOfCards deck = new DeckOfCards();
-        deck.ShowDeck();
-        launch();
         tests();
-        //launch();
+        launch();
     }
 
     public static void tests(){

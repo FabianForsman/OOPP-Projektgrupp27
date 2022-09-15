@@ -7,12 +7,20 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.example.hydrohomies.UIController">
    <children>
       <AnchorPane fx:id="startPageAnchorPane" layoutX="-2.0" prefHeight="400.0" prefWidth="600.0">
          <children>
             <Button fx:id="startCardGameButton" layoutX="21.0" layoutY="106.0" mnemonicParsing="false" onAction="#onStartCardGameButtonClick" pickOnBounds="false" prefHeight="166.0" prefWidth="168.0" style="-fx-background-radius: 100;" stylesheets="@button-css.css">
+=======
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hydrohomies.BaseLayer">
+   <children>
+      <AnchorPane fx:id="startPageAnchorPane" layoutX="-2.0" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Button fx:id="startCardGameButton" layoutX="21.0" layoutY="106.0" mnemonicParsing="false" pickOnBounds="false" prefHeight="166.0" prefWidth="168.0" style="-fx-background-radius: 100;" stylesheets="@button-css.css">
+
                <graphic>
                   <ImageView fx:id="imagecard" fitHeight="130.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" styleClass="button-css.css">
                      <image>
