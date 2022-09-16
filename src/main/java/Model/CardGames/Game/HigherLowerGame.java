@@ -7,23 +7,34 @@ import java.util.ArrayList;
 
 public class HigherLowerGame extends Game{
 
-    ArrayList<Card> startingBoard = new ArrayList<>();
+    ArrayList<ArrayList<Card>> startingBoard = new ArrayList<>();
     DeckOfCards deck = new DeckOfCards();
+    Card currentCard;
 
     public HigherLowerGame(String rules){
         super(rules);
+        currentCard = deck.drawCard();
+    }
 
+    private enum Direction{
+        LEFT,
+        RIGHT
     }
 
     public void setBoard(){
-        for(int i = 0; i < 5; i++){
-            this.startingBoard.add(deck.drawCard());
+        for(int i = 0; i < 4; i++){
+            this.startingBoard.get(i).add(this.deck.drawCard());
         }
     }
 
-    public void placeCard(){
-        Card drawnCard = this.deck.drawCard();
+    public Card playerChoice(int rowIndex, Direction direction){
+        ArrayList<Card> row = startingBoard.get(rowIndex);
+        if (direction == direction.LEFT){
+            return row.get(0);
 
+        } else{
+            return row.get(row.size() - 1);
+        }
     }
 
     private boolean checkIfHigher(int existingCardValue, int placedCardValue){
@@ -52,7 +63,7 @@ public class HigherLowerGame extends Game{
 
     @Override
     public void startRound() {
-
+        Card currentCard = this.deck.drawCard();
     }
 
 
