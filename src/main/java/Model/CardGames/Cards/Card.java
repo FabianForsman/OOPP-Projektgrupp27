@@ -48,4 +48,6 @@ public class Card {
         return rank;
     }
 
+    public int getRankValue() {return rank.ordinal()+1;}
+
 }
