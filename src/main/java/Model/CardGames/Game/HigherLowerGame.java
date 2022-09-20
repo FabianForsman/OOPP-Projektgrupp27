@@ -10,6 +10,7 @@ public class HigherLowerGame extends Game{
     ArrayList<ArrayList<Card>> startingBoard = new ArrayList<>();
     DeckOfCards deck = new DeckOfCards();
     Card currentCard;
+    boolean choiceMade = false;
 
     public HigherLowerGame(String rules){
         super(rules);
@@ -29,6 +30,7 @@ public class HigherLowerGame extends Game{
 
     public Card playerChoice(int rowIndex, Direction direction){
         ArrayList<Card> row = startingBoard.get(rowIndex);
+        this.choiceMade = true;
         if (direction == direction.LEFT){
             return row.get(0);
 
@@ -36,6 +38,7 @@ public class HigherLowerGame extends Game{
             return row.get(row.size() - 1);
         }
     }
+
 
     private boolean checkIfHigher(int existingCardValue, int placedCardValue){
         return existingCardValue < placedCardValue;
@@ -64,6 +67,9 @@ public class HigherLowerGame extends Game{
     @Override
     public void startRound() {
         Card currentCard = this.deck.drawCard();
+        Card chosenCard = playerChoice(3, Direction.LEFT);
+        //boolean isHigher = checkIfHigher(chosenCard.getRank(), currentCard.getRank());
+
     }
 
 
