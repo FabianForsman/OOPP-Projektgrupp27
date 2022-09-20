@@ -9,5 +9,7 @@ module com.example.hydrohomies {
     opens Model.Player to javafx.fxml;
     exports Model.CardGames.Game;
     exports Model.DiceGames.Opus;
+    exports Model.DiceGames.Treman;
+    exports Model.DiceGames.Dice;
     opens Model.DiceGames.Opus to javafx.fxml;
 }

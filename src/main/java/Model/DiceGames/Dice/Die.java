@@ -19,7 +19,11 @@ public class Die {
        this.faceValue = new Random().nextInt(maxValue) + 1; //Sets the current value to a random "side" of the dice.
     }
 
-    public int getFaceValue() {
+    public void setFaceValue(int value) {
+        this.faceValue = value;
+    }
+
+    public int getVal() {
         return faceValue;
     }
 }

@@ -21,23 +21,6 @@ public class HydroApplication extends Application {
 
     public static void main(String[] args) {
         System.out.println("Starting Program.");
-        tests();
         launch();
-    }
-
-    public static void tests(){
-       /* IDeckOfCards deck = new DeckOfCards();
-        deck.shuffle();
-        System.out.println("----------Shuffled deck----------");
-        deck.showDeck();
-        for(int i = 0; i < 40; i++)
-            deck.discardCard(deck.drawCard());
-        System.out.println("Removed 40 cards from the deck.");
-        deck.showDeck();
-        deck.returnDiscardPile();
-        System.out.println("Returned the discard pile to the deck.");
-        deck.showDeck();*/
-
-
     }
 }
