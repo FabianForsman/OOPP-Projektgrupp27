@@ -1,6 +1,13 @@
 package Model.DiceGames.Treman;
 
 import Model.DiceGames.Dice.Dice;
+import org.json.simple.*;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class TremanRules {
     private static final String snakeEyes = "Two ones, Snake Eyes! Take two or give them away.";
@@ -28,6 +35,22 @@ public class TremanRules {
     }
 
     public String getRule(Dice dice) {
+        /*
+        JSONParser jsonParser = new JSONParser();
+
+        try (FileReader reader = new FileReader("GameRules.json"))
+        {
+            //Read JSON file
+            Object obj = jsonParser.parse(reader);
+
+            JSONArray employeeList = (JSONArray) obj;
+            System.out.println(employeeList);
+
+        } catch (IOException | ParseException e) {
+            e.printStackTrace();
+        }
+        */
+
         int die1 = dice.getDie(0).getVal();
         int die2 = dice.getDie(1).getVal();
         String returnString = "";

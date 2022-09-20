@@ -11,10 +11,6 @@ public class TremanGamePanel {
         rules = new TremanRules();
     }
 
-    public TremanRules getInstance() {
-        return TremanRules.getInstance();
-    }
-
     public String getRule() {
         return rules.getRule(dice);
     }
