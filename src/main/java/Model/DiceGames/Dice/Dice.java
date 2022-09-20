@@ -32,6 +32,7 @@ public class Dice {
     public void rollAllDice() {
         for(Die die : dice) {
             die.rollDie();
+            System.out.println(die.getVal());
         }
     }
 
@@ -45,13 +46,21 @@ public class Dice {
 
     public List<Integer> getDiceValues() {
         List<Integer> returnList = new ArrayList<>();
-        for(Die die: dice){
-            returnList.add(die.getFaceValue());
+        for(Die die : dice){
+            returnList.add(die.getVal());
         }
         return returnList;
     }
 
     public int getDieValue(Die die) {
-        return die.getFaceValue();
+        return die.getVal();
+    }
+
+    public void setDiceValue(ArrayList<Integer> values) {
+        int i = 0;
+        for(Die die : dice) {
+            die.setFaceValue(values.get(i));
+            i++;
+        }
     }
 }
