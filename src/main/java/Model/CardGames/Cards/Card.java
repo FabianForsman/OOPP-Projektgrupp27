@@ -32,6 +32,7 @@ public class Card {
     public Card(Suits suit, Ranks rank) {
         this.suit = suit;
         this.rank = rank;
+        System.out.println("TEST COMMIT");
     }
 
     //Temp funciton to test cards.
@@ -46,4 +47,5 @@ public class Card {
     public Ranks getRank() {
         return rank;
     }
+
 }
