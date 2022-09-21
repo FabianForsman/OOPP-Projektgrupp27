@@ -68,7 +68,8 @@ public class HigherLowerGame extends Game{
     public void startRound() {
         Card currentCard = this.deck.drawCard();
         Card chosenCard = playerChoice(3, Direction.LEFT);
-        //boolean isHigher = checkIfHigher(chosenCard.getRank(), currentCard.getRank());
+        boolean isHigher = checkIfHigher(chosenCard.getRankValue(), currentCard.getRankValue());
+
 
     }
 
