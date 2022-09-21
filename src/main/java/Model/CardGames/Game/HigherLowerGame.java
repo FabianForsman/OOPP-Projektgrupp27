@@ -2,10 +2,11 @@
 package Model.CardGames.Game;
 import Model.CardGames.Cards.Card;
 import Model.CardGames.Cards.DeckOfCards;
+import Model.Game;
 
 import java.util.ArrayList;
 
-public class HigherLowerGame extends Game{
+public class HigherLowerGame extends Game {
 
     ArrayList<ArrayList<Card>> startingBoard = new ArrayList<>();
     DeckOfCards deck = new DeckOfCards();
@@ -50,17 +51,14 @@ public class HigherLowerGame extends Game{
     public void nextRound() {
 
     }
-
     @Override
     public void quitGame() {
 
     }
-
     @Override
     public void startGame() {
 
     }
-
     @Override
     public void startRound() {
         Card currentCard = this.deck.drawCard();
