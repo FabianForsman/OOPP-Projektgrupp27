@@ -12,4 +12,5 @@ module com.example.hydrohomies {
     exports Model.DiceGames.Treman;
     exports Model.DiceGames.Dice;
     opens Model.DiceGames.Opus to javafx.fxml;
+    exports Model;
 }
