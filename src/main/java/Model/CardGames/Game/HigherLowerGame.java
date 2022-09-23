@@ -2,12 +2,13 @@
 package Model.CardGames.Game;
 import Model.CardGames.Cards.Card;
 import Model.CardGames.Cards.DeckOfCards;
+import Model.Game;
 import javafx.util.Pair;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class HigherLowerGame extends Game{
+public class HigherLowerGame extends Game {
 
     private ArrayList<ArrayList<Card>> startingBoard = new ArrayList<>();
     private DeckOfCards deck = new DeckOfCards();
