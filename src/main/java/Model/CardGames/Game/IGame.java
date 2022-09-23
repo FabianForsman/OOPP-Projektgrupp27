@@ -1,10 +1,8 @@
 package Model.CardGames.Game;
 
 public interface IGame {
-/*
-    void setPlayerAmount(int amount);
 
-    void addPlayer(Player player);
+    void setPlayerAmount(int amount);
 
     void setCurrentPlayer();
 
@@ -17,6 +15,6 @@ public interface IGame {
     void startGame();
 
     void startRound();
-*/
+
 
 }

@@ -2,6 +2,8 @@ import Model.CardGames.Game.HigherLowerGame;
 import Model.Player.Player;
 import org.junit.jupiter.api.Test;
 
+import java.util.Scanner;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -36,6 +38,14 @@ public class HigherLowerTest {
         testGame.addPlayer(player3);
         testGame.setNextPlayer();
         assertTrue(testGame.getCurrentPlayer() == player3);
+
+    }
+
+    @Test
+    void testStartRound(){
+        HigherLowerGame testGame = new HigherLowerGame("Just a test");
+        testGame.setBoard();
+        testGame.startRound();
     }
 
 }

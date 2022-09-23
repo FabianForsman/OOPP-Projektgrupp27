@@ -16,10 +16,7 @@ public class Player implements iPlayer {
         return playerName;
     }
 
-    @Override
-    public void getScore() {
 
-    }
     @Override
     public void takeTurn() {
 
