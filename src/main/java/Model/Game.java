@@ -1,5 +1,5 @@
 
-package Model.CardGames.Game;
+package Model;
 import Model.Player.Player;
 import java.util.ArrayList;
 
@@ -39,15 +39,17 @@ public abstract class Game {
         int currentIndex = this.playerList.indexOf(this.currentPlayer);
         setCurrentPlayer(this.playerList.get((currentIndex + 1) % this.playerList.size()));
     }
-    abstract void nextTurn();
 
-    abstract void nextRound();
+    public abstract void nextTurn();
 
-    abstract void quitGame();
+    public abstract void nextRound();
 
-    abstract void startGame();
+    public abstract void quitGame();
 
-    abstract void startRound();
+    public abstract void startGame();
+
+    public abstract void startRound();
+
 
 }
 
