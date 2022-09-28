@@ -45,6 +45,12 @@ public class HigherLowerGame extends Game {
         return existingCardValue < placedCardValue;
     }
 
+
+    @Override
+    public void setCurrentPlayer() {
+
+    }
+
     @Override
     public void nextTurn() {
 

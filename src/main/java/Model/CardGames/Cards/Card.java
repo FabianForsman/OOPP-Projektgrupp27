@@ -32,10 +32,9 @@ public class Card {
     public Card(Suits suit, Ranks rank) {
         this.suit = suit;
         this.rank = rank;
-        System.out.println("TEST COMMIT");
     }
 
-    //Temp funciton to test cards.
+    //Temp function to test cards.
     public void DisplayCard() {
         System.out.println(suit + " " + rank + " " + (rank.ordinal() + 1));
     }
