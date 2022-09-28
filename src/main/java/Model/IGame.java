@@ -1,8 +1,11 @@
-package Model.CardGames.Game;
+package Model;
+
+import Model.Player.IPlayer;
 
 public interface IGame {
-
     void setPlayerAmount(int amount);
+
+    void addPlayer(IPlayer player);
 
     void setCurrentPlayer();
 
@@ -15,6 +18,5 @@ public interface IGame {
     void startGame();
 
     void startRound();
-
 
 }

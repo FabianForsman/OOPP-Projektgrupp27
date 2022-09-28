@@ -1,37 +1,39 @@
 
 package Model;
+import Model.Player.IPlayer;
 import Model.Player.Player;
 import java.util.ArrayList;
 
-public abstract class Game {
+public abstract class Game implements IGame {
     private int playerAmount;
-    private ArrayList<Player> playerList;
+    private final int maxPlayers = 5;
+    private final int minPlayers = 2;
+    private ArrayList<IPlayer> playerList;
     private String rules;
-    private Player currentPlayer;
+    private IPlayer currentPlayer;
 
     public Game(String rules){
         playerList = new ArrayList<>();
         this.rules = rules;
     }
 
-
     public void setPlayerAmount(int amount) {
         this.playerAmount = amount;
     }
 
-    public void addPlayer(Player player){
+    public void addPlayer(IPlayer player){
         this.playerList.add(player);
     }
 
-    public void setCurrentPlayer(Player player){
+    public void setCurrentPlayer(IPlayer player){
         this.currentPlayer = player;
     }
 
-    public ArrayList<Player> getPlayerList(){
+    public ArrayList<IPlayer> getPlayerList(){
         return this.playerList;
     }
 
-    public Player getCurrentPlayer(){
+    public IPlayer getCurrentPlayer(){
         return this.currentPlayer;
     }
 

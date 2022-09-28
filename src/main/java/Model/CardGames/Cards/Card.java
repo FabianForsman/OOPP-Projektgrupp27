@@ -34,7 +34,7 @@ public class Card {
         this.rank = rank;
     }
 
-    //Temp funciton to test cards.
+    //Temp function to test cards.
     public void DisplayCard() {
         System.out.println(suit + " " + rank + " " + (rank.ordinal() + 1));
     }

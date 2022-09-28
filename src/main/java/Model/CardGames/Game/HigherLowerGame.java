@@ -3,10 +3,8 @@ package Model.CardGames.Game;
 import Model.CardGames.Cards.Card;
 import Model.CardGames.Cards.DeckOfCards;
 import Model.Game;
-import javafx.util.Pair;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class HigherLowerGame extends Game {
 
@@ -50,6 +48,12 @@ public class HigherLowerGame extends Game {
 
     private boolean checkIfHigher(int existingCardValue, int placedCardValue){
         return existingCardValue < placedCardValue;
+    }
+
+
+    @Override
+    public void setCurrentPlayer() {
+
     }
 
     public void showStartingBoard(){
