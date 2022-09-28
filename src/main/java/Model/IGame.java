@@ -3,7 +3,6 @@ package Model;
 import Model.Player.IPlayer;
 
 public interface IGame {
-    void setPlayerAmount(int amount);
 
     void addPlayer(IPlayer player);
 

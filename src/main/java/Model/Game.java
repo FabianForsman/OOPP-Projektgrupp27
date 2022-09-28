@@ -1,7 +1,6 @@
 
 package Model;
 import Model.Player.IPlayer;
-import Model.Player.Player;
 import java.util.ArrayList;
 
 public abstract class Game implements IGame {
@@ -9,20 +8,22 @@ public abstract class Game implements IGame {
     private final int maxPlayers = 5;
     private final int minPlayers = 2;
     private ArrayList<IPlayer> playerList;
-    private String rules;
     private IPlayer currentPlayer;
+    private String rules;
 
-    public Game(String rules){
-        playerList = new ArrayList<>();
+    public Game(String rules) {
         this.rules = rules;
-    }
-
-    public void setPlayerAmount(int amount) {
-        this.playerAmount = amount;
+        playerList = new ArrayList<>();
     }
 
     public void addPlayer(IPlayer player){
-        this.playerList.add(player);
+        if (playerList.size() < 5)
+            this.playerList.add(player);
+    }
+
+    public void removePlayer(IPlayer player) {
+        if (playerList.size() > 0)
+            this.playerList.remove(player);
     }
 
     public void setCurrentPlayer(IPlayer player){
