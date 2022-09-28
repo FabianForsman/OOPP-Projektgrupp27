@@ -1,6 +1,7 @@
 module com.example.hydrohomies {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.desktop;
 
 
     opens com.example.hydrohomies to javafx.fxml;
