@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-public class TremanTest {
+public class TremanRulesTest {
 
     @Test
     public void testGetRule() {
