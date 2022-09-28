@@ -3,8 +3,10 @@ package Model;
 import Model.Player.Player;
 import java.util.ArrayList;
 
-public abstract class Game {
+public abstract class Game implements IGame {
     private int playerAmount;
+    private final int maxPlayers = 5;
+    private final int minPlayers = 2;
     private ArrayList<Player> playerList;
     private String rules;
     private Player currentPlayer;

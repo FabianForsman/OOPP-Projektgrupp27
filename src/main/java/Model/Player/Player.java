@@ -1,6 +1,6 @@
 package Model.Player;
 
-public class Player implements iPlayer {
+public class Player implements IPlayer {
     private String playerName;
 
     public Player(String name) {

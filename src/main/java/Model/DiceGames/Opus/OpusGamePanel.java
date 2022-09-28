@@ -3,6 +3,7 @@ package Model.DiceGames.Opus;
 import Model.CardGames.Cards.Card;
 import Model.Game;
 import Model.DiceGames.Dice.Dice;
+import Model.Player.IPlayer;
 import Model.Player.Player;
 
 import java.util.ArrayList;
@@ -74,6 +75,16 @@ public class OpusGamePanel extends Game{
 
     public ArrayList<Player> getPlayerList() {
         return playerList;
+    }
+
+    @Override
+    public void addPlayer(IPlayer player) {
+
+    }
+
+    @Override
+    public void setCurrentPlayer() {
+
     }
 
     @Override

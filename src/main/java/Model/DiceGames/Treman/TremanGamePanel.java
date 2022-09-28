@@ -1,12 +1,14 @@
 package Model.DiceGames.Treman;
 import Model.DiceGames.Dice.Dice;
 import Model.DiceGames.Treman.Rules.Treman;
+import Model.Player.IPlayer;
 
-import java.util.Objects;
+import java.util.ArrayList;
 
 public class TremanGamePanel {
     TremanRules rules;
     Dice dice;
+    ArrayList<IPlayer> players =  new ArrayList<>();
 
     public TremanGamePanel() {
         //Players and such. Gets from previous pages.
@@ -21,6 +23,7 @@ public class TremanGamePanel {
         String returnString  = rules.r1.getRule(a, b);
         String keep = "Keep - ";
         String pass = "Pass - ";
+
         if (returnString.contains("Challenge completed!")) {
             System.out.println("Challenge WIP.");
         }
