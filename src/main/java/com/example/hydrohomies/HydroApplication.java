@@ -5,6 +5,7 @@ import Model.CardGames.Cards.DeckOfCards;
 import Model.CardGames.Cards.IDeckOfCards;
 import Model.CardGames.Game.HigherLowerGame;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -25,5 +26,14 @@ public class HydroApplication extends Application {
     public static void main(String[] args) {
         System.out.println("Starting Program.");
         //launch();
+    }
+
+    public void onStartCardGameButtonClick(ActionEvent event) {
+    }
+
+    public void onStartDiceGameButtonClick(ActionEvent event) {
+    }
+
+    public void closeProgram(ActionEvent event) {
     }
 }
