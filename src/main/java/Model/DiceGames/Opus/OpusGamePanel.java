@@ -1,81 +1,74 @@
 package Model.DiceGames.Opus;
-
 import Model.CardGames.Cards.Card;
+import Model.DiceGames.Dice.Die;
 import Model.Game;
 import Model.DiceGames.Dice.Dice;
 import Model.Player.IPlayer;
 import Model.Player.Player;
-
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class OpusGamePanel extends Game{
-    ArrayList<Player> playerList;
-    Dice dice;
+    Die die = new Die();
     final int amountOfCurrentPlayers = 2;
-    Player currentPlayer;
     Random random = new Random();
     boolean drop = false;
-    int playerPos = playerList.indexOf(currentPlayer);      //position of the current player in the list of players
-    int listSize = playerList.size();
+    boolean running = false;
+    Timer timer = new Timer();
+    OpusKeyAdapter adapter = new OpusKeyAdapter();
 
     public OpusGamePanel(String rules){
         super(rules);
-        playerList = new ArrayList<>();
     }
 
 
-    /*public void startGame(){
-        populatePlayers();
-
-
-    }
-*/
-
-    public void setCurrentPlayer(Player player){
-        this.currentPlayer = player;
-    }
-
-
-
-    public void passDiceLeft() {
-        if (playerPos == 0) {
-            this.currentPlayer = playerList.get(listSize); //currentPlayer blir den sista spelaren i listan
+    public void passDiceLeft(){
+        if (getPlayerList().indexOf(getCurrentPlayer()) == 0){ //checks if the current player is the first element of the list
+            setCurrentPlayer(getPlayerList().get(( getPlayerList().size())-1)); //sets the last player in the list as the current player
         }
-        else
-            this.currentPlayer = playerList.get(playerPos - 1);      //indexed element one step to the left is the new current player
+        else {
+            int index = (getPlayerList().indexOf(getCurrentPlayer()) - 1) % getPlayerList().size();
+            setCurrentPlayer(getPlayerList().get(index)); //sets the previous person in the player list as the current player
         }
+    }//TEMPLATE METHOD
 
-
-    public void passDiceRight() {
-        if (playerPos == listSize) {
-            this.currentPlayer = playerList.get(0);
-        }
-        else
-            this.currentPlayer = playerList.get(playerPos + 1);      //indexed element one step to the left is the new current player
+    public void passDiceRight(){
+        setCurrentPlayer(getPlayerList().get((getPlayerList().indexOf(getCurrentPlayer())+1) % getPlayerList().size())); //sets the next person in the player list as the current player
     }
-
 
     public void giveDice(Player player, int faceValue, int numberOfRolls) {
         if (numberOfRolls == 1 && (faceValue == 1 || faceValue == 6)){
             setCurrentPlayer(player);
         }
+    }//TEMPLATE METHOD
+
+    public void setRandomCurrentPlayer() {
+        setCurrentPlayer(getPlayerList().get(random.nextInt(getPlayerList().size()))); //chooses a random player from the playerlist as the current player
+    }
+
+    public void startDropTimer() {
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                System.out.println(getCurrentPlayer().getName().toUpperCase() + "DRINKS THEIR ENTIRE GLASS");
+            }
+        };
+        long delay = 225;
+        timer.schedule(task, delay);
     }
 
 
-    public void populatePlayers() {
-        this.currentPlayer = playerList.get(random.nextInt(playerList.size()));
-    }
-
-    public void displayDrinkMessage() {
-        if (drop) {
-            System.out.println("DRINK");
+    public void checkOneOrSix() {
+        if (die.getVal() == 6 ) {
+            passDiceRight();
+        }
+        else if (die.getVal() == 1) {
+            passDiceLeft();
         }
     }
 
-    public ArrayList<Player> getPlayerList() {
-        return playerList;
-    }
 
     @Override
     public void addPlayer(IPlayer player) {
@@ -99,9 +92,12 @@ public class OpusGamePanel extends Game{
     @Override
     public void quitGame() {
 
+
     }
     @Override
     public void startGame() {
+        setRandomCurrentPlayer();
+        startDropTimer();
 
     }
     @Override
