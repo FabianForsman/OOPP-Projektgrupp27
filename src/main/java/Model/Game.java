@@ -1,8 +1,4 @@
-
 package Model;
-
-
-import Model.Player.Players;
 
 public abstract class Game implements IGame {
     private int playerAmount;
