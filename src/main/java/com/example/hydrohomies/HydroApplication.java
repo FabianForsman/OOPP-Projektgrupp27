@@ -23,9 +23,11 @@ public class HydroApplication extends Application {
     public static void main(String[] args) {
         System.out.println("Starting Program.");
         launch();
+
     }
 
     public void onStartCardGameButtonClick(ActionEvent event) {
+
     }
 
     public void onStartDiceGameButtonClick(ActionEvent event) {
