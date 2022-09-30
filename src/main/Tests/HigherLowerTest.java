@@ -1,5 +1,6 @@
 import Model.CardGames.Game.HigherLowerGame;
 import Model.Player.Player;
+import Model.Player.Players;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -10,8 +11,7 @@ public class HigherLowerTest {
     void testAddPlayer(){
         HigherLowerGame testGame = new HigherLowerGame();
         Player player1 = new Player("player1");
-        testGame.addPlayer(player1);
-        assertEquals(testGame.getPlayerList().size(), 1);
+        testGame.getPlayers().addPlayer(player1);
     }
 
     @Test

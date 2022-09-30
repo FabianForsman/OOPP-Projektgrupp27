@@ -15,6 +15,7 @@ public class HigherLowerGame extends Game {
     boolean choiceMade = false;
 
     public HigherLowerGame(){
+        super();
         currentCard = deck.drawCard();
     }
 

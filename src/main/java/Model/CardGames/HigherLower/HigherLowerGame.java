@@ -18,6 +18,7 @@ public class HigherLowerGame extends Game {
         deck.shuffle();
     }
 
+
     public enum Direction{
         LEFT,
         RIGHT
@@ -67,20 +68,16 @@ public class HigherLowerGame extends Game {
     }
 
     @Override
-    public void setCurrentPlayer() {
+    public void restartGame() {
 
     }
+
 
     @Override
     public void nextTurn() {
-        setNextPlayer();
 
     }
 
-    @Override
-    public void nextRound() {
-
-    }
 
     @Override
     public void quitGame() {
