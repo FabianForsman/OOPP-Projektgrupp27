@@ -7,6 +7,7 @@ public class Player implements IPlayer {
         playerName = name;
     }
 
+    @Override
     public void setName(String name) {
         this.playerName = name;
     }
@@ -14,26 +15,5 @@ public class Player implements IPlayer {
     @Override
     public String getName() {
         return playerName;
-    }
-
-
-    @Override
-    public void takeTurn() {
-
-    }
-
-    @Override
-    public void passTurn() {
-
-    }
-
-    @Override
-    public void joinGame() {
-
-    }
-
-    @Override
-    public void leaveGame() {
-
     }
 }

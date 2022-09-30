@@ -1,4 +1,4 @@
-import Model.CardGames.HigherLower.HigherLowerGame;
+import Model.CardGames.Game.HigherLowerGame;
 import Model.Player.Player;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +9,7 @@ public class HigherLowerTest {
     @Test
     void testAddPlayer(){
         HigherLowerGame testGame = new HigherLowerGame();
-        Player player1 = new Player("Player 1");
+        Player player1 = new Player("player1");
         testGame.addPlayer(player1);
         assertEquals(testGame.getPlayerList().size(), 1);
     }
@@ -36,14 +36,6 @@ public class HigherLowerTest {
         testGame.addPlayer(player3);
         testGame.setNextPlayer();
         assertTrue(testGame.getCurrentPlayer() == player3);
-
-    }
-
-    @Test
-    void testStartRound(){
-        HigherLowerGame testGame = new HigherLowerGame();
-        testGame.setBoard();
-
     }
 
 }

@@ -71,24 +71,16 @@ public class OpusGamePanel extends Game{
 
 
     @Override
-    public void addPlayer(IPlayer player) {
-
-    }
-
-    @Override
-    public void setCurrentPlayer() {
-
-    }
-
-    @Override
     public void nextTurn() {
 
     }
 
     @Override
-    public void nextRound() {
+    public void restartGame() {
 
     }
+
+
     @Override
     public void quitGame() {
 
