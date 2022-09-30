@@ -12,9 +12,8 @@ public abstract class Game implements IGame {
     private String rules;
     private IPlayer currentPlayer;
 
-    public Game(String rules){
+    public Game(){
         playerList = new ArrayList<>();
-        this.rules = rules;
     }
 
     public void setPlayerAmount(int amount) {

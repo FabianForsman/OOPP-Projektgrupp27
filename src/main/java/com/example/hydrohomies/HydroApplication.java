@@ -1,17 +1,10 @@
 package com.example.hydrohomies;
 
-import Model.CardGames.Cards.Card;
-import Model.CardGames.Cards.DeckOfCards;
-import Model.CardGames.Cards.IDeckOfCards;
-import Model.CardGames.Game.HigherLowerGame;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Scanner;
 
 public class HydroApplication extends Application {
     @Override
