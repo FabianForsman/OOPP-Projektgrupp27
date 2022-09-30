@@ -12,10 +12,6 @@ public abstract class Game implements IGame {
     public Game() {
     }
 
-    public Players getPlayers() {
-        return players;
-    }
-
     public abstract void nextTurn();
 
     public abstract void restartGame();
