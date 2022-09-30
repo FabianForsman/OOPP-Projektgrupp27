@@ -5,8 +5,17 @@ public class Players {
     ArrayList<IPlayer> players;
     IPlayer currentPlayer;
 
-    public Players() {
+    private static Players single_instance = null;
+
+    private Players() {
         players = new ArrayList<>();
+    }
+
+    public static Players getInstance() {
+        if (single_instance == null) {
+            single_instance = new Players();
+        }
+        return single_instance;
     }
 
     public void addPlayer(IPlayer player) {
