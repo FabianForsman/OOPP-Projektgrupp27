@@ -10,14 +10,8 @@ public abstract class Game implements IGame {
     private int playerAmount;
     private final int maxPlayers = 5;
     private final int minPlayers = 2;
-    private Players players;
 
     public Game() {
-        players = new Players();
-    }
-
-    public Players getPlayers() {
-        return players;
     }
 
     public abstract void nextTurn();
