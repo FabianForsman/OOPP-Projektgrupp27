@@ -1,13 +1,13 @@
 package com.example.hydrohomies.SceneBuilderRunLogic;
 
-import Model.DiceGames.Dice.Die;
+import Model.DiceGames.Dice.Dice;
 import Model.Player.Player;
 
 
 public class HydroHomieDataHandler {
     private static HydroHomieDataHandler instance = null;
     private Player player;
-    private Die die;
+    private Dice dice;
     
     public static HydroHomieDataHandler getInstance() {
         if (instance == null) {

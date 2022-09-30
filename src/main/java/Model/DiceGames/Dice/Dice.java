@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Dice {
-    List<Die> dice = new ArrayList<>();
+    private List<Die> dice = new ArrayList<>();
 
     public Dice(int nrOfDie) { //For 6-sided dice
         for(int i = 0; i < nrOfDie; i++) {
@@ -17,6 +17,8 @@ public class Dice {
             dice.add(new Die(dieSides));
         }
     }
+
+    public void addDie() { dice.add(new Die()); }
 
     public void addDie(int dieSides){
         dice.add(new Die(dieSides));

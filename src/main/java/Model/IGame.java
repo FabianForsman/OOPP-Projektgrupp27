@@ -4,13 +4,9 @@ import Model.Player.IPlayer;
 
 public interface IGame {
 
-    void addPlayer(IPlayer player);
-
-    void setCurrentPlayer();
-
     void nextTurn();
 
-    void nextRound();
+    void restartGame();
 
     void quitGame();
 
