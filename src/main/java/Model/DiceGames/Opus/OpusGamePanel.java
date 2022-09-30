@@ -26,13 +26,13 @@ public class OpusGamePanel extends Game{
     }
 
 
-    /*
+
     public void giveDice(Player player, int faceValue, int numberOfRolls) {
         if (numberOfRolls == 1 && (faceValue == 1 || faceValue == 6)){
-            setCurrentPlayer(player);
+            Players.getInstance().setCurrentPlayer(player);
         }
     }//TEMPLATE METHOD
-    */
+
 
     /*
     public void setRandomCurrentPlayer() {
