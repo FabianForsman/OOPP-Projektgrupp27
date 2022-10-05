@@ -30,14 +30,14 @@ public class Players {
 
     public void passTurnRight() {
         int index = getPlayerIndex(getCurrentPlayer());
-        IPlayer nextPlayer = getPlayer(index + 1 % getListSize());
+        IPlayer nextPlayer = getPlayer((index + 1) % getListSize());
         setCurrentPlayer(nextPlayer);
     }
 
     public void passTurnLeft() {
         int index = getPlayerIndex(getCurrentPlayer());
         if (index == 0) {
-            setCurrentPlayer(getPlayer(getListSize()));
+            setCurrentPlayer(getPlayer(getListSize() - 1));
         } else {
             setCurrentPlayer(getPlayer(index - 1));
         }
