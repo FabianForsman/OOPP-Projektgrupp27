@@ -3,6 +3,7 @@ package Model.CardGames.Game;
 import Model.CardGames.Cards.Card;
 import Model.CardGames.Cards.DeckOfCards;
 import Model.Game;
+import Model.Player.IPlayer;
 
 import java.util.ArrayList;
 
@@ -13,8 +14,7 @@ public class HigherLowerGame extends Game {
     Card currentCard;
     boolean choiceMade = false;
 
-    public HigherLowerGame(String rules){
-        super(rules);
+    public HigherLowerGame(){
         currentCard = deck.drawCard();
     }
 
@@ -47,17 +47,12 @@ public class HigherLowerGame extends Game {
 
 
     @Override
-    public void setCurrentPlayer() {
-
-    }
-
-    @Override
     public void nextTurn() {
 
     }
 
     @Override
-    public void nextRound() {
+    public void restartGame() {
 
     }
     @Override

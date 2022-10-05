@@ -1,26 +1,51 @@
 package Model.DiceGames.Treman;
 import Model.DiceGames.Dice.Dice;
 import Model.DiceGames.Treman.Rules.Treman;
-import Model.Player.IPlayer;
+import Model.Game;
+import Model.Player.Players;
 
-import java.util.ArrayList;
 
-public class TremanGamePanel {
-    TremanRules rules;
-    Dice dice;
-    ArrayList<IPlayer> players =  new ArrayList<>();
+public class TremanGamePanel extends Game{
+    private final TremanRules rules;
+    private final Dice dice;
 
     public TremanGamePanel() {
-        //Players and such. Gets from previous pages.
+        // Players and such. Gets from previous pages.
+        super();
         dice = new Dice(2);
         rules = new TremanRules();
+    }
+
+    @Override
+    public void nextTurn() {
+
+    }
+
+    @Override
+    public void restartGame() {
+
+    }
+
+    @Override
+    public void quitGame() {
+
+    }
+
+    @Override
+    public void startGame() {
+
+    }
+
+    @Override
+    public void startRound() {
+
     }
 
     public String getRule() {
         int a = dice.getDiceValues().get(0);
         int b = dice.getDiceValues().get(1);
         String treman = Treman.checkIfTreman(a, b);
-        String returnString  = rules.r1.getRule(a, b);
+        String returnString  = rules.r1.getRule(a, b); // Should return an action and string, an object with both.
         String keep = "Keep - ";
         String pass = "Pass - ";
 
