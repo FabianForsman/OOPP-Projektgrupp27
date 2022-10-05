@@ -1,11 +1,9 @@
 package Model.DiceGames.Opus;
-import Model.CardGames.Cards.Card;
 import Model.DiceGames.Dice.Die;
 import Model.Game;
-import Model.DiceGames.Dice.Dice;
 import Model.Player.IPlayer;
 import Model.Player.Player;
-import java.util.ArrayList;
+
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -69,12 +67,6 @@ public class OpusGamePanel extends Game{
         }
     }
 
-
-    @Override
-    public void addPlayer(IPlayer player) {
-
-    }
-
     @Override
     public void setCurrentPlayer() {
 
@@ -98,6 +90,7 @@ public class OpusGamePanel extends Game{
     public void startGame() {
         setRandomCurrentPlayer();
         startDropTimer();
+
 
     }
     @Override

@@ -66,8 +66,9 @@ public class OpusTest {
     @Test
     void displayDrinkMessageAfter3Minutes45Seconds(){
         OpusGamePanel testPanel = new OpusGamePanel("test");
-        testPanel.startGame();
-
+        testPanel.addPlayer(new Player("p2"));
+        testPanel.startDropTimer();
+        //assertEquals("p2 DRINKS THEIR ENTIRE GLASS",);
     }
 
 }
