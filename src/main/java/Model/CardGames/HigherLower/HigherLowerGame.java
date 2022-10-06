@@ -12,12 +12,12 @@ public class HigherLowerGame extends Game {
     private final DeckOfCards deck = new DeckOfCards();
     private final Card currentCard;
     private boolean gameAborted;
+    private int correctGuesses = 0;
 
     public HigherLowerGame(){
         currentCard = deck.drawCard();
         deck.shuffle();
     }
-
 
     public enum Direction{
         LEFT,
@@ -32,6 +32,11 @@ public class HigherLowerGame extends Game {
         }
     }
 
+    private void resetRow(int row){
+        for(Card card : startingBoard.get(row)){
+            startingBoard.get(row).remove(card);
+        }
+    }
 
 
     public Card playerChoice(int rowIndex, Direction direction){
@@ -51,6 +56,33 @@ public class HigherLowerGame extends Game {
     }
 
 
+    public int getCorrectGuesses(){
+        return this.correctGuesses;
+    }
+
+    public void setCorrectGuesses(int n){
+        this.correctGuesses = n;
+    }
+
+
+    public String processPlayerChoice(Card placedCard, int rowIndex, Direction direction){
+        Card existingCard = playerChoice(rowIndex, direction);
+        if (checkIfHigher(existingCard.getRankValue(), placedCard.getRankValue())){
+            placeCard(placedCard, rowIndex, direction);
+            setCorrectGuesses(correctGuesses++);
+            if (correctGuesses < 3){
+                return "Correct, make your next choice";
+            } else{
+                setCorrectGuesses(0);
+                return "Correct, next players turn";
+            }
+        } else{
+            setCorrectGuesses(0);
+            return sendLossMessage(startingBoard.get(rowIndex).size());
+        }
+    }
+
+
     public int getTotalCardsInRow(int rowIndex){
         return this.startingBoard.get(rowIndex).size();
     }
@@ -61,6 +93,10 @@ public class HigherLowerGame extends Game {
         } else {
             startingBoard.get(rowIndex).add(startingBoard.size()-1, card);
         }
+    }
+
+    public String sendLossMessage(int rowSize){
+        return "Incorrect! Drink " + rowSize + " sips!";
     }
 
     public ArrayList<ArrayList<Card>> getStartingBoard(){
