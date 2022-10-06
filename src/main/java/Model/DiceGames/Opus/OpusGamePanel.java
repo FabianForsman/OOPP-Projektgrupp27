@@ -14,7 +14,6 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
-
 public class OpusGamePanel extends Game{
     Die die = new Die();
     Random random = new Random();
@@ -22,6 +21,7 @@ public class OpusGamePanel extends Game{
     boolean running = false;
     Timer timer = new Timer();
     OpusKeyAdapter adapter = new OpusKeyAdapter();
+
 
 
 
