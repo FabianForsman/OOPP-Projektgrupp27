@@ -8,11 +8,11 @@ module com.example.hydrohomies {
     exports com.example.hydrohomies;
     exports Model.Player;
     opens Model.Player to javafx.fxml;
-    exports Model.CardGames.Game;
+    exports Model.CardGames.HigherLower;
     exports Model.DiceGames.Opus;
     exports Model.DiceGames.Treman;
     exports Model.DiceGames.Dice;
     opens Model.DiceGames.Opus to javafx.fxml;
     exports Model;
-    exports Model.Audio;
+    exports Controllers.HigherLower;
 }
