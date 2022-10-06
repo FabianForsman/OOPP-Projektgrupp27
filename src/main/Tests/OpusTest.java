@@ -11,8 +11,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class OpusTest {
 
-
-
     @Test
     void testGiveDiceWhen6Or1IsRolled() {
         OpusGamePanel testPanel = new OpusGamePanel();
@@ -33,6 +31,20 @@ public class OpusTest {
         testPanel.startDropTimer();
         //assertEquals("p2 DRINKS THEIR ENTIRE GLASS",);
     }
+
+    @Test
+    void shouldSetRandomCurrentPlayerFromList() {
+        OpusGamePanel testPanel = new OpusGamePanel();
+        Player p1 = new Player("p1");
+        Player p2 = new Player("p2");
+        Players.getInstance().addPlayer(p1);
+        Players.getInstance().addPlayer(p2);
+        testPanel.setRandomCurrentPlayer();
+        assertSame(p2, Players.getInstance().getCurrentPlayer());
+
+    }
+
+
 
 }
 

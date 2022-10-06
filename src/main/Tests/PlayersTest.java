@@ -37,7 +37,7 @@ public class PlayersTest {
     }
 
     @Test
-    void testPassTurnRightAsCircularArray() { //doesn't work
+    void testPassTurnRightAsCircularArray() {
         Players.getInstance().addPlayer(p1);
         Players.getInstance().addPlayer(p2);
         Players.getInstance().setCurrentPlayer(p2);
@@ -46,7 +46,7 @@ public class PlayersTest {
     }
 
     @Test
-    void testPassTurnRight() { //works
+    void testPassTurnRight() {
         Players.getInstance().setCurrentPlayer(p1);
         Players.getInstance().passTurnRight();
         assertSame(p2, Players.getInstance().getCurrentPlayer());
