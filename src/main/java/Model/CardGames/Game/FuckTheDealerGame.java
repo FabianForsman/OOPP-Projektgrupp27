@@ -1,8 +1,25 @@
 package Model.CardGames.Game;
 
+import Model.CardGames.Cards.Card;
+import Model.CardGames.Cards.DeckOfCards;
 import Model.Game;
 
+import java.util.ArrayList;
+
 public class FuckTheDealerGame extends Game {
+
+    private final ArrayList<ArrayList<Card>> startingDeck = new ArrayList<>();
+    private final DeckOfCards deck = new DeckOfCards();
+    private final Card chosenCard;
+    private int incorrectGuesses = 0;
+
+
+    public FuckTheDealerGame() {
+        chosenCard = deck.drawCard();
+        deck.shuffle();
+    }
+
+
 
 
     //PlayerGuess(){tar in ett nummer som ska korrespondera ett kort}
