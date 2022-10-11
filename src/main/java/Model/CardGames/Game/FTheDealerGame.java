@@ -6,7 +6,7 @@ import Model.Game;
 
 import java.util.ArrayList;
 
-public class FuckTheDealerGame extends Game {
+public class FTheDealerGame extends Game {
 
     private final ArrayList<ArrayList<Card>> startingDeck = new ArrayList<>();
     private final DeckOfCards deck = new DeckOfCards();
@@ -14,7 +14,7 @@ public class FuckTheDealerGame extends Game {
     private int incorrectGuesses = 0;
 
 
-    public FuckTheDealerGame() {
+    public FTheDealerGame() {
         chosenCard = deck.drawCard();
         deck.shuffle();
     }
