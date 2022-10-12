@@ -25,6 +25,40 @@ public class HigherLowerTest {
     void testPlaceCard(){
         HigherLowerGame game = new HigherLowerGame();
         game.setBoard();
+        Card card = new DeckOfCards().drawCard();
+        int leftIndex = game.getStartingBoard().get(0).size()-1;
+        int rightIndex = 0;
+        game.placeCard(card, 0, HigherLowerGame.Direction.LEFT);
+        assertTrue(game.getStartingBoard().get(0).get(leftIndex) == card);
+        Card newCard = new DeckOfCards().drawCard();
+        game.placeCard(newCard, 0, HigherLowerGame.Direction.RIGHT);
+        assertTrue(game.getStartingBoard().get(0).get(rightIndex) == newCard);
+        Card newNewCard = new DeckOfCards().drawCard();
+        game.placeCard(newNewCard, 3, HigherLowerGame.Direction.LEFT);
+        assertTrue(game.getStartingBoard().get(3).get(leftIndex) == newNewCard);
+    }
+
+
+    @Test
+    void testResetRow(){
+        HigherLowerGame game = new HigherLowerGame();
+        game.setBoard();
+        Card card = new DeckOfCards().drawCard();
+        int leftIndex = game.getStartingBoard().get(0).size()-1;
+        int rightIndex = 0;
+        game.placeCard(card, 0, HigherLowerGame.Direction.LEFT);
+        Card newCard = new DeckOfCards().drawCard();
+        game.placeCard(newCard, 0, HigherLowerGame.Direction.RIGHT);
+        game.resetRow(0);
+        assertTrue(game.getStartingBoard().get(0).size() == 0);
+    }
+
+    @Test
+    void testplayerChoice(){
+        HigherLowerGame game = new HigherLowerGame();
+        game.setBoard();
+        Card card = new DeckOfCards().drawCard();
+
     }
 
 }
