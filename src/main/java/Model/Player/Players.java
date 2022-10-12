@@ -47,6 +47,15 @@ public class Players {
         return players.get(i);
     }
 
+    public IPlayer getPlayer(String name) {
+        for (IPlayer player : players) {
+            if (player.getName() == name) {
+                return player;
+            }
+        }
+        return null;
+    }
+
     public void setCurrentPlayer(IPlayer player) {
         currentPlayer = player;
     }

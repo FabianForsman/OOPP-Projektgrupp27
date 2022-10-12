@@ -1,7 +1,16 @@
 package Model.DiceGames.Treman.Actions;
 
+import Model.Player.IPlayer;
+import Model.Player.Players;
+
 public class ChallengeAction {
     ChallengeAction() {
-        System.out.println("empty");
+
     }
+
+    private IPlayer getChallengedPlayer() {
+        // list of players, click on players to get the correct one.
+        return Players.getInstance().getCurrentPlayer();
+    }
+
 }

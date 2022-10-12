@@ -1,4 +1,5 @@
 import Model.DiceGames.Treman.TremanGamePanel;
+import Model.Player.Players;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

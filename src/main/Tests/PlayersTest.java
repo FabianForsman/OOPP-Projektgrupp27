@@ -11,7 +11,6 @@ public class PlayersTest {
 
     @Test
     void addPlayerToPlayerList() {
-
         assertEquals(2, Players.getInstance().getListSize());
     }
 

@@ -2,7 +2,6 @@ package Model.DiceGames.Treman;
 import Model.DiceGames.Dice.Dice;
 import Model.DiceGames.Treman.Rules.Treman;
 import Model.Game;
-import Model.Player.Players;
 
 
 public class TremanGamePanel extends Game{
@@ -48,14 +47,6 @@ public class TremanGamePanel extends Game{
         String returnString  = rules.r1.getRule(a, b); // Should return an action and string, an object with both.
         String keep = "Keep - ";
         String pass = "Pass - ";
-
-        if (returnString.contains("Challenge completed!")) {
-            System.out.println("Challenge WIP.");
-        }
-
-        if (returnString.contains("Dice passing out completed.")) {
-            System.out.println("Two of the same WIP.");
-        }
 
         if (returnString.contains(keep)) {
             if (returnString.equals("Keep - New treman! Give the hat to someone else.")){
