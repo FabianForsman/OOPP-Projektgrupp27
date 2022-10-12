@@ -14,18 +14,14 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class OpusGamePanel extends Game{
+public class OpusModel extends Game{
     Die die = new Die();
-    Random random = new Random();
     boolean drop = false;
     boolean running = false;
     Timer timer = new Timer();
     OpusKeyAdapter adapter = new OpusKeyAdapter();
 
-
-
-
-    public OpusGamePanel(){
+    public OpusModel(){
         super();
     }
 
@@ -33,12 +29,6 @@ public class OpusGamePanel extends Game{
         if (numberOfRolls == 1 && (faceValue == 1 || faceValue == 6)){
             Players.getInstance().setCurrentPlayer(player);
         }
-    }
-
-    public void setRandomCurrentPlayer() {
-        int randomIndex = random.nextInt(Players.getInstance().getListSize());
-        IPlayer randomPlayer = Players.getInstance().getPlayer(randomIndex);
-        Players.getInstance().setCurrentPlayer(randomPlayer);
     }
 
     public void startDropTimer() {
@@ -50,7 +40,6 @@ public class OpusGamePanel extends Game{
         };
         long delay = 225;
         timer.schedule(task, delay);
-        drop = true;
     }
 
     public void checkOneOrSix() {
@@ -60,11 +49,6 @@ public class OpusGamePanel extends Game{
         else if (die.getVal() == 1) {
             Players.getInstance().passTurnLeft();
         }
-    }
-
-    private static void playSound(String sound) {
-        ClassLoader cl = OpusGamePanel.class.getClassLoader();
-        URL file = cl.getResource(sound);
     }
 
     @Override
@@ -85,7 +69,6 @@ public class OpusGamePanel extends Game{
     }
     @Override
     public void startGame() {
-        setRandomCurrentPlayer();
         startDropTimer();
 
     }
