@@ -8,7 +8,6 @@ public class Players {
     IPlayer currentPlayer;
     Random random = new Random();
 
-
     private static Players single_instance = null;
 
     private Players() {
@@ -48,22 +47,18 @@ public class Players {
     }
 
     public void setRandomCurrentPlayer() {
-        int randomIndex = random.nextInt(Players.getInstance().getListSize());
-        IPlayer randomPlayer = Players.getInstance().getPlayer(randomIndex);
-        Players.getInstance().setCurrentPlayer(randomPlayer);
+        int randomIndex = random.nextInt(getListSize());
+        IPlayer randomPlayer = getPlayer(randomIndex);
+        setCurrentPlayer(randomPlayer);
+    }
+
+    public IPlayer getRandomPlayer() {
+        int randomIndex = random.nextInt(getListSize());
+        return players.get(randomIndex);
     }
 
     public IPlayer getPlayer(int i) {
         return players.get(i);
-    }
-
-    public IPlayer getPlayer(String name) {
-        for (IPlayer player : players) {
-            if (player.getName() == name) {
-                return player;
-            }
-        }
-        return null;
     }
 
     public void setCurrentPlayer(IPlayer player) {

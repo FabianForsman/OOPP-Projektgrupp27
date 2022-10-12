@@ -1,6 +1,7 @@
 package Model.DiceGames.Treman.Rules;
 
 import Model.DiceGames.Treman.Actions.IAction;
+import Model.DiceGames.Treman.Actions.NoAction;
 import Model.DiceGames.Treman.IRulesChain;
 
 public class SevenAhead implements IRulesChain {
@@ -14,7 +15,7 @@ public class SevenAhead implements IRulesChain {
     @Override
     public IAction getRule(int a, int b) {
         if (a + b == 7) {
-            return "Keep - Seven ahead! Person in front of you takes one.\n";
+            return new NoAction("Seven ahead! Person in front of you takes one.");
         }
         return this.chain.getRule(a, b);
     }

@@ -15,7 +15,7 @@ public class Hell implements IRulesChain {
     @Override
     public IAction getRule(int a, int b) {
         if (a + b == 11) {
-            return new PassAction("Pass - Hell! Pass the dice along.");
+            return new PassAction("Hell! Pass the dice along.");
         }
         return this.chain.getRule(a, b);
     }

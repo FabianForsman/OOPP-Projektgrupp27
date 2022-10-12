@@ -1,7 +1,6 @@
 package Model.DiceGames.Treman.Actions;
 
 import Model.Player.IPlayer;
-import Model.Player.Players;
 
 import java.util.ArrayList;
 
@@ -18,7 +17,7 @@ public class EqualsAction implements IAction {
         playerList.add(player);
     }
 
-    public ArrayList<IPlayer> getPlayerList() {
+    public ArrayList<IPlayer> getChosenPlayers() {
         return playerList;
     }
 
