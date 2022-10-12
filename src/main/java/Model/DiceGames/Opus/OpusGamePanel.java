@@ -25,7 +25,8 @@ public class OpusGamePanel extends Game{
         super();
     }
 
-    public void giveDice(Player player, int faceValue, int numberOfRolls) {
+    public void giveDice(Player player, 
+                         int faceValue, int numberOfRolls) {
         if (numberOfRolls == 1 && (faceValue == 1 || faceValue == 6)){
             Players.getInstance().setCurrentPlayer(player);
         }
