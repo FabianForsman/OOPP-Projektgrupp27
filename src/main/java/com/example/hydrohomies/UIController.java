@@ -14,6 +14,5 @@ public class UIController  {
 
     @FXML void onStartCardGameButtonClick() {};
 
-    @FXML void closeProgram() {};
 
 }
