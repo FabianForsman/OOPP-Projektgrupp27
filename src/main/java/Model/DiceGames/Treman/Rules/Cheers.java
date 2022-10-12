@@ -1,6 +1,8 @@
 package Model.DiceGames.Treman.Rules;
 
-import Model.IRulesChain;
+import Model.DiceGames.Treman.Actions.IAction;
+import Model.DiceGames.Treman.Actions.NoAction;
+import Model.DiceGames.Treman.IRulesChain;
 
 public class Cheers implements IRulesChain {
     private IRulesChain chain;
@@ -11,9 +13,9 @@ public class Cheers implements IRulesChain {
     }
 
     @Override
-    public String getRule(int a, int b) {
+    public IAction getRule(int a, int b) {
         if (a + b == 10) {
-            return "Keep - Cheers! Everyone takes one.\n";
+            return new NoAction("Cheers! Everyone takes one.");
         }
         return this.chain.getRule(a, b);
     }

@@ -1,7 +1,6 @@
 package Model.DiceGames.Treman;
 
 import Model.DiceGames.Treman.Rules.*;
-import Model.IRulesChain;
 
 class TremanRules {
     public IRulesChain r1;

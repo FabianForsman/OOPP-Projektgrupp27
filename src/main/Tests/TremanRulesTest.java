@@ -1,5 +1,4 @@
-import Model.DiceGames.Treman.TremanGamePanel;
-import Model.Player.Players;
+import Model.DiceGames.Treman.TremanModel;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -10,7 +9,7 @@ public class TremanRulesTest {
     public void testGetRule() {
         for (int i = 1; i < 7; i++) { // First dies values
             for (int j = 1; j < 7; j++) { // Second dies values
-                TremanGamePanel currentTest = new TremanGamePanel();
+                TremanModel currentTest = new TremanModel();
                 ArrayList<Integer> values = new ArrayList<>(); // dice.setDiceValues() takes an arraylist as argument
                 values.add(i);
                 values.add(j);

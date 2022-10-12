@@ -1,6 +1,8 @@
 package Model.DiceGames.Treman.Rules;
 
-import Model.IRulesChain;
+import Model.DiceGames.Treman.Actions.IAction;
+import Model.DiceGames.Treman.Actions.PassAction;
+import Model.DiceGames.Treman.IRulesChain;
 
 public class Hell implements IRulesChain {
     private IRulesChain chain;
@@ -11,9 +13,9 @@ public class Hell implements IRulesChain {
     }
 
     @Override
-    public String getRule(int a, int b) {
+    public IAction getRule(int a, int b) {
         if (a + b == 11) {
-            return "Pass - Hell! Pass the dice along.\n";
+            return new PassAction("Pass - Hell! Pass the dice along.");
         }
         return this.chain.getRule(a, b);
     }

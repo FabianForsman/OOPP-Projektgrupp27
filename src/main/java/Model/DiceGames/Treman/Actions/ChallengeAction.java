@@ -1,16 +1,25 @@
 package Model.DiceGames.Treman.Actions;
 
 import Model.Player.IPlayer;
-import Model.Player.Players;
 
-public class ChallengeAction {
-    ChallengeAction() {
+public class ChallengeAction implements IAction {
+    private IPlayer challengedPlayer;
+    private final String returnString = "Challenge! Give one dice to another player and have them roll it.";
+
+    public ChallengeAction() {
 
     }
 
-    private IPlayer getChallengedPlayer() {
-        // list of players, click on players to get the correct one.
-        return Players.getInstance().getCurrentPlayer();
+    public void setChallengedPlayer(IPlayer player) {
+        challengedPlayer = player;
     }
 
+    public IPlayer getChallengedPlayer() {
+        return challengedPlayer;
+    }
+
+    @Override
+    public String getRuleString() {
+        return returnString;
+    }
 }

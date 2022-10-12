@@ -2,17 +2,25 @@ package Model.DiceGames.Treman;
 import Model.DiceGames.Dice.Dice;
 import Model.DiceGames.Treman.Rules.Treman;
 import Model.Game;
+import Model.Player.IPlayer;
+import Model.Player.Players;
 
 
-public class TremanGamePanel extends Game{
+public class TremanModel extends Game{
     private final TremanRules rules;
     private final Dice dice;
+    private IPlayer treman;
 
-    public TremanGamePanel() {
+    public TremanModel() {
         // Players and such. Gets from previous pages.
         super();
         dice = new Dice(2);
         rules = new TremanRules();
+        treman = Players.getInstance().getCurrentPlayer();
+    }
+
+    public void setNewTreman(IPlayer player) {
+        this.treman = player;
     }
 
     @Override

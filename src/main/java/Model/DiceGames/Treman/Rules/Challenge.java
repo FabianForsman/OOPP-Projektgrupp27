@@ -1,6 +1,8 @@
 package Model.DiceGames.Treman.Rules;
 
-import Model.IRulesChain;
+import Model.DiceGames.Treman.Actions.ChallengeAction;
+import Model.DiceGames.Treman.Actions.IAction;
+import Model.DiceGames.Treman.IRulesChain;
 
 public class Challenge implements IRulesChain {
     private IRulesChain chain;
@@ -11,9 +13,9 @@ public class Challenge implements IRulesChain {
     }
 
     @Override
-    public String getRule(int a, int b) {
+    public IAction getRule(int a, int b) {
         if (a == 1 && b == 2 || a == 2 && b == 1) {
-            return "Challenge completed!\n";
+            return new ChallengeAction();
         }
         return this.chain.getRule(a, b);
     }
