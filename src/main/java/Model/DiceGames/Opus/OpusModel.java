@@ -7,21 +7,21 @@ import Model.Player.IPlayer;
 import Model.Player.Player;
 import Model.Player.Players;
 
+import javax.print.attribute.standard.Media;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class OpusGamePanel extends Game{
+public class OpusModel extends Game{
     Die die = new Die();
-    final int amountOfCurrentPlayers = 2;
-    Random random = new Random();
     boolean drop = false;
     boolean running = false;
     Timer timer = new Timer();
     OpusKeyAdapter adapter = new OpusKeyAdapter();
 
-    public OpusGamePanel(){
+    public OpusModel(){
         super();
     }
 
@@ -30,14 +30,8 @@ public class OpusGamePanel extends Game{
         if (numberOfRolls == 1 && (faceValue == 1 || faceValue == 6)){
             Players.getInstance().setCurrentPlayer(player);
         }
-    }//TEMPLATE METHOD
-
-
-    /*
-    public void setRandomCurrentPlayer() {
-        setCurrentPlayer(getPlayerList().get(random.nextInt(getPlayerList().size()))); //chooses a random player from the playerlist as the current player
     }
-    */
+
     public void startDropTimer() {
         TimerTask task = new TimerTask() {
             @Override
@@ -49,7 +43,6 @@ public class OpusGamePanel extends Game{
         timer.schedule(task, delay);
     }
 
-
     public void checkOneOrSix() {
         if (die.getVal() == 6 ) {
             Players.getInstance().passTurnRight();
@@ -58,7 +51,6 @@ public class OpusGamePanel extends Game{
             Players.getInstance().passTurnLeft();
         }
     }
-
 
     @Override
     public void nextTurn() {
@@ -78,7 +70,6 @@ public class OpusGamePanel extends Game{
     }
     @Override
     public void startGame() {
-        //setRandomCurrentPlayer();
         startDropTimer();
 
     }

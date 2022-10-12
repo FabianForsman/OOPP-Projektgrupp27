@@ -1,9 +1,13 @@
 package Model.Player;
 
 import java.util.ArrayList;
+import java.util.Random;
+
 public class Players {
     ArrayList<IPlayer> players;
     IPlayer currentPlayer;
+    Random random = new Random();
+
 
     private static Players single_instance = null;
 
@@ -41,6 +45,12 @@ public class Players {
         } else {
             setCurrentPlayer(getPlayer(index - 1));
         }
+    }
+
+    public void setRandomCurrentPlayer() {
+        int randomIndex = random.nextInt(Players.getInstance().getListSize());
+        IPlayer randomPlayer = Players.getInstance().getPlayer(randomIndex);
+        Players.getInstance().setCurrentPlayer(randomPlayer);
     }
 
     public IPlayer getPlayer(int i) {
