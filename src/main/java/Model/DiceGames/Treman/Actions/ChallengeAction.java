@@ -4,11 +4,8 @@ import Model.Player.IPlayer;
 
 public class ChallengeAction implements IAction {
     private IPlayer challengedPlayer;
-    private final String returnString = "Challenge! Give one dice to another player and have them roll it.";
 
-    public ChallengeAction() {
-
-    }
+    public ChallengeAction() {}
 
     public void setChallengedPlayer(IPlayer player) {
         challengedPlayer = player;
@@ -20,6 +17,6 @@ public class ChallengeAction implements IAction {
 
     @Override
     public String getRuleString() {
-        return returnString;
+        return "Challenge! Give one dice to another player and have them roll it.";
     }
 }

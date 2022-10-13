@@ -6,8 +6,6 @@ import java.util.ArrayList;
 
 public class EqualsAction implements IAction {
     private final ArrayList<IPlayer> playerList = new ArrayList<>(2);
-    private final String returnString = "Choose 2 players to give the dice to.";
-
 
     public EqualsAction() {
 
@@ -23,6 +21,6 @@ public class EqualsAction implements IAction {
 
     @Override
     public String getRuleString() {
-        return returnString;
+        return "Choose 2 players to give the dice to.";
     }
 }

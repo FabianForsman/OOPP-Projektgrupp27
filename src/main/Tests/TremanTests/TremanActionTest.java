@@ -1,7 +1,6 @@
 package TremanTests;
 
-import Model.DiceGames.Treman.Actions.ChallengeAction;
-import Model.DiceGames.Treman.Actions.EqualsAction;
+import Model.DiceGames.Treman.Actions.*;
 import Model.DiceGames.Treman.TremanModel;
 import Model.Player.IPlayer;
 import Model.Player.Player;
@@ -30,24 +29,15 @@ public class TremanActionTest {
 
     @Test
     public void testChallengeAction() {
-        ArrayList<Integer> values = new ArrayList<>(2);
-        TremanModel model = new TremanModel();
-        values.add(1);
-        values.add(2);
-        model.getDice().setDiceValue(values);
         ChallengeAction action = new ChallengeAction();
         action.setChallengedPlayer(p1);
         assertEquals(p1, action.getChallengedPlayer());
+        assertEquals("Challenge! Give one dice to another player and have them roll it.", action.getRuleString());
     }
 
     @Test
     public void testEqualsAction() {
         Players.getInstance().addPlayer(new Player("p3"));
-        ArrayList<Integer> values = new ArrayList<>(2);
-        TremanModel model = new TremanModel();
-        values.add(1);
-        values.add(2);
-        model.getDice().setDiceValue(values);
         EqualsAction action = new EqualsAction();
         ArrayList<IPlayer> currentlyChosenPlayers = new ArrayList<>();
 
@@ -58,5 +48,28 @@ public class TremanActionTest {
         action.choosePlayer(p2);
         currentlyChosenPlayers.add(p2);
         assertEquals(currentlyChosenPlayers, action.getChosenPlayers());
+        assertEquals("Choose 2 players to give the dice to.", action.getRuleString());
+    }
+
+    @Test
+    public void testNewTreManAction() {
+        TremanModel model = new TremanModel();
+        NewTremanAction action = new NewTremanAction();
+        action.setNewTreman(p1);
+        assertEquals(p1, model.getTreman());
+        assertEquals("New treman! Pick another player to be Treman.", action.getRuleString());
+    }
+
+    @Test
+    public void testNoAction() {
+        NoAction action = new NoAction("Do nothing.");
+        assertEquals("Do nothing.", action.getRuleString());
+    }
+
+    @Test
+    public void testPassAction() {
+        TremanModel model = new TremanModel();
+        PassAction action = new PassAction("Reason for passing.");
+        assertEquals("Reason for passing.", action.getRuleString());
     }
 }

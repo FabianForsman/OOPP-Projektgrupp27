@@ -1,5 +1,6 @@
 package TremanTests;
 
+import Model.DiceGames.Treman.Actions.NoAction;
 import Model.DiceGames.Treman.TremanModel;
 import Model.Player.Player;
 import Model.Player.Players;
@@ -41,6 +42,16 @@ public class TremanRulesTest {
                 System.out.println(model.getRule()); // Show the rule for the current dice combination
             }
         }
+    }
+
+    @Test
+    public void testAllGetRule() {
+        ArrayList<Integer> values = new ArrayList<>(2);
+        TremanModel model = new TremanModel();
+        values.add(6);
+        values.add(7);
+        model.getDice().setDiceValue(values);
+        assertTrue(model.getAction() instanceof NoAction);
     }
 
     @Test

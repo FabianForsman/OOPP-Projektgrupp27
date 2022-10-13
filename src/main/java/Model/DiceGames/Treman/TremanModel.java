@@ -29,36 +29,15 @@ public class TremanModel extends Game{
         treman = player;
     }
 
-    @Override
-    public void nextTurn() {
-
-    }
-
-    @Override
-    public void restartGame() {
-
-    }
-
-    @Override
-    public void quitGame() {
-
-    }
-
-    @Override
-    public void startGame() {
-
-    }
-
-    @Override
-    public void startRound() {
-
+    public IPlayer getTreman() {
+        return treman;
     }
 
     public String getRule() {
         return getAction().getRuleString();
     }
 
-    private IAction getAction() {
+    public IAction getAction() {
         int a = dice.getDieValue(0);
         int b = dice.getDieValue(1);
 
@@ -94,4 +73,28 @@ public class TremanModel extends Game{
         return dice.getDiceValues();
     }
 
+    @Override
+    public void nextTurn() {
+
+    }
+
+    @Override
+    public void restartGame() {
+
+    }
+
+    @Override
+    public void quitGame() {
+
+    }
+
+    @Override
+    public void startGame() {
+
+    }
+
+    @Override
+    public void startRound() {
+
+    }
 }
