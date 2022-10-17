@@ -35,6 +35,7 @@ public class HigherLowerGame extends Game {
     public void resetRow(int row){
         ArrayList<Card> currentRow = startingBoard.get(row);
         while (currentRow.size() > 0){
+            deck.returnCardToDeck(currentRow.get(0));
             currentRow.remove(0);
         }
     }
@@ -43,7 +44,7 @@ public class HigherLowerGame extends Game {
     public Card playerChoice(int rowIndex, Direction direction){
         ArrayList<Card> row = startingBoard.get(rowIndex);
 
-        if (direction == Direction.LEFT){
+        if (direction == Direction.RIGHT){
             return row.get(0);
 
         } else{
@@ -52,7 +53,7 @@ public class HigherLowerGame extends Game {
     }
 
 
-    private boolean checkIfHigher(int existingCardValue, int placedCardValue){
+    public boolean checkIfHigher(int existingCardValue, int placedCardValue){
         return existingCardValue < placedCardValue;
     }
 
@@ -92,7 +93,7 @@ public class HigherLowerGame extends Game {
         if(direction == Direction.RIGHT) {
             startingBoard.get(rowIndex).add(0, card);
         } else {
-            startingBoard.get(rowIndex).add(startingBoard.get(rowIndex).size()-1, card);
+            startingBoard.get(rowIndex).add(card);
         }
     }
 

@@ -48,4 +48,8 @@ public class DeckOfCards implements IDeckOfCards {
     public void returnDiscardPile(){
         cards.addAll(0, discardPile.returnCardsToDeck());
     }
+
+    public void returnCardToDeck(Card card){
+        this.cards.add(card);
+    }
 }
