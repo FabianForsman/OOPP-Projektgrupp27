@@ -1,6 +1,8 @@
 package Model.DiceGames.Treman.Rules;
 
-import Model.IRulesChain;
+import Model.DiceGames.Treman.Actions.IAction;
+import Model.DiceGames.Treman.Actions.PassAction;
+import Model.DiceGames.Treman.IRulesChain;
 
 public class EightNotSoGreat implements IRulesChain {
     private IRulesChain chain;
@@ -11,9 +13,9 @@ public class EightNotSoGreat implements IRulesChain {
     }
 
     @Override
-    public String getRule(int a, int b) {
+    public IAction getRule(int a, int b) {
         if (a + b == 8) {
-            return "Pass - Eight not so great.\n";
+            return new PassAction("Eight not so great! Passing the dice along.");
         }
 
         return  this.chain.getRule(a, b);

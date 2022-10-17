@@ -1,8 +1,10 @@
 package Model.DiceGames.Treman.Rules;
 
-import Model.IRulesChain;
+import Model.DiceGames.Treman.Actions.IAction;
+import Model.DiceGames.Treman.Actions.NoAction;
+import Model.DiceGames.Treman.IRulesChain;
 
-public class NoRuleFound implements IRulesChain{
+public class NoRuleFound implements IRulesChain {
     private IRulesChain chain;
 
     @Override
@@ -11,7 +13,7 @@ public class NoRuleFound implements IRulesChain{
     }
 
     @Override
-    public String getRule(int a, int b) {
-        return "No Rule Found.\n";
+    public IAction getRule(int a, int b) {
+        return new NoAction("No rule found.");
     }
 }

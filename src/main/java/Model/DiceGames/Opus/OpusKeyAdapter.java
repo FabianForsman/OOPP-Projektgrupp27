@@ -5,7 +5,7 @@ import java.awt.event.*;
 
 public class OpusKeyAdapter extends KeyAdapter{
     Die die;
-    OpusGamePanel gamePanel;
+    OpusModel gamePanel;
 
     @Override
     public void keyPressed(KeyEvent e) {

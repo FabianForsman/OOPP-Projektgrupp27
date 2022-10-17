@@ -1,6 +1,8 @@
 package Model.DiceGames.Treman.Rules;
 
-import Model.IRulesChain;
+import Model.DiceGames.Treman.Actions.IAction;
+import Model.DiceGames.Treman.Actions.NoAction;
+import Model.DiceGames.Treman.IRulesChain;
 
 public class NotSix implements IRulesChain {
     private IRulesChain chain;
@@ -11,9 +13,9 @@ public class NotSix implements IRulesChain {
     }
 
     @Override
-    public String getRule(int a, int b) {
+    public IAction getRule(int a, int b) {
         if (a + b == 6) {
-            return "Pass - Six is good, but not here.\n";
+            return new NoAction("Six is good, but not here.");
         }
         return this.chain.getRule(a, b);
     }

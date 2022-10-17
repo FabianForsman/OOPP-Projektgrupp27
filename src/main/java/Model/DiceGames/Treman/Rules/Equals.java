@@ -1,6 +1,8 @@
 package Model.DiceGames.Treman.Rules;
 
-import Model.IRulesChain;
+import Model.DiceGames.Treman.Actions.EqualsAction;
+import Model.DiceGames.Treman.Actions.IAction;
+import Model.DiceGames.Treman.IRulesChain;
 
 public class Equals implements IRulesChain {
     private IRulesChain chain;
@@ -11,12 +13,9 @@ public class Equals implements IRulesChain {
     }
 
     @Override
-    public String getRule(int a, int b) {
+    public IAction getRule(int a, int b) {
         if (a == b) {
-            if (a == 1) {
-                return "Keep - Two ones, Snake Eyes! Take two or give them away.\n";
-            }
-            return "Dice passing out completed.\n";
+            return new EqualsAction();
         }
 
         return this.chain.getRule(a, b);
