@@ -1,16 +1,9 @@
 package Model.DiceGames.Opus;
-import Model.CardGames.Cards.Card;
+import Model.Audio.SongPlayer;
 import Model.DiceGames.Dice.Die;
 import Model.Game;
-import Model.DiceGames.Dice.Dice;
-import Model.Player.IPlayer;
-import Model.Player.Player;
 import Model.Player.Players;
 
-import javax.print.attribute.standard.Media;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -20,15 +13,16 @@ public class OpusModel extends Game{
     boolean running = false;
     Timer timer = new Timer();
     OpusKeyAdapter adapter = new OpusKeyAdapter();
+    SongPlayer songPlayer = new SongPlayer();
 
     public OpusModel(){
         super();
     }
 
-    public void giveDice(Player player, int faceValue, int numberOfRolls) {
+    public boolean checkIfOneSixFirstTry(int faceValue, int numberOfRolls) {
         if (numberOfRolls == 1 && (faceValue == 1 || faceValue == 6)){
-            Players.getInstance().setCurrentPlayer(player);
         }
+        return true;
     }
 
     public void startDropTimer() {
@@ -42,7 +36,7 @@ public class OpusModel extends Game{
         timer.schedule(task, delay);
     }
 
-    public void checkOneOrSix() {
+    public void checkIfOneOrSix() {
         if (die.getVal() == 6 ) {
             Players.getInstance().passTurnRight();
         }
