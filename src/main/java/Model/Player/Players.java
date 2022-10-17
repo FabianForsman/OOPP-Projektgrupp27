@@ -69,6 +69,10 @@ public class Players {
         return currentPlayer;
     }
 
+    public String getCurrentPlayerName() {
+        return currentPlayer.getName();
+    }
+
     public int getPlayerIndex(IPlayer player) {
         return players.indexOf(player);
     }

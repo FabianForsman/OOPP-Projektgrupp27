@@ -11,11 +11,11 @@ public class EqualsAction implements IAction {
 
     }
 
-    public void choosePlayer(IPlayer player) {
+    public void addPlayerToPlayerList(IPlayer player) {
         playerList.add(player);
     }
 
-    public ArrayList<IPlayer> getChosenPlayers() {
+    public ArrayList<IPlayer> getPlayerList() {
         return playerList;
     }
 
