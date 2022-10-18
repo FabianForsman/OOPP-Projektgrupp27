@@ -1,32 +1,34 @@
 package com.example.hydrohomies;
 
+import com.example.hydrohomies.SceneBuilderRunLogic.HydroHomieDataHandler;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class HydroApplication extends Application {
     @Override
-    public void start(Stage stage) throws IOException {
-        /*FXMLLoader fxmlLoader = new FXMLLoader(HydroApplication.class.getResource("base-layer.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        stage.setTitle("HydroHomie");
-        stage.setScene(scene);
-        stage.show();*/
+    public void start(Stage primaryStage) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("base-layer.fxml"));
+        primaryStage.setTitle("HydroApp");
+        primaryStage.setScene(new Scene(root, 610, 410));
+        primaryStage.show();
+        primaryStage.setResizable(false);
     }
 
     public static void main(String[] args) {
-        System.out.println("Starting Program.");
-        //launch();
+        launch(args);
+        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+            public void run() {
+                HydroHomieDataHandler.getInstance().shutDown();
+            }
+        }));
     }
 
-    public void onStartCardGameButtonClick(ActionEvent event) {
-    }
 
-    public void onStartDiceGameButtonClick(ActionEvent event) {
-    }
 
-    public void closeProgram(ActionEvent event) {
-    }
 }

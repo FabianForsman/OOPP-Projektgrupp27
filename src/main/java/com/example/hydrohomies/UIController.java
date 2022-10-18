@@ -10,9 +10,6 @@ public class UIController  {
     @FXML public Button startCardGameButton, startDiceGameButton, startInformationButton, allItemsButton, exitButton;  //startPage
     @FXML public Label  chooseGameLabel;
 
-    @FXML void onStartDiceGameButtonClick() {}
-
-    @FXML void onStartCardGameButtonClick() {}
 
 
 }
