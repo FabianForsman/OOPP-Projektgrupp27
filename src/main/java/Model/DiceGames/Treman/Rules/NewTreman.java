@@ -1,6 +1,8 @@
 package Model.DiceGames.Treman.Rules;
 
-import Model.IRulesChain;
+import Model.DiceGames.Treman.Actions.IAction;
+import Model.DiceGames.Treman.Actions.NewTremanAction;
+import Model.DiceGames.Treman.IRulesChain;
 
 public class NewTreman implements IRulesChain {
     private IRulesChain chain;
@@ -11,9 +13,9 @@ public class NewTreman implements IRulesChain {
     }
 
     @Override
-    public String getRule(int a, int b) {
+    public IAction getRule(int a, int b) {
         if (a == 3 && b == 3) {
-            return "Keep - New treman! Give the hat to someone else.\n";
+            return new NewTremanAction();
         }
         return this.chain.getRule(a, b);
     }

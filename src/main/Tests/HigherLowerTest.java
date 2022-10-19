@@ -1,7 +1,4 @@
-import Model.CardGames.Cards.Card;
-import Model.CardGames.Cards.DeckOfCards;
-
-import Model.CardGames.HigherLower.HigherLowerGame;
+import Model.CardGames.HigherLower.HigherLowerModel;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -12,7 +9,7 @@ public class HigherLowerTest {
 
     @Test
     void testSetBoard(){
-        HigherLowerGame game = new HigherLowerGame();
+        HigherLowerModel game = new HigherLowerModel();
         game.setBoard();
         assertTrue(game.getStartingBoard().size() == 4);
         assertTrue(game.getStartingBoard().get(0).size() == 1);
@@ -23,7 +20,7 @@ public class HigherLowerTest {
 
     @Test
     void testPlaceCard(){
-        HigherLowerGame game = new HigherLowerGame();
+        HigherLowerModel game = new HigherLowerModel();
         game.setBoard();
     }
 

@@ -43,7 +43,7 @@ public class PlayersTest {
     }
 
     @Test
-    void testPassTurnLeftAsCircularArray() { //works
+    void testPassTurnLeftAsCircularArray() {
 
         Players.getInstance().setCurrentPlayer(p1);
         Players.getInstance().passTurnLeft();

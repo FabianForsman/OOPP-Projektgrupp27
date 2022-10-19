@@ -1,5 +1,7 @@
 package Model.DiceGames.Dice;
 
+import Model.DiceGames.Treman.TremanModel;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,8 +48,8 @@ public class Dice {
         return dice.get(i);
     }
 
-    public List<Integer> getDiceValues() {
-        List<Integer> returnList = new ArrayList<>();
+    public ArrayList<Integer> getDiceValues() {
+        ArrayList<Integer> returnList = new ArrayList<>();
         for(Die die : dice){
             returnList.add(die.getVal());
         }
@@ -56,6 +58,10 @@ public class Dice {
 
     public int getDieValue(Die die) {
         return die.getVal();
+    }
+
+    public int getDieValue(int i) {
+        return dice.get(i).getVal();
     }
 
     public void setDiceValue(ArrayList<Integer> values) {

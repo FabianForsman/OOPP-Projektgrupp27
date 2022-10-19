@@ -1,13 +1,18 @@
 package Controllers.HigherLower;
 
 import Model.CardGames.Cards.Card;
-import Model.CardGames.HigherLower.HigherLowerGame;
+import Model.CardGames.HigherLower.HigherLowerModel;
+import com.example.hydrohomies.UIController;
 
 import java.util.ArrayList;
 
 public class HigherLowerController {
 
-    private HigherLowerGame game = new HigherLowerGame();
+    public HigherLowerController(UIController parentController) {
+
+    }
+
+    private HigherLowerModel game = new HigherLowerModel();
 
 
     public void showStartingBoard() {
