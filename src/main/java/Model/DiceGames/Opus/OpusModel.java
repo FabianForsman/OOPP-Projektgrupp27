@@ -11,7 +11,6 @@ public class OpusModel extends Game{
     Die die = new Die();
     boolean drop = false;
     boolean running = false;
-    Timer timer = new Timer();
     OpusKeyAdapter adapter = new OpusKeyAdapter();
     SongPlayer songPlayer = new SongPlayer();
 
@@ -25,16 +24,7 @@ public class OpusModel extends Game{
         return true;
     }
 
-    public void startDropTimer() {
-        TimerTask task = new TimerTask() {
-            @Override
-            public void run() {
-                System.out.println(Players.getInstance().getCurrentPlayer().getName().toUpperCase() + "DRINKS THEIR ENTIRE GLASS");
-            }
-        };
-        long delay = 225;
-        timer.schedule(task, delay);
-    }
+
 
     public void checkIfOneOrSix() {
         if (die.getVal() == 6 ) {
@@ -44,6 +34,13 @@ public class OpusModel extends Game{
             Players.getInstance().passTurnLeft();
         }
     }
+
+    public String getCurrentPlayerDrinkText() {
+        return Players.getInstance().getCurrentPlayer().getName().toUpperCase() + "DRINKS THEIR ENTIRE GLASS";
+
+    }
+
+
 
     @Override
     public void nextTurn() {
@@ -63,7 +60,6 @@ public class OpusModel extends Game{
     }
     @Override
     public void startGame() {
-        startDropTimer();
 
     }
     @Override
