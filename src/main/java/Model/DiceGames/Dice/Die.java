@@ -10,10 +10,12 @@ public class Die {
     public Die() {
         this.maxValue = 6; //Default dice nr of sides.
         this.faceValue = 1; //Default face value.
+        updateCurrentImagePath();
     }
 
     public Die(int sides) {
         this.maxValue = sides; //Flexible dice nr of sides.
+        updateCurrentImagePath();
     }
 
     public void rollDie() {
@@ -33,6 +35,6 @@ public class Die {
     }
 
     public void updateCurrentImagePath(){
-        currentImagePath = "src/main/resources/resources_img/die" + faceValue + ".png";
+        currentImagePath = "src/main/resources/resources_img/dice/die" + faceValue + ".png";
     }
 }

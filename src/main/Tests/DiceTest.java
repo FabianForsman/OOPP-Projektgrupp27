@@ -1,5 +1,9 @@
 import Controllers.Treman.TremanController;
 import Model.DiceGames.Treman.TremanModel;
+import Model.Player.Player;
+import Model.Player.Players;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class DiceTest {
@@ -7,10 +11,6 @@ public class DiceTest {
     @Test
     void testImage(){
         TremanModel model = new TremanModel();
-        TremanController controller = new TremanController(model);
         model.getDie(1).rollDie();
-        controller.setFirstDieImage();
-
-
     }
 }

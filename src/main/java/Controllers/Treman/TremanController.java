@@ -6,39 +6,34 @@ import Model.DiceGames.Treman.TremanModel;
 import Model.Player.IPlayer;
 import Model.Player.Players;
 import View.TremanView;
+import com.example.hydrohomies.HydroApplication;
 import com.example.hydrohomies.UIController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.*;
 import javafx.scene.layout.AnchorPane;
-
-
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.net.URL;
 import java.util.Random;
+import java.util.ResourceBundle;
 
 
-public class TremanController {
+public class TremanController{
     TremanModel model;
     TremanView view;
 
     Random random = new Random();
     private UIController parentController;
 
-
-    public TremanController(UIController parentController ) {
-        this.parentController = parentController;
-
-
-    }
     @FXML public AnchorPane tremanGameAnchorPane;
     @FXML public ImageView diceTremanMenuButtonImageView;
     @FXML public  Label challengeLabel;
-    @FXML private ImageView diceRightTremanImageView;
-    @FXML private ImageView diceLeftTremanImageView;
+    @FXML public ImageView diceRightTremanImageView;
+    @FXML public ImageView diceLeftTremanImageView;
 
     @FXML public ComboBox<IPlayer> playerComboBox;
     @FXML public ListView<String> playerListView;
@@ -51,20 +46,27 @@ public class TremanController {
     @FXML public AnchorPane boardPane;
 
     @FXML public ImageView topLeftDice;
-    @FXML public ImageView firstDieImage;
+    @FXML public ImageView firstDieImage = new ImageView();
     @FXML public ImageView secondDieImage;
 
     @FXML public Label actionMessageLabel;
     @FXML public Label currentPlayerLabel;
     @FXML public Label currentTremanLabel;
 
-    public TremanController(TremanModel currentModel) {
+
+    public TremanController(UIController parentController) {
+        this.parentController = parentController;
+        model = new TremanModel();
+    }
+
+
+    public TremanController(UIController hydroApplication, TremanModel currentModel) {
+        parentController = hydroApplication;
         model = currentModel;
     }
 
     public void initialize() {
         populatePlayerList();
-
 
     }
 
@@ -93,7 +95,6 @@ public class TremanController {
         selectedPlayersListView.getItems().clear();
         selectedPlayersListView.setVisible(false);
     }
-
 
     @FXML //For roll-button for the challenged player.
     public void displayChallengeButton() {
@@ -145,7 +146,7 @@ public class TremanController {
         model.getDie(1).updateCurrentImagePath();
         InputStream stream = null;
         try {
-            stream = new FileInputStream(model.getDie(1).getCurrentImagePath());
+            stream = new FileInputStream(model.getDie(0).getCurrentImagePath());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -160,7 +161,7 @@ public class TremanController {
         model.getDie(2).updateCurrentImagePath();
         InputStream stream = null;
         try {
-            stream = new FileInputStream(model.getDie(2).getCurrentImagePath());
+            stream = new FileInputStream(model.getDie(1).getCurrentImagePath());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -190,25 +191,44 @@ public class TremanController {
     //action performed saker
 
     //denna ska ske när knappen trycks så kommer skiten att ha en animation
-    public void roll (ActionEvent event){
-        tremanRollButton.setDisable(true);
 
-        Thread thread = new Thread(){
+    @FXML
+    public void roll2(ActionEvent e2) {
+        System.out.println("roll2 worked");
+        for(int i = 0; i < 10; i++) {
+            InputStream stream = null;
+            try {
+                stream = new FileInputStream("src/main/resources/resources_img/dice/die1.png");
+            } catch (FileNotFoundException a) {
+                a.printStackTrace();
+            }
+            Image image = new Image(stream);
+            diceLeftTremanImageView.setImage(image);
+            diceRightTremanImageView.setImage(image);
+        }
+    }
+
+
+    @FXML public void roll(ActionEvent e) {
+
+
+        Thread thread = new Thread() {
             {
                 System.out.println("Thread Running");
-                try{
-                    for(int i = 0;  i < 15; i++){
-                        File file = new File("src/main/resources/resources_img/diceImg/die" + (random.nextInt(6)+1)+".png");
-                        //diceRightTremanImageView.setImage(new Image(file.toURI().toString()));
-                        //diceLeftTremanImageView.setImage(new Image((file.toURI().toString())));
-                        Thread.sleep(50);
+                for(int i = 0; i < 15; i++){
+                    InputStream stream = null;
+                    try {
+                        stream = new FileInputStream("src/main/resources/resources_img/dice/die1.png");
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
                     }
-                    tremanRollButton.setDisable(false);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    Image image = new Image(stream);
+                    diceLeftTremanImageView.setImage(image);
+                    diceRightTremanImageView.setImage(image);
                 }
             }
         };
+
         thread.start();
 
         /* när det kommer en etta eller en utmaning (två av varje tal) så kör denna*/
@@ -217,5 +237,29 @@ public class TremanController {
         //playerListView(); to front eller något samt labelen to front
         //sen ska man initiera att det går att trycka på knapparna osv osv genom en actionevent
 
+    }
+
+    @FXML public void roll3(ActionEvent e) {
+
+
+        Thread thread = new Thread() {
+            {
+                System.out.println("Thread Running");
+                for(int i = 0; i < 15; i++){
+                    InputStream stream = null;
+                    try {
+                        stream = new FileInputStream("src/main/resources/resources_img/dice/die1.png");
+                        Image image = new Image(stream);
+                        diceLeftTremanImageView.setImage(image);
+                        diceRightTremanImageView.setImage(image);
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }
+        };
+
+        thread.start();
     }
 }

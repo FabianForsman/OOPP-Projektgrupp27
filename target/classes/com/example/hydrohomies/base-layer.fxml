@@ -1,12 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hydrohomies.HydroApplication">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hydrohomies.UIController">
    <children>
+      <AnchorPane fx:id="cardGameAnchorPane" prefHeight="410.0" prefWidth="610.0" style="-fx-background-color: ffffff;">
+         <children>
+            <ImageView fx:id="imagecard1" fitHeight="102.0" fitWidth="130.0" layoutX="-4.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" styleClass="button-css.css">
+               <image>
+                  <Image url="@../../../resources_img/cards.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="diceGameAnchorPane" prefHeight="410.0" prefWidth="610.0" style="-fx-background-color: ffffff;">
+         <children>
+            <ImageView fitHeight="102.0" fitWidth="111.0" layoutX="-8.0" preserveRatio="true" styleClass="round_button">
+               <image>
+                  <Image url="@../../../resources_img/dice.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="tremanGameStartButton" layoutX="135.0" layoutY="123.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="335.0" text="Treman">
+               <font>
+                  <Font name="Comic Sans MS" size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="opusGameStartButton" layoutX="134.0" layoutY="217.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="335.0" text="Opus">
+               <font>
+                  <Font name="Comic Sans MS" size="25.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="tremanGameAnchorPane" layoutY="2.0" prefHeight="410.0" prefWidth="610.0" style="-fx-background-color: ffffff;">
+         <children>
+            <ImageView fitHeight="102.0" fitWidth="111.0" layoutX="-8.0" preserveRatio="true" styleClass="round_button">
+               <image>
+                  <Image url="@../../../resources_img/dice.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
       <AnchorPane fx:id="startPageAnchorPane" prefHeight="410.0" prefWidth="610.0" style="-fx-background-color: ffffff;">
          <children>
             <Button fx:id="startCardGameButton" layoutX="14.0" layoutY="7.0" mnemonicParsing="false" pickOnBounds="false" prefHeight="110.0" prefWidth="111.0" style="-fx-background-radius: 100;" stylesheets="@button-css.css">
@@ -43,51 +84,14 @@
             <TextField fx:id="playerNameTextField" layoutX="175.0" layoutY="135.0" prefHeight="25.0" prefWidth="250.0" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="cardGameAnchorPane" prefHeight="410.0" prefWidth="610.0" style="-fx-background-color: ffffff;">
-         <children>
-            <ImageView fx:id="imagecard1" fitHeight="102.0" fitWidth="130.0" layoutX="-4.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" styleClass="button-css.css">
-               <image>
-                  <Image url="@../../../resources_img/cards.png" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="diceGameAnchorPane" prefHeight="410.0" prefWidth="610.0" style="-fx-background-color: ffffff;">
+      <AnchorPane fx:id="tremanGameAnchorPane" layoutY="2.0" prefHeight="410.0" prefWidth="610.0" style="-fx-background-color: ffffff;">
          <children>
             <ImageView fitHeight="102.0" fitWidth="111.0" layoutX="-8.0" preserveRatio="true" styleClass="round_button">
                <image>
                   <Image url="@../../../resources_img/dice.png" />
                </image>
             </ImageView>
-            <Button fx:id="tremanGameStartButton" layoutX="135.0" layoutY="123.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="335.0" text="Treman">
-               <font>
-                  <Font name="Comic Sans MS" size="25.0" />
-               </font>
-            </Button>
-            <Button fx:id="opusGameStartButton" layoutX="134.0" layoutY="217.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="335.0" text="Opus">
-               <font>
-                  <Font name="Comic Sans MS" size="25.0" />
-               </font>
-            </Button>
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="opusGameAnchorPane" layoutY="2.0" prefHeight="410.0" prefWidth="610.0" style="-fx-background-color: ffffff;">
-         <children>
-            <ImageView fx:id="tremanGameAnchorPane" fitHeight="102.0" fitWidth="111.0" layoutX="-8.0" preserveRatio="true" styleClass="round_button">
-               <image>
-                  <Image url="@../../../resources_img/dice.png" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="tremanGameAnchorPane" layoutY="2.0" prefHeight="410.0" prefWidth="610.0" style="-fx-background-color: ffffff;">
-         <children>
-            <ImageView fx:id="diceTremanMenuButtonImageView" fitHeight="102.0" fitWidth="111.0" layoutX="-8.0" preserveRatio="true" styleClass="round_button">
-               <image>
-                  <Image url="@../../../resources_img/dice.png" />
-               </image>
-            </ImageView>
-            <Button fx:id="tremanRollButton" layoutX="173.0" layoutY="313.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="265.0" text="Roll">
+            <Button fx:id="tremanRollButton" layoutX="173.0" layoutY="313.0" mnemonicParsing="false" onAction="#roll2" prefHeight="44.0" prefWidth="265.0" text="Roll">
                <font>
                   <Font name="Comic Sans MS" size="26.0" />
                </font>

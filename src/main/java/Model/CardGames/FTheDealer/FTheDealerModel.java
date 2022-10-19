@@ -6,7 +6,7 @@ import Model.Game;
 
 import java.util.ArrayList;
 
-public class FTheDealerGame extends Game {
+public class FTheDealerModel extends Game {
 
 
     @Override
