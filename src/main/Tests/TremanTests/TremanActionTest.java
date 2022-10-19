@@ -41,13 +41,13 @@ public class TremanActionTest {
         EqualsAction action = new EqualsAction();
         ArrayList<IPlayer> currentlyChosenPlayers = new ArrayList<>();
 
-        action.choosePlayer(p1);
+        action.addPlayerToPlayerList(p1);
         currentlyChosenPlayers.add(p1);
-        assertEquals(currentlyChosenPlayers, action.getChosenPlayers());
+        assertEquals(currentlyChosenPlayers, action.getPlayerList());
 
-        action.choosePlayer(p2);
+        action.addPlayerToPlayerList(p2);
         currentlyChosenPlayers.add(p2);
-        assertEquals(currentlyChosenPlayers, action.getChosenPlayers());
+        assertEquals(currentlyChosenPlayers, action.getPlayerList());
         assertEquals("Choose 2 players to give the dice to.", action.getRuleString());
     }
 

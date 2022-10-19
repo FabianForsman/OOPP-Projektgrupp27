@@ -1,5 +1,6 @@
 package Model.DiceGames.Treman;
 import Model.DiceGames.Dice.Dice;
+import Model.DiceGames.Dice.Die;
 import Model.DiceGames.Treman.Actions.IAction;
 import Model.DiceGames.Treman.Actions.NoAction;
 import Model.DiceGames.Treman.Actions.PassAction;
@@ -67,6 +68,10 @@ public class TremanModel extends Game{
 
     public Dice getDice() {
         return dice;
+    }
+
+    public Die getDie(int i) {
+        return dice.getDie(i);
     }
 
     public ArrayList<Integer> getDiceValues() {

@@ -6,7 +6,7 @@ import Model.Game;
 
 import java.util.ArrayList;
 
-public class HigherLowerGame extends Game {
+public class HigherLowerModel extends Game {
 
     private final ArrayList<ArrayList<Card>> startingBoard = new ArrayList<>();
     private final DeckOfCards deck = new DeckOfCards();
@@ -14,7 +14,7 @@ public class HigherLowerGame extends Game {
     private boolean gameAborted;
     private int correctGuesses = 0;
 
-    public HigherLowerGame(){
+    public HigherLowerModel(){
         currentCard = deck.drawCard();
         deck.shuffle();
     }
