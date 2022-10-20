@@ -4,6 +4,7 @@ import Controllers.FTheDealer.FTheDealerController;
 import Controllers.HigherLower.HigherLowerController;
 import Controllers.Treman.TremanController;
 import Model.DiceGames.Treman.TremanModel;
+import View.TremanView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -25,12 +26,27 @@ public class UIController implements Initializable {
 
     @FXML public Button startCardGameButton, startDiceGameButton;  //startPage
     @FXML public Label  chooseGameLabel;
-    @FXML public AnchorPane startGameAnchorPane, tremanGameAnchorPane, diceGameAnchorPane, cardGameAnchorpane, opusGameAnchorPane, higherLowerAnchorPane;
+    @FXML public AnchorPane startPageAnchorPane, tremanGameAnchorPane, diceGameAnchorPane, cardGameAnchorpane, opusGameAnchorPane, higherLowerAnchorPane;
+    @FXML public AnchorPane parentView, lastView;
+
+
+    private TremanView tremanView;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        tremanGameAnchorPane.toFront();
+        tremanView = new TremanView(tremanController);
+        parentView.getChildren().clear();
+        parentView.getChildren().add(startPageAnchorPane);
+        lastView = parentView;
     }
+
+    @FXML
+    public void tremanToFront() {
+        parentView.toFront();
+        parentView.getChildren().add(tremanView);
+        lastView = parentView;
+    }
+
 
     public void roll(ActionEvent actionEvent) {
         tremanController.roll(actionEvent);

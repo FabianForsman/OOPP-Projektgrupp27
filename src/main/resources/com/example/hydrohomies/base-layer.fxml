@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hydrohomies.UIController">
+<fx:root fx:id="parentView" prefHeight="400.0" prefWidth="600.0" type="AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hydrohomies.UIController">
    <children>
       <AnchorPane fx:id="cardGameAnchorPane" prefHeight="410.0" prefWidth="610.0" style="-fx-background-color: ffffff;">
          <children>
@@ -85,4 +85,4 @@
          </children>
       </AnchorPane>
    </children>
-</AnchorPane>
+</fx:root>

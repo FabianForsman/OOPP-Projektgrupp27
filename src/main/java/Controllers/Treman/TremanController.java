@@ -56,17 +56,12 @@ public class TremanController implements Initializable{
 
 
     public TremanController(UIController parentController) {
-        this.parentController = parentController;
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Treman.fxml"));
-        fxmlLoader.setRoot(tremanGameAnchorPane);
-        fxmlLoader.setController(this);
         model = new TremanModel();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         populatePlayerList();
-
     }
 
 
