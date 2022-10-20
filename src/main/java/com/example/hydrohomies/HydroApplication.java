@@ -17,7 +17,7 @@ public class HydroApplication extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("base-layer.fxml")));
         primaryStage.setTitle("HydroApp");
-        primaryStage.setScene(new Scene(root, 610, 410));
+        primaryStage.setScene(new Scene(root, 610, 540));
         primaryStage.show();
         primaryStage.setResizable(false);
     }
