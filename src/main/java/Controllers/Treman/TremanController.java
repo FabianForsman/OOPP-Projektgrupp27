@@ -10,6 +10,7 @@ import com.example.hydrohomies.HydroApplication;
 import com.example.hydrohomies.UIController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.*;
@@ -22,14 +23,13 @@ import java.util.Random;
 import java.util.ResourceBundle;
 
 
-public class TremanController{
+public class TremanController implements Initializable{
     TremanModel model;
     TremanView view;
 
     Random random = new Random();
     private UIController parentController;
 
-    @FXML public AnchorPane tremanGameAnchorPane;
     @FXML public ImageView diceTremanMenuButtonImageView;
     @FXML public  Label challengeLabel;
     @FXML public ImageView diceRightTremanImageView;
@@ -44,6 +44,7 @@ public class TremanController{
     @FXML public Button rollDiceButton;
     @FXML public AnchorPane playerListPane;
     @FXML public AnchorPane boardPane;
+    @FXML public AnchorPane tremanGameAnchorPane;
 
     @FXML public ImageView topLeftDice;
     @FXML public ImageView firstDieImage = new ImageView();
@@ -56,19 +57,18 @@ public class TremanController{
 
     public TremanController(UIController parentController) {
         this.parentController = parentController;
+        //FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Treman.fxml"));
+        //fxmlLoader.setRoot(tremanGameAnchorPane);
+        //fxmlLoader.setController(this);
         model = new TremanModel();
     }
 
-
-    public TremanController(UIController hydroApplication, TremanModel currentModel) {
-        parentController = hydroApplication;
-        model = currentModel;
-    }
-
-    public void initialize() {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         populatePlayerList();
 
     }
+
 
     public void displayActionMessage() {
         actionMessageLabel.setText(model.getRule());
@@ -262,4 +262,5 @@ public class TremanController{
 
         thread.start();
     }
+
 }

@@ -25,7 +25,7 @@ public class UIController implements Initializable {
 
     @FXML public Button startCardGameButton, startDiceGameButton;  //startPage
     @FXML public Label  chooseGameLabel;
-    @FXML public AnchorPane startGameAnchorPane, diceGameAnchorPane, cardGameAnchorpane, opusGameAnchorPane, tremanGameAnchorPane, higherLowerAnchorPane;
+    @FXML public AnchorPane startGameAnchorPane, tremanGameAnchorPane, diceGameAnchorPane, cardGameAnchorpane, opusGameAnchorPane, higherLowerAnchorPane;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
