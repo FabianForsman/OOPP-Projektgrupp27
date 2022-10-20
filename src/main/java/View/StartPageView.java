@@ -8,14 +8,14 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
-public class TremanView extends AnchorPane {
+public class StartPageView extends AnchorPane {
     @FXML public AnchorPane tremanGameAnchorPane;
 
     private UIController parentController;
 
-    public TremanView(TremanController controller) {
+    public StartPageView(TremanController controller) {
         this.parentController = parentController;
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Treman.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("StartPage.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(controller);
 

@@ -1,9 +1,6 @@
 package com.example.hydrohomies;
 
-import Controllers.FTheDealer.FTheDealerController;
-import Controllers.HigherLower.HigherLowerController;
 import Controllers.Treman.TremanController;
-import Model.DiceGames.Treman.TremanModel;
 import View.TremanView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,7 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
-import javax.swing.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -27,7 +23,7 @@ public class UIController implements Initializable {
     @FXML public Button startCardGameButton, startDiceGameButton;  //startPage
     @FXML public Label  chooseGameLabel;
     @FXML public AnchorPane startPageAnchorPane, tremanGameAnchorPane, diceGameAnchorPane, cardGameAnchorpane, opusGameAnchorPane, higherLowerAnchorPane;
-    @FXML public AnchorPane parentView, lastView;
+    @FXML public AnchorPane baseAnchorpane, lastView;
 
 
     private TremanView tremanView;
@@ -35,16 +31,16 @@ public class UIController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         tremanView = new TremanView(tremanController);
-        parentView.getChildren().clear();
-        parentView.getChildren().add(startPageAnchorPane);
-        lastView = parentView;
+        baseAnchorpane.getChildren().clear();
+        baseAnchorpane.getChildren().add(startPageAnchorPane);
+        lastView = baseAnchorpane;
     }
 
     @FXML
     public void tremanToFront() {
-        parentView.toFront();
-        parentView.getChildren().add(tremanView);
-        lastView = parentView;
+        baseAnchorpane.toFront();
+        baseAnchorpane.getChildren().add(tremanView);
+        lastView = baseAnchorpane;
     }
 
 
