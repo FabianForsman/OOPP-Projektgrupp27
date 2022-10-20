@@ -57,9 +57,9 @@ public class TremanController implements Initializable{
 
     public TremanController(UIController parentController) {
         this.parentController = parentController;
-        //FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Treman.fxml"));
-        //fxmlLoader.setRoot(tremanGameAnchorPane);
-        //fxmlLoader.setController(this);
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Treman.fxml"));
+        fxmlLoader.setRoot(tremanGameAnchorPane);
+        fxmlLoader.setController(this);
         model = new TremanModel();
     }
 
@@ -243,23 +243,22 @@ public class TremanController implements Initializable{
 
 
         Thread thread = new Thread() {
-            public void run() {
+            {
                 System.out.println("Thread Running");
-                try {
-                    for (int i = 0; i < 15; i++){
-                        InputStream stream = new FileInputStream("src/main/resources/resources_img/dice/die1.png");
+                for(int i = 0; i < 15; i++){
+                    InputStream stream = null;
+                    try {
+                        stream = new FileInputStream("src/main/resources/resources_img/dice/die1.png");
                         Image image = new Image(stream);
                         diceLeftTremanImageView.setImage(image);
                         diceRightTremanImageView.setImage(image);
-                        Thread.sleep(50);
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
                     }
 
-                } catch (FileNotFoundException | InterruptedException e) {
-                    e.printStackTrace();
                 }
             }
         };
-
 
         thread.start();
     }
