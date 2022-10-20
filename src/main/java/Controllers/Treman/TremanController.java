@@ -243,22 +243,23 @@ public class TremanController implements Initializable{
 
 
         Thread thread = new Thread() {
-            {
+            public void run() {
                 System.out.println("Thread Running");
-                for(int i = 0; i < 15; i++){
-                    InputStream stream = null;
-                    try {
-                        stream = new FileInputStream("src/main/resources/resources_img/dice/die1.png");
+                try {
+                    for (int i = 0; i < 15; i++){
+                        InputStream stream = new FileInputStream("src/main/resources/resources_img/dice/die1.png");
                         Image image = new Image(stream);
                         diceLeftTremanImageView.setImage(image);
                         diceRightTremanImageView.setImage(image);
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
+                        Thread.sleep(50);
                     }
 
+                } catch (FileNotFoundException | InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
         };
+
 
         thread.start();
     }

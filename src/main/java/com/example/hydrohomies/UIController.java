@@ -38,4 +38,7 @@ public class UIController implements Initializable {
 
     @FXML
     public void roll2(ActionEvent actionEvent) { tremanController.roll2(actionEvent);}
+
+    @FXML
+    public void roll3(ActionEvent actionEvent) { tremanController.roll3(actionEvent);}
 }
