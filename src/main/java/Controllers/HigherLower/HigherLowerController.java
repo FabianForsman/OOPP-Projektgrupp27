@@ -22,6 +22,8 @@ public class HigherLowerController {
             }
         }
     }
-
+    public String getFXMLName() {
+        return "higherlower";
+    }
 
 }

@@ -20,4 +20,6 @@ module com.example.hydrohomies {
     exports Controllers.Treman;
     exports View;
     opens View to javafx.fxml;
+    exports Controllers;
+    opens Controllers to javafx.fxml;
 }

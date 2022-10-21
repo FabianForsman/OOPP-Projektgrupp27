@@ -27,39 +27,26 @@ public class TremanController{
     TremanModel model;
     TremanView view;
 
+    //public abstract void update(ArrayList<Image> fields);
     Random random = new Random();
-    private UIController parentController;
 
-    @FXML public ImageView diceTremanMenuButtonImageView;
-    @FXML public Label challengeLabel;
-    @FXML public ImageView diceRightTremanImageView;
-    @FXML public ImageView diceLeftTremanImageView;
+    private SceneHandler handler;
 
-    @FXML public ComboBox<IPlayer> playerComboBox;
-    @FXML public ListView<String> playerListView;
-    @FXML public ListView<String> selectedPlayersListView;
-
-    @FXML public Button tremanRollButton;
-    @FXML public Button challengeRollButton;
-    @FXML public Button rollDiceButton;
-    @FXML public AnchorPane playerListPane;
-    @FXML public AnchorPane boardPane;
-    @FXML public AnchorPane tremanGameAnchorPane;
-
-    @FXML public ImageView topLeftDice;
-    @FXML public ImageView firstDieImage = new ImageView();
-    @FXML public ImageView secondDieImage;
-
-    @FXML public Label actionMessageLabel;
-    @FXML public Label currentPlayerLabel;
-    @FXML public Label currentTremanLabel;
-
-    public void injectMainController(UIController mainController){
+    /*public void injectMainController(UIController mainController){
         this.parentController = mainController;
     }
 
-    public TremanController(UIController parentController) {
+    public TremanController(SceneHandler handler) {
         model = new TremanModel();
+        this.handler = handler;
+    }
+
+    public void roll(ImageView img1, ImageView img2) {
+        rollAnimation(img1, img2);
+    }
+
+    public String getFXMLName() {
+        return "treman";
     }
 
     @FXML
@@ -116,7 +103,7 @@ public class TremanController{
             String name = player.getName();
             displaySelectedPlayer(name);
             if(action.getPlayerList().size() >= 2) {
-                closePlayerListView();
+               // closePlayerListView();
             }
         }
         else if(model.getAction() instanceof NewTremanAction action) {
@@ -190,56 +177,8 @@ public class TremanController{
 
     //denna ska ske när knappen trycks så kommer skiten att ha en animation
 
-    @FXML
-    public void roll2(ActionEvent e2) {
-        System.out.println("roll2 worked");
-        for(int i = 0; i < 10; i++) {
-            InputStream stream = null;
-            try {
-                stream = new FileInputStream("src/main/resources/resources_img/dice/die1.png");
-            } catch (FileNotFoundException a) {
-                a.printStackTrace();
-            }
-            Image image = new Image(stream);
-            diceLeftTremanImageView.setImage(image);
-            diceRightTremanImageView.setImage(image);
-        }
-    }
 
-
-    @FXML public void roll(ActionEvent e) {
-
-
-        Thread thread = new Thread() {
-            {
-                System.out.println("Thread Running");
-                for(int i = 0; i < 15; i++){
-                    InputStream stream = null;
-                    try {
-                        stream = new FileInputStream("src/main/resources/resources_img/dice/die1.png");
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    }
-                    Image image = new Image(stream);
-                    diceLeftTremanImageView.setImage(image);
-                    diceRightTremanImageView.setImage(image);
-                }
-            }
-        };
-
-        thread.start();
-
-        /* när det kommer en etta eller en utmaning (två av varje tal) så kör denna*/
-        //model för när utmaning körs någon jävla om två av samma displayas kör den här koden
-        //basically en observer som signaliserar
-        //playerListView(); to front eller något samt labelen to front
-        //sen ska man initiera att det går att trycka på knapparna osv osv genom en actionevent
-
-    }
-
-    @FXML public void roll3(ActionEvent e) {
-
-
+    public void rollAnimation(ImageView img1, ImageView img2) {
         Thread thread = new Thread() {
             {
                 System.out.println("Thread Running");
