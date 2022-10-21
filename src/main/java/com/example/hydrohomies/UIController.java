@@ -1,41 +1,52 @@
 package com.example.hydrohomies;
 
-import Controllers.FTheDealer.FTheDealerController;
-import Controllers.HigherLower.HigherLowerController;
+import View.*;
 import Controllers.Treman.TremanController;
-import Model.DiceGames.Treman.TremanModel;
+import View.GameChoose;
+import View.TremanView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import org.jetbrains.annotations.NotNull;
 
-import javax.swing.*;
-import java.net.URL;
-import java.util.ResourceBundle;
+import java.io.IOException;
 
 
-public class UIController implements Initializable {
 
-    public TremanController tremanController = new TremanController(this);
+public class UIController {
+
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
     // public HigherLowerController higherLowerController = new HigherLowerController(this);
     // public FTheDealerController fTheDealerController = new FTheDealerController(this);
     // public OpusController opusController = new OpusController(this);
 
-    @FXML public Button startCardGameButton, startDiceGameButton;  //startPage
-    @FXML public Label  chooseGameLabel;
-    @FXML public AnchorPane startGameAnchorPane, diceGameAnchorPane, cardGameAnchorpane, opusGameAnchorPane, tremanGameAnchorPane, higherLowerAnchorPane;
+    @FXML private Button startGameButton;
+    @FXML private Label  chooseGameLabel;
+    @FXML private AnchorPane rootAnchorPane;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        tremanGameAnchorPane.toFront();
+    @FXML private TremanController tremanController;
+    @FXML private GameChoose gameChoose;
+
+    @FXML private void openChooseGame(@NotNull ActionEvent action) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Treman.fxml"));
+        stage = (Stage) ((Node)action.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
-    public void roll(ActionEvent actionEvent) {
-        tremanController.roll(actionEvent);
-    }
 
-    @FXML
-    public void roll2(ActionEvent actionEvent) { tremanController.roll2(actionEvent);}
+
+
 }
