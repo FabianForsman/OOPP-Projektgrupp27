@@ -23,17 +23,16 @@ public class HydroApplication extends Application {
 
         TremanController tremanC = new TremanController(sceneHandler);
         BaseLayerController baseC = new BaseLayerController(sceneHandler);
-       // UIController parentC = new UIController(sceneHandler);
-       GameChooseController gameChooseC = new GameChooseController(sceneHandler);
-       // HigherLowerController higherLowerC = new HigherLowerController(sceneHandler);
+        GameChooseController gameChooseC = new GameChooseController(sceneHandler);
+        HigherLowerController higherLowerC = new HigherLowerController(sceneHandler);
+        FTheDealerController fTheDealerC = new FTheDealerController(sceneHandler);
 
         sceneHandler.addView(ViewFactory.createTremanView(tremanC), "treman");
         sceneHandler.addView(ViewFactory.createBaseLayerView(baseC), "base-layer");
         sceneHandler.addView(ViewFactory.createGameChooseView(gameChooseC), "gamechoose");
-        //sceneHandler.addView(ViewFactory.createHigherLowerView(higerLowerC), "higherlower");
-        //sceneHandler.addView(ViewFactory.accountViewScene(gameChooseC),"choosegame");
-        //sceneHandler.addView(ViewFactory.() "higherlower");
-        //sceneHandler.addView(ViewFactory.() "fthedealer");
+        sceneHandler.addView(ViewFactory.createHigherLowerView(higherLowerC), "higherlower");
+        //sceneHandler.addView(ViewFactory.createFTheDealerView(fTheDealerC),"fthedealer");
+
         //sceneHandler.addScene(HyroSceneFactory.rentingPage(new MyListingsController(sceneHandler)), "rentingpage");
 
 

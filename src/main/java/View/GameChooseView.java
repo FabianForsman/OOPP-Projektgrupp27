@@ -22,7 +22,7 @@ public class GameChooseView extends AbstractView{
 
 
 
-    private UIController parentController;
+
     private GameChooseController gameChooseController;
     private FXMLLoader fxmlLoader;
 
@@ -36,4 +36,13 @@ public class GameChooseView extends AbstractView{
     public void switchToTreman(){
         gameChooseController.switchToTreman();
     }
+
+    @FXML
+    public void switchToOpus(){gameChooseController.switchToOpus();}
+
+    @FXML
+    public void switchToHigherLower(){gameChooseController.switchToHigherLower();}
+
+    @FXML
+    public void switchToFTheDealer(){gameChooseController.switchToFTheDealer();}
 }

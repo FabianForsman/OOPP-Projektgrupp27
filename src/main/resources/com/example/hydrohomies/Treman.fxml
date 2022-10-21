@@ -20,17 +20,22 @@
             <Font name="Comic Sans MS" size="26.0" />
          </font>
       </Button>
-      <ListView fx:id="playerListView" layoutX="461.0" layoutY="64.0" prefHeight="312.0" prefWidth="140.0" AnchorPane.bottomAnchor="100.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0" />
       <Label fx:id="challengeLabel" layoutX="461.0" layoutY="24.0" prefHeight="32.0" prefWidth="145.0" />
-      <ImageView fx:id="diceLeftTremanImageView" fitHeight="178.0" fitWidth="200.0" layoutX="55.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="diceLeftTremanImageView" fitHeight="178.0" fitWidth="200.0" layoutX="61.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../resources_img/dice/die2.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="diceRightTremanImageView" fitHeight="178.0" fitWidth="200.0" layoutX="261.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="diceRightTremanImageView" fitHeight="178.0" fitWidth="200.0" layoutX="261.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../resources_img/dice/die1.png" />
          </image>
       </ImageView>
+      <ListView fx:id="playerListView" layoutX="461.0" layoutY="64.0" prefHeight="312.0" prefWidth="140.0" AnchorPane.bottomAnchor="100.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0" />
+      <Label layoutX="141.0" layoutY="32.0" text="Current Treman:" />
+      <Label fx:id="currentTremanLabel" layoutX="255.0" layoutY="32.0" text="placeholder_name" />
+      <Label layoutX="141.0" layoutY="56.0" text="Current Player:" />
+      <Label fx:id="currentPlayerLabel" layoutX="255.0" layoutY="56.0" text="placeholder_name" />
+      <Label fx:id="actionMessageLabel" layoutX="141.0" layoutY="97.0" text="Label" />
    </children>
 </AnchorPane>

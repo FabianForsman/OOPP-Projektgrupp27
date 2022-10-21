@@ -1,14 +1,20 @@
 package Controllers.HigherLower;
 
+import Controllers.SceneHandler;
 import Model.CardGames.Cards.Card;
 import Model.CardGames.HigherLower.HigherLowerModel;
 import com.example.hydrohomies.UIController;
+import javafx.scene.Scene;
 
 import java.util.ArrayList;
 
 public class HigherLowerController {
+    private SceneHandler handler;
+    HigherLowerModel model;
 
-    public HigherLowerController(UIController parentController) {
+    public HigherLowerController(SceneHandler handler) {
+        model = new HigherLowerModel();
+        this.handler =handler;
 
     }
 

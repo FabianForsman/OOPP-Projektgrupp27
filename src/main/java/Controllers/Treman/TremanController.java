@@ -59,16 +59,8 @@ public class TremanController{
         actionMessageLabel.setText(model.getRule());
     }
 
-    public void setCurrentPlayerLabel(String name) {
-        currentPlayerLabel.setText(name);
-    }
-
-    public void setCurrentChallengedPlayerLabel(String name) {
-        // currentChallengedPlayerLabel.setText(name);
-    }
-
-    public void setCurrentTremanLabel(String name) {
-        currentTremanLabel.setText(name);
+    public void displaySelectedPlayer(String name, Label label) {
+        label.setText(name);
     }
 
     public void displaySelectedPlayer(String name) {
@@ -103,7 +95,7 @@ public class TremanController{
             String name = player.getName();
             displaySelectedPlayer(name);
             if(action.getPlayerList().size() >= 2) {
-               // closePlayerListView();
+                closePlayerListView(listView);
             }
         }
         else if(model.getAction() instanceof NewTremanAction action) {
@@ -179,25 +171,19 @@ public class TremanController{
 
 
     public void rollAnimation(ImageView img1, ImageView img2) {
-        Thread thread = new Thread() {
-            {
-                System.out.println("Thread Running");
-                for(int i = 0; i < 15; i++){
-                    InputStream stream = null;
-                    try {
-                        stream = new FileInputStream("src/main/resources/resources_img/dice/die1.png");
-                        Image image = new Image(stream);
-                        diceLeftTremanImageView.setImage(image);
-                        diceRightTremanImageView.setImage(image);
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    }
-
-                }
+        try {
+            for (int i = 0; i < 10; i++) {
+                FileInputStream stream1 = new FileInputStream("src/main/resources/resources_img/dice/die" + (random.nextInt(6) + 1) + ".png");
+                FileInputStream stream2 = new FileInputStream("src/main/resources/resources_img/dice/die" + (random.nextInt(6) + 1) + ".png");
+                Image image1 = new Image(stream1);
+                Image image2 = new Image(stream2);
+                img1.setImage(image1);
+                img2.setImage(image2);
+                Thread.sleep(20);
             }
-        };
-
-        thread.start();
+        } catch (FileNotFoundException | InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 }
