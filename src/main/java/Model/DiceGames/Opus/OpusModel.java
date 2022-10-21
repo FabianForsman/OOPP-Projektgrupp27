@@ -2,6 +2,7 @@ package Model.DiceGames.Opus;
 import Model.Audio.SongPlayer;
 import Model.DiceGames.Dice.Die;
 import Model.Game;
+import Model.Player.IPlayer;
 import Model.Player.Players;
 
 import java.util.Timer;
@@ -11,7 +12,6 @@ public class OpusModel extends Game{
     Die die = new Die();
     boolean drop = false;
     boolean running = false;
-    OpusKeyAdapter adapter = new OpusKeyAdapter();
     SongPlayer songPlayer = new SongPlayer();
 
     public OpusModel(){
@@ -35,10 +35,12 @@ public class OpusModel extends Game{
         }
     }
 
+
     public String getCurrentPlayerDrinkText() {
         return Players.getInstance().getCurrentPlayer().getName().toUpperCase() + "DRINKS THEIR ENTIRE GLASS";
 
     }
+
 
 
 
