@@ -2,6 +2,7 @@ module com.example.hydrohomies {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.desktop;
+    requires org.jetbrains.annotations;
 
 
     opens com.example.hydrohomies to javafx.fxml;
@@ -17,4 +18,6 @@ module com.example.hydrohomies {
     exports Controllers.HigherLower;
     exports Model.DiceGames.Treman.Rules;
     exports Controllers.Treman;
+    exports View;
+    opens View to javafx.fxml;
 }

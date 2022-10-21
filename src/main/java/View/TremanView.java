@@ -12,12 +12,12 @@ public class TremanView extends AnchorPane {
     @FXML public AnchorPane tremanGameAnchorPane;
 
     private UIController parentController;
-
-    public TremanView(TremanController controller) {
+    private TremanController tremanController;
+    public TremanView(UIController parentController, TremanController tremanController ) {
         this.parentController = parentController;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Treman.fxml"));
         fxmlLoader.setRoot(this);
-        fxmlLoader.setController(controller);
+        fxmlLoader.setController(tremanController);
 
         try {
             fxmlLoader.load();

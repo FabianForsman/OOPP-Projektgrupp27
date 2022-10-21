@@ -23,7 +23,7 @@ import java.util.Random;
 import java.util.ResourceBundle;
 
 
-public class TremanController implements Initializable{
+public class TremanController{
     TremanModel model;
     TremanView view;
 
@@ -31,7 +31,7 @@ public class TremanController implements Initializable{
     private UIController parentController;
 
     @FXML public ImageView diceTremanMenuButtonImageView;
-    @FXML public  Label challengeLabel;
+    @FXML public Label challengeLabel;
     @FXML public ImageView diceRightTremanImageView;
     @FXML public ImageView diceLeftTremanImageView;
 
@@ -54,13 +54,16 @@ public class TremanController implements Initializable{
     @FXML public Label currentPlayerLabel;
     @FXML public Label currentTremanLabel;
 
+    public void injectMainController(UIController mainController){
+        this.parentController = mainController;
+    }
 
     public TremanController(UIController parentController) {
         model = new TremanModel();
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    @FXML
+    public void init() {
         populatePlayerList();
     }
 
