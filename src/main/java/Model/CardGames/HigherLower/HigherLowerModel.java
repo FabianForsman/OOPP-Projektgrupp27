@@ -32,9 +32,11 @@ public class HigherLowerModel extends Game {
         }
     }
 
-    private void resetRow(int row){
-        for(Card card : startingBoard.get(row)){
-            startingBoard.get(row).remove(card);
+    public void resetRow(int row){
+        ArrayList<Card> currentRow = startingBoard.get(row);
+        while (currentRow.size() > 0){
+            deck.returnCardToDeck(currentRow.get(0));
+            currentRow.remove(0);
         }
     }
 
@@ -42,7 +44,7 @@ public class HigherLowerModel extends Game {
     public Card playerChoice(int rowIndex, Direction direction){
         ArrayList<Card> row = startingBoard.get(rowIndex);
 
-        if (direction == Direction.LEFT){
+        if (direction == Direction.RIGHT){
             return row.get(0);
 
         } else{
@@ -51,7 +53,7 @@ public class HigherLowerModel extends Game {
     }
 
 
-    private boolean checkIfHigher(int existingCardValue, int placedCardValue){
+    public boolean checkIfHigher(int existingCardValue, int placedCardValue){
         return existingCardValue < placedCardValue;
     }
 
@@ -88,10 +90,10 @@ public class HigherLowerModel extends Game {
     }
 
     public void placeCard(Card card, int rowIndex, Direction direction){
-        if(direction == Direction.LEFT) {
+        if(direction == Direction.RIGHT) {
             startingBoard.get(rowIndex).add(0, card);
         } else {
-            startingBoard.get(rowIndex).add(startingBoard.size()-1, card);
+            startingBoard.get(rowIndex).add(card);
         }
     }
 
@@ -102,6 +104,7 @@ public class HigherLowerModel extends Game {
     public ArrayList<ArrayList<Card>> getStartingBoard(){
         return  this.startingBoard;
     }
+
 
     @Override
     public void restartGame() {

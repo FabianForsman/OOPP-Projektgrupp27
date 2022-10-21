@@ -17,4 +17,5 @@ module com.example.hydrohomies {
     exports Controllers.HigherLower;
     exports Model.DiceGames.Treman.Rules;
     exports Controllers.Treman;
+    exports Model.CardGames.Cards;
 }
