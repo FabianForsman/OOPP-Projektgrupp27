@@ -10,6 +10,7 @@ import com.example.hydrohomies.HydroApplication;
 import com.example.hydrohomies.UIController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.*;
@@ -29,9 +30,8 @@ public class TremanController{
     Random random = new Random();
     private UIController parentController;
 
-    @FXML public AnchorPane tremanGameAnchorPane;
     @FXML public ImageView diceTremanMenuButtonImageView;
-    @FXML public  Label challengeLabel;
+    @FXML public Label challengeLabel;
     @FXML public ImageView diceRightTremanImageView;
     @FXML public ImageView diceLeftTremanImageView;
 
@@ -44,6 +44,7 @@ public class TremanController{
     @FXML public Button rollDiceButton;
     @FXML public AnchorPane playerListPane;
     @FXML public AnchorPane boardPane;
+    @FXML public AnchorPane tremanGameAnchorPane;
 
     @FXML public ImageView topLeftDice;
     @FXML public ImageView firstDieImage = new ImageView();
@@ -53,22 +54,19 @@ public class TremanController{
     @FXML public Label currentPlayerLabel;
     @FXML public Label currentTremanLabel;
 
+    public void injectMainController(UIController mainController){
+        this.parentController = mainController;
+    }
 
     public TremanController(UIController parentController) {
-        this.parentController = parentController;
         model = new TremanModel();
     }
 
-
-    public TremanController(UIController hydroApplication, TremanModel currentModel) {
-        parentController = hydroApplication;
-        model = currentModel;
-    }
-
-    public void initialize() {
+    @FXML
+    public void init() {
         populatePlayerList();
-
     }
+
 
     public void displayActionMessage() {
         actionMessageLabel.setText(model.getRule());
@@ -262,4 +260,5 @@ public class TremanController{
 
         thread.start();
     }
+
 }
