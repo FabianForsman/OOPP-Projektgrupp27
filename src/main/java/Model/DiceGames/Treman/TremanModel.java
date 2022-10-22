@@ -8,13 +8,11 @@ import Model.DiceGames.Treman.Rules.Treman;
 import Model.Game;
 import Model.Player.IPlayer;
 import Model.Player.Players;
-import com.example.hydrohomies.UIController;
 
 import java.util.ArrayList;
 
 
 public class TremanModel extends Game{
-    private UIController parentController;
 
     private final TremanRules rules;
     private static Dice dice;

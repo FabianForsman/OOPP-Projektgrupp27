@@ -2,8 +2,6 @@ package Controllers.FTheDealer;
 
 import Controllers.SceneHandler;
 import Model.CardGames.FTheDealer.FTheDealerModel;
-import Model.DiceGames.Treman.TremanModel;
-import com.example.hydrohomies.UIController;
 
 public class FTheDealerController {
     private SceneHandler handler;
