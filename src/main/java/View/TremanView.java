@@ -16,7 +16,6 @@ import java.util.Random;
 public class TremanView extends AbstractGameView{
 
     private TremanController controller;
-    private FXMLLoader fxmlLoader;
     Random random = new Random();
 
     @FXML public AnchorPane tremanGameAnchorPane;
@@ -58,6 +57,12 @@ public class TremanView extends AbstractGameView{
         controller.initializeListViews(playerListView, selectedPlayersListView);
         controller.displaySelectedPlayer(Players.getInstance().getCurrentPlayerName(), currentPlayerLabel);
         controller.displaySelectedPlayer(controller.getTremanName(), currentTremanLabel);
+    }
+
+    @Override
+    public void update() {
+        controller.setNormalRollingStatus();
+        controller.populatePlayerList(playerListView);
     }
 
     @FXML

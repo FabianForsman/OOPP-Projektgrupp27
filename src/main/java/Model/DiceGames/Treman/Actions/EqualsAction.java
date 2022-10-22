@@ -1,5 +1,6 @@
 package Model.DiceGames.Treman.Actions;
 
+import Model.DiceGames.Treman.TremanModel;
 import Model.Player.IPlayer;
 
 import java.util.ArrayList;

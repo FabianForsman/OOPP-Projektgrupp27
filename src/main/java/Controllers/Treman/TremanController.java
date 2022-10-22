@@ -1,9 +1,6 @@
 package Controllers.Treman;
 import Controllers.SceneHandler;
-import Model.DiceGames.Treman.Actions.ChallengeAction;
-import Model.DiceGames.Treman.Actions.EqualsAction;
-import Model.DiceGames.Treman.Actions.NewTremanAction;
-import Model.DiceGames.Treman.Actions.PassAction;
+import Model.DiceGames.Treman.Actions.*;
 import Model.DiceGames.Treman.TremanModel;
 import Model.Player.IPlayer;
 import Model.Player.Players;
@@ -13,6 +10,7 @@ import javafx.scene.image.*;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.Random;
 
 
@@ -231,7 +229,7 @@ public class TremanController{
         if(currentAction instanceof EqualsAction) {
             ((EqualsAction) currentAction).addPlayerToPlayerList(selectedPlayer);
         }
-        else if(model.getAction() instanceof NewTremanAction action) {
+        else if(currentAction instanceof NewTremanAction action) {
             action.setNewTreman(selectedPlayer);
             displaySelectedPlayer(name, currentTremanLabel);
         }*/

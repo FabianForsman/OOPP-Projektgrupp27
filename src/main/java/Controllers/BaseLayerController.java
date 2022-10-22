@@ -34,7 +34,7 @@ public class BaseLayerController {
 
 
     public void openChooseGame() {
-        handler.switchTo("GameChoose");
+        handler.switchToMenu("GameChoose");
     }
 
 
