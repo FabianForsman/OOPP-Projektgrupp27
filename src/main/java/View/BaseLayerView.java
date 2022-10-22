@@ -18,7 +18,9 @@ public class BaseLayerView extends AbstractView {
     public BaseLayerView(BaseLayerController controller) throws IOException {
         super(controller.getFXMLName());
         this.controller = controller;
-    }
+        initialize();
+        startGameButton.setVisible(false);
+        startGameButton.setDisable(true);    }
 
     private void initialize(){
         controller.initializeButtons(startGameButton);

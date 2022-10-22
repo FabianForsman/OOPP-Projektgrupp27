@@ -29,14 +29,14 @@ public class OpusTest {
     void testGiveDiceWhen6Or1IsRolled() {
         OpusModel testPanel = new OpusModel();
         Players.getInstance().setCurrentPlayer(p1);
-        testPanel.giveDice(p2, 6, 1);
+        //testPanel.giveDice(p2, 6, 1);
         assertSame(p2, Players.getInstance().getCurrentPlayer());
     }
 
     @Test
     void displayDrinkMessageAfter3Minutes45Seconds() {
         OpusModel testPanel = new OpusModel();
-        testPanel.startDropTimer();
+        //testPanel.startDropTimer();
         //assertEquals("p2 DRINKS THEIR ENTIRE GLASS",);
     }
 
@@ -53,7 +53,7 @@ public class OpusTest {
         Die die = new Die();
         die.setFaceValue(6);
         Players.getInstance().setCurrentPlayer(p1);
-        testPanel.checkOneOrSix();
+        //testPanel.checkOneOrSix();
         assertSame(p2, Players.getInstance().getCurrentPlayer());
     }
 
@@ -63,7 +63,7 @@ public class OpusTest {
         Die die = new Die();
         die.setFaceValue(1);
         Players.getInstance().setCurrentPlayer(p1);
-        testPanel.checkOneOrSix();
+        //testPanel.checkOneOrSix();
         assertSame(p2, Players.getInstance().getCurrentPlayer());
     }
 }

@@ -297,7 +297,7 @@ public class TremanController{
         }
     }
 
-    public void rollAnimation(ImageView img1, ImageView img2) {
+    public void rollaAnimation(ImageView img1, ImageView img2) {
         try {
             for (int i = 0; i < 10; i++) {
                 FileInputStream stream = new FileInputStream("src/main/resources/resources_img/dice/die" + (random.nextInt(6) + 1) + ".png");
