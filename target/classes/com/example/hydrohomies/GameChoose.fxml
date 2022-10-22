@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="gameAnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hydrohomies.GameChoose">
+   <children>
+      <Button fx:id="tremanGameStartButton" layoutX="143.0" layoutY="41.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="335.0" text="Treman">
+         <font>
+            <Font name="Comic Sans MS" size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="opusGameStartButton" layoutX="142.0" layoutY="124.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="335.0" text="Opus">
+         <font>
+            <Font name="Comic Sans MS" size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="HigherLowerstartButton" layoutX="143.0" layoutY="206.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="335.0" text="Higher Lower">
+         <font>
+            <Font name="Comic Sans MS" size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="FthedealerstartButton" layoutX="143.0" layoutY="292.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="335.0" text="F the dealer">
+         <font>
+            <Font name="Comic Sans MS" size="25.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

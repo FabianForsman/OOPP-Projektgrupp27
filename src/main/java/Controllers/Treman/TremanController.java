@@ -24,7 +24,7 @@ import java.util.ResourceBundle;
 
 
 public class TremanController{
-    TremanModel model;
+    TremanModel model = new TremanModel();
     TremanView view;
 
     Random random = new Random();
@@ -59,7 +59,7 @@ public class TremanController{
     }
 
     public TremanController(UIController parentController) {
-        model = new TremanModel();
+        //model = new TremanModel();
     }
 
     @FXML
