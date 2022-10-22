@@ -1,15 +1,20 @@
 package Controllers.FTheDealer;
 
+import Controllers.SceneHandler;
 import Model.CardGames.FTheDealer.FTheDealerModel;
 import Model.DiceGames.Treman.TremanModel;
 import com.example.hydrohomies.UIController;
 
 public class FTheDealerController {
-    UIController parentController;
+    private SceneHandler handler;
     FTheDealerModel model;
 
-    public FTheDealerController(UIController parentController) {
-        this.parentController = parentController;
+
+    public FTheDealerController(SceneHandler handler) {
         model = new FTheDealerModel();
+        this.handler = handler;
     }
+
+
+    public String getFXMLName(){return "fthedealer";}
 }
