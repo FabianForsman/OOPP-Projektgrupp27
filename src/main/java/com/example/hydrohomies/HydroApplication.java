@@ -3,15 +3,10 @@ package com.example.hydrohomies;
 import Model.Player.Player;
 import Model.Player.Players;
 import View.ViewFactory;
-import com.example.hydrohomies.SceneBuilderRunLogic.HydroHomieDataHandler;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-import java.util.Objects;
 
 public class HydroApplication extends Application {
 
