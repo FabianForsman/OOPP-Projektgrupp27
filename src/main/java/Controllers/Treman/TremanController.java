@@ -1,57 +1,60 @@
 package Controllers.Treman;
+import Controllers.SceneHandler;
 import Model.DiceGames.Treman.Actions.ChallengeAction;
 import Model.DiceGames.Treman.Actions.EqualsAction;
 import Model.DiceGames.Treman.Actions.NewTremanAction;
+import Model.DiceGames.Treman.Actions.PassAction;
 import Model.DiceGames.Treman.TremanModel;
 import Model.Player.IPlayer;
 import Model.Player.Players;
-import View.TremanView;
-import com.example.hydrohomies.HydroApplication;
-import com.example.hydrohomies.UIController;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.*;
-import javafx.scene.layout.AnchorPane;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
-import java.net.URL;
 import java.util.Random;
-import java.util.ResourceBundle;
 
 
 public class TremanController{
+    private Label currentTremanLabel;
+    private Label currentPlayerLabel;
+    private Label actionMessageLabel;
+
     TremanModel model;
-    TremanView view;
 
     //public abstract void update(ArrayList<Image> fields);
     Random random = new Random();
 
-    private SceneHandler handler;
+    private final SceneHandler handler;
 
     /*public void injectMainController(UIController mainController){
         this.parentController = mainController;
-    }
+    }*/
 
     public TremanController(SceneHandler handler) {
         model = new TremanModel();
         this.handler = handler;
     }
 
+    public String getTremanName() {
+        return model.getTremanName();
+    }
+
+    public void initializeLabels(Label currentTremanLabel, Label currentPlayerLabel, Label actionMessageLabel) {
+        this.currentTremanLabel = currentTremanLabel;
+        this.currentPlayerLabel = currentPlayerLabel;
+        this.actionMessageLabel = actionMessageLabel;
+    }
+
     public void roll(ImageView img1, ImageView img2) {
         rollAnimation(img1, img2);
+        rollDice();
+        displayActionMessage();
     }
 
     public String getFXMLName() {
         return "treman";
-    }
-
-    @FXML
-    public void init() {
-        populatePlayerList();
     }
 
 
@@ -63,63 +66,66 @@ public class TremanController{
         label.setText(name);
     }
 
-    public void displaySelectedPlayer(String name) {
-        selectedPlayersListView.getItems().add(name);
-        selectedPlayersListView.setVisible(true);
+    public void displaySelectedPlayer(String name, ListView<String> playersListView) {
+        playersListView.getItems().add(name);
+
     }
 
-    public void removeSelectedPlayers() {
+    public void removeSelectedPlayers(ListView selectedPlayersListView) {
         selectedPlayersListView.getItems().clear();
         selectedPlayersListView.setVisible(false);
     }
 
-    @FXML //For roll-button for the challenged player.
-    public void displayChallengeButton() {
+    //For roll-button for the challenged player.
+    public void displayChallengeButton(Button challengeRollButton) {
+        challengeRollButton.setDisable(false);
         challengeRollButton.setVisible(true);
     }
 
-    public void removeChallengeButton() {
+    public void removeChallengeButton(Button challengeRollButton) {
+        challengeRollButton.setDisable(true);
         challengeRollButton.setVisible(false);
     }
 
-    @FXML //Select multiple players in playerComboBox
-    public void selectPlayer(IPlayer player) {
+    //Select multiple players in playerComboBox
+    public void selectPlayer(ListView<String> listView) {
+        String name = listView.getSelectionModel().getSelectedItem();
+        IPlayer selectedPlayer = Players.getInstance().getPlayer(name);
+
         if(model.getAction() instanceof ChallengeAction action) {
-            action.setChallengedPlayer(player);
-            String name = action.getChallengedPlayer().getName();
-            displaySelectedPlayer(name);
-            closePlayerListView();
+            action.setChallengedPlayer(selectedPlayer);
+            displaySelectedPlayer(name, listView);
+            closePlayerListView(listView);
         }
         else if(model.getAction() instanceof EqualsAction action) {
-            action.addPlayerToPlayerList(player);
-            String name = player.getName();
-            displaySelectedPlayer(name);
+            action.addPlayerToPlayerList(selectedPlayer);
+            displaySelectedPlayer(name, currentTremanLabel);
             if(action.getPlayerList().size() >= 2) {
                 closePlayerListView(listView);
             }
         }
         else if(model.getAction() instanceof NewTremanAction action) {
-            action.setNewTreman(player);
-            String name = model.getTreman().getName();
-            setCurrentTremanLabel(name);
+            action.setNewTreman(selectedPlayer);
+            displaySelectedPlayer(name, currentTremanLabel);
+        }
+        else if(model.getAction() instanceof PassAction action) {
+            displaySelectedPlayer(name, currentPlayerLabel);
         }
     }
 
-    @FXML //For rollDiceButton
+    //For rollDiceButton
     public void rollDice() {
         model.getDice().rollAllDice();
-        displayActionMessage();
-        removeSelectedPlayers();
+        //removeSelectedPlayers();
     }
 
-    @FXML // For challengeButton
+    // For challengeButton
     public void rollDie(int i) {
         model.getDice().rollDie(model.getDie(i));
     }
 
 
-    @FXML // Setting the correct image for the first die based on roll
-    public void setFirstDieImage(){
+    public void setFirstDieImage(ImageView dieImage){
         model.getDie(1).updateCurrentImagePath();
         InputStream stream = null;
         try {
@@ -128,13 +134,13 @@ public class TremanController{
             e.printStackTrace();
         }
         Image image = new Image(stream);
-        firstDieImage.setImage(image);
+        dieImage.setImage(image);
 
     }
 
 
-    @FXML // Setting the correct image for the second die based on roll
-    public void setSecondDieImage(){
+    // Setting the correct image for the second die based on roll
+    public void setSecondDieImage(ImageView dieImage){
         model.getDie(2).updateCurrentImagePath();
         InputStream stream = null;
         try {
@@ -143,26 +149,26 @@ public class TremanController{
             e.printStackTrace();
         }
         Image image = new Image(stream);
-        secondDieImage.setImage(image);
+        dieImage.setImage(image);
     }
 
-    @FXML // Opens the window with the player list
-    public void openPlayerListView(){
-        playerListPane.toFront();
+    // Opens the window with the player list
+    public void openPlayerListView(ListView<String> listview){
+        listview.setDisable(false);
+        listview.setVisible(true);
     }
 
-    @FXML // Closes the window with the player list
-    public void closePlayerListView(){
-        boardPane.toFront();
+    // Removes the list of players
+    public void closePlayerListView(ListView<String> listView) {
+        listView.setDisable(true);
+        listView.setVisible(false);
     }
 
-    public void populatePlayerList(){
-        playerComboBox.getItems().clear();
+    public void populatePlayerList(ListView<String> listView){
+        listView.getItems().clear();
         for(IPlayer player : Players.getInstance().getPlayersList()) {
-            playerComboBox.getItems().add(player);
+            listView.getItems().add(player.getName());
         }
-
-
     }
 
     //action performed saker

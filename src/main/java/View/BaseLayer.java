@@ -1,16 +1,13 @@
 package View;
 
-import com.example.hydrohomies.UIController;
+import Controllers.BaseLayerController;
+import Model.Player.IPlayer;
+import Model.Player.Players;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
-import org.jetbrains.annotations.NotNull;
+
 
 import java.awt.*;
 import java.io.IOException;
@@ -18,6 +15,10 @@ import java.io.IOException;
 public class BaseLayer extends AbstractView {
 
     BaseLayerController controller;
+    Players playerlist;
+
+    @FXML
+    ListView playerListView;
 
     public BaseLayer(BaseLayerController controller) throws IOException {
         super(controller.getFXMLName());
@@ -29,6 +30,17 @@ public class BaseLayer extends AbstractView {
     public void openChooseGame(){
         controller.openChooseGame();
     }
+
+    @FXML private void addPlayer(ActionEvent e, IPlayer player) {
+        //controller.addPlayer(player);
+    }
+
+    private void updatePlayerList() {
+
+    }
+
+
+
 
 
 }

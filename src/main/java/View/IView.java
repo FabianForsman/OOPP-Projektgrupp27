@@ -1,5 +1,7 @@
 package View;
 
+import javafx.scene.Scene;
+
 public interface IView {
-    void update();
+    Scene getHydroScene();
 }

@@ -1,10 +1,12 @@
 package Model.Player;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 
 public class Players {
     ArrayList<IPlayer> players;
+    private HashMap<String, IPlayer> playerMap;
     IPlayer currentPlayer;
     Random random = new Random();
 
@@ -12,6 +14,7 @@ public class Players {
 
     private Players() {
         players = new ArrayList<>();
+        playerMap = new HashMap<>();
     }
 
     public static Players getInstance() {
@@ -22,8 +25,14 @@ public class Players {
     }
 
     public void addPlayer(IPlayer player) {
-        if (players.size() < 5)
+        if (players.size() < 5) {
             this.players.add(player);
+            this.playerMap.put(player.getName(), player);
+        }
+    }
+
+    public HashMap<String, IPlayer> getPlayerMap(){
+        return this.playerMap;
     }
 
     public void removePlayer(IPlayer player) {
@@ -59,6 +68,10 @@ public class Players {
 
     public IPlayer getPlayer(int i) {
         return players.get(i);
+    }
+
+    public IPlayer getPlayer(String name) {
+        return playerMap.get(name);
     }
 
     public void setCurrentPlayer(IPlayer player) {
