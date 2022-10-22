@@ -1,12 +1,15 @@
 package Controllers;
 
-import Model.DiceGames.Treman.TremanModel;
-import javafx.fxml.FXML;
+import Model.Player.IPlayer;
+import Model.Player.Player;
+import Model.Player.Players;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+
+import java.awt.event.ActionEvent;
 
 public class BaseLayerController {
     SceneHandler handler;
