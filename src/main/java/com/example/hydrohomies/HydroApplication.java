@@ -31,7 +31,7 @@ public class HydroApplication extends Application {
         sceneHandler.addView(ViewFactory.createBaseLayerView(baseC), "base-layer");
         sceneHandler.addView(ViewFactory.createGameChooseView(gameChooseC), "gamechoose");
         sceneHandler.addView(ViewFactory.createHigherLowerView(higherLowerC), "higherlower");
-        //sceneHandler.addView(ViewFactory.createFTheDealerView(fTheDealerC),"fthedealer");
+        sceneHandler.addView(ViewFactory.createFTheDealerView(fTheDealerC),"fthedealer");
 
         //sceneHandler.addScene(HyroSceneFactory.rentingPage(new MyListingsController(sceneHandler)), "rentingpage");
 
