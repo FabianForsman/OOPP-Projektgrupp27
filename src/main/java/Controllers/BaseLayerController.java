@@ -11,16 +11,21 @@ import javafx.scene.layout.AnchorPane;
 public class BaseLayerController {
     SceneHandler handler;
 
-    @FXML private Button startGameButton, addButton, removeButton;
-    @FXML private Label chooseGameLabel;
-    @FXML private AnchorPane rootAnchorPane;
-    @FXML private TextField playerNameTextField;
-    @FXML private ListView playerListView;
+    private Button addButton, removeButton;
+    private Label chooseGameLabel;
+    private AnchorPane rootAnchorPane;
+    private TextField playerNameTextField;
+    private ListView playerListView;
 
+    private Button startGameButton;
 
 
     public BaseLayerController(SceneHandler handler) {
         this.handler = handler;
+    }
+
+    public void initializeButtons(Button startGameButton) {
+        this.startGameButton = startGameButton;
     }
 
     public String getFXMLName() {
@@ -31,5 +36,40 @@ public class BaseLayerController {
     public void openChooseGame() {
         handler.switchTo("GameChoose");
     }
+
+
+    public void addPlayer(ListView<String> playerListView, TextField playerName){
+        String name = playerName.getText();
+        int playerListSize = Players.getInstance().getListSize();
+        if(name.equals("")) {
+            playerName.setText("Enter a name!");
+        } else if (playerListSize < 8){
+            if(!playerListView.getItems().contains(name)){
+                playerListView.getItems().add(name);
+                Players.getInstance().addPlayer(new Player(name));
+            } else {
+                playerName.setText("Player already exists, try again");
+            }
+        }
+    }
+
+    public void removeSelectedPlayer(ListView<String> playerListView){
+        String playerName = playerListView.getSelectionModel().getSelectedItem();
+        IPlayer selectedPlayer = Players.getInstance().getPlayer(playerName);
+        playerListView.getItems().remove(playerName);
+
+        Players.getInstance().removePlayer(selectedPlayer);
+    }
+
+
+
+    public void checkIfPlayerAmountAllowed(){
+        int playerListSize = Players.getInstance().getListSize();
+        if(playerListSize > 1){
+            startGameButton.setVisible(true);
+            startGameButton.setDisable(false);
+        }
+    }
+
 
 }

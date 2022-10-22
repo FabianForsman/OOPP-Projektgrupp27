@@ -41,7 +41,7 @@ public class HydroApplication extends Application {
 
 
         //gitblame
-        sceneHandler.switchTo("base-layer");
+        sceneHandler.switchToMenu("base-layer");
 
     }
     public static FXMLLoader loadFXML(String fxml) {

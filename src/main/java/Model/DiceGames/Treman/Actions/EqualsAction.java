@@ -23,4 +23,12 @@ public class EqualsAction implements IAction {
     public String getRuleString() {
         return "Choose 2 players to give the dice to.";
     }
+
+    public String getResult(int diceValue){
+        if(playerList.get(0) != playerList.get(1)){
+             return playerList.get(0).getName() + " and " + playerList.get(1).getName() + " drink " + diceValue;
+        } else {
+            return playerList.get(0).getName() + " drinks " + diceValue*2;
+        }
+    }
 }

@@ -17,8 +17,8 @@ public class ChallengeAction implements IAction {
         return challengedPlayer;
     }
 
-    public String getDrinkingCalculation(Dice dice) {
-        int nrOfDrinks = dice.getDieValue(0) - dice.getDieValue(1);
+    public String getDrinkingCalculation(int val1, int val2) {
+        int nrOfDrinks = val2 - val1;
         if (nrOfDrinks > 0) {
             return challengedPlayer.getName() + " takes " + nrOfDrinks;
         } else if (nrOfDrinks < 0) {

@@ -7,7 +7,7 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
-public class FTheDealerView extends AbstractView {
+public class FTheDealerView extends AbstractGameView {
     private FTheDealerController controller;
     private FXMLLoader fxmlLoader;
 
@@ -16,5 +16,10 @@ public class FTheDealerView extends AbstractView {
     public FTheDealerView(FTheDealerController controller) throws IOException {
         super(controller.getFXMLName());
         this.controller = controller;
+    }
+
+    @Override
+    public void update() {
+
     }
 }

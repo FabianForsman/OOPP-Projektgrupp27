@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootAnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hydrohomies.HydroApplication">
+<AnchorPane fx:id="rootAnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label fx:id="chooseGameLabel" alignment="CENTER" layoutX="175.0" layoutY="35.0" prefHeight="69.0" prefWidth="250.0" text="Choose Game" textAlignment="JUSTIFY">
          <font>
@@ -19,8 +19,8 @@
             <Font name="Consolas" size="20.0" />
          </font>
       </Label>
-      <Button fx:id="addButton" layoutX="452.0" layoutY="126.0" mnemonicParsing="false" text="ADD" />
-      <Button fx:id="removeButton" layoutX="445.0" layoutY="188.0" mnemonicParsing="false" text="REMOVE" />
+      <Button fx:id="addButton" layoutX="452.0" layoutY="126.0" mnemonicParsing="false" onAction="#addPlayer" text="ADD" />
+      <Button fx:id="removeButton" layoutX="445.0" layoutY="188.0" mnemonicParsing="false" onAction="#removePlayer" text="REMOVE" />
       <ListView fx:id="playerListView" layoutX="175.0" layoutY="161.0" prefHeight="182.0" prefWidth="250.0" />
       <TextField fx:id="playerNameTextField" layoutX="175.0" layoutY="126.0" prefHeight="25.0" prefWidth="250.0" />
       <Button fx:id="startGameButton" layoutX="159.0" layoutY="343.0" mnemonicParsing="false" onAction="#openChooseGame" pickOnBounds="false" prefHeight="46.0" prefWidth="294.0" style="-fx-background-radius: 100;" stylesheets="@button-css.css" text="CHOOSE GAMES" />

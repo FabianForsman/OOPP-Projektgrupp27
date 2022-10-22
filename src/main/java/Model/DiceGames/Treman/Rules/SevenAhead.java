@@ -15,7 +15,7 @@ public class SevenAhead implements IRulesChain {
     @Override
     public IAction getRule(int a, int b) {
         if (a + b == 7) {
-            return new NoAction("Seven ahead! Person in front of you takes one.");
+            return new NoAction("Seven ahead! The next person takes one.");
         }
         return this.chain.getRule(a, b);
     }

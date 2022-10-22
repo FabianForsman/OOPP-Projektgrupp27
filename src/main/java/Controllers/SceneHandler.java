@@ -1,5 +1,6 @@
 package Controllers;
 
+import View.AbstractGameView;
 import View.AbstractView;
 import View.IView;
 import javafx.stage.Stage;
@@ -15,9 +16,15 @@ public class SceneHandler {
         root = stage;
     }
 
-    public void switchTo(String newViewName) {
+    public void switchToMenu(String newViewName) {
         AbstractView newScene = views.get(newViewName.toLowerCase());
         switchScene(newScene);
+    }
+
+    public void switchToGame(String newViewName) {
+        AbstractGameView newScene = (AbstractGameView) views.get(newViewName.toLowerCase());
+        switchScene(newScene);
+        newScene.update();
     }
 
     public void switchScene(AbstractView view){

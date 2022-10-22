@@ -11,8 +11,6 @@ public abstract class AbstractView extends AnchorPane implements IView {
 
     final Scene scene;
 
-
-
     protected AbstractView(String fxmlName) throws IOException {
         FXMLLoader loader = HydroApplication.loadFXML(fxmlName);
         loader.setController(this);

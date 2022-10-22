@@ -7,11 +7,14 @@ public class PassAction implements IAction{
 
     public PassAction(String reasonForPassing) {
         returnString = reasonForPassing;
-        Players.getInstance().passTurnLeft();
     }
 
     @Override
     public String getRuleString() {
         return returnString;
+    }
+
+    public void passTurn() {
+        Players.getInstance().passTurnLeft();
     }
 }

@@ -31,28 +31,25 @@ public class Players {
         }
     }
 
-    public HashMap<String, IPlayer> getPlayerMap(){
-        return this.playerMap;
-    }
-
     public void removePlayer(IPlayer player) {
         if (players.size() > 0)
             this.players.remove(player);
     }
 
     public void passTurnRight() {
-        int index = getPlayerIndex(getCurrentPlayer());
+        int index = getPlayerIndex(currentPlayer);
         IPlayer nextPlayer = getPlayer((index + 1) % getListSize());
         setCurrentPlayer(nextPlayer);
     }
 
     public void passTurnLeft() {
-        int index = getPlayerIndex(getCurrentPlayer());
+        int index = getPlayerIndex(currentPlayer);
         if (index == 0) {
             setCurrentPlayer(getPlayer(getListSize() - 1));
         } else {
             setCurrentPlayer(getPlayer(index - 1));
         }
+        System.out.println("passed to:"+currentPlayer.getName());
     }
 
     public void setRandomCurrentPlayer() {
