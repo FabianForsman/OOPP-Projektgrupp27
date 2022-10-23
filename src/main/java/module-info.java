@@ -2,7 +2,7 @@ module com.example.hydrohomies {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.desktop;
-    requires org.jetbrains.annotations;
+    //requires org.jetbrains.annotations;
 
 
     opens com.example.hydrohomies to javafx.fxml;

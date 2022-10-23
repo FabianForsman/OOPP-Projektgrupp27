@@ -13,6 +13,8 @@ public class OpusModel extends Game{
     boolean drop = false;
     boolean running = false;
     SongPlayer songPlayer = new SongPlayer();
+    IPlayer opusCurrentPlayer;
+
 
     public OpusModel(){
         super();
@@ -20,8 +22,23 @@ public class OpusModel extends Game{
 
     public boolean checkIfOneSixFirstTry(int faceValue, int numberOfRolls) {
         if (numberOfRolls == 1 && (faceValue == 1 || faceValue == 6)){
+            return true;
         }
-        return true;
+        else
+            return false;
+    }
+
+    public void setOpusCurrentPlayer(IPlayer player){
+        opusCurrentPlayer = player;
+
+    }
+
+    public IPlayer getOpusCurrentPlayer(){
+        return opusCurrentPlayer;
+    }
+
+    public String getOpusCurrentPlayerName(){
+        return opusCurrentPlayer.getName();
     }
 
 

@@ -1,5 +1,11 @@
 package com.example.hydrohomies;
 
+import Controllers.BaseLayerController;
+import Controllers.FTheDealer.FTheDealerController;
+import Controllers.GameChooseController;
+import Controllers.HigherLower.HigherLowerController;
+import Controllers.SceneHandler;
+import Controllers.Treman.TremanController;
 import Model.Player.Player;
 import Model.Player.Players;
 import View.ViewFactory;
@@ -14,6 +20,9 @@ import javafx.stage.Stage;
 import java.util.Objects;
 
 public class HydroApplication extends Application {
+
+
+    SceneHandler sceneHandler;
 
     @Override
     public void start(Stage stage) throws Exception{

@@ -9,7 +9,6 @@ import Model.Game;
 import Model.Player.IPlayer;
 import Model.Player.Players;
 import com.example.hydrohomies.UIController;
-import javafx.fxml.FXMLLoader;
 
 import java.util.ArrayList;
 
@@ -38,6 +37,10 @@ public class TremanModel extends Game{
 
     public IPlayer getTreman() {
         return treman;
+    }
+
+    public String getTremanName() {
+        return treman.getName();
     }
 
     public String getRule() {

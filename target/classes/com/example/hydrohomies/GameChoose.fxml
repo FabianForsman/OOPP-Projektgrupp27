@@ -5,9 +5,9 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane fx:id="gameAnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hydrohomies.GameChoose">
+<AnchorPane fx:id="gameAnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button fx:id="tremanGameStartButton" layoutX="143.0" layoutY="41.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="335.0" text="Treman">
+      <Button fx:id="tremanGameStartButton" layoutX="143.0" layoutY="41.0" mnemonicParsing="false" onAction="#switchToTreman" prefHeight="63.0" prefWidth="335.0" text="Treman">
          <font>
             <Font name="Comic Sans MS" size="25.0" />
          </font>
