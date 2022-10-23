@@ -1,7 +1,6 @@
 package View;
 
-import Controllers.HigherLower.HigherLowerController;
-import Controllers.SceneHandler;
+import Controllers.HigherLowerController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;

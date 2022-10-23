@@ -13,11 +13,11 @@ module com.example.hydrohomies {
     exports Model.DiceGames.Opus;
     exports Model.DiceGames.Treman;
     exports Model.DiceGames.Dice;
+    exports Model.CardGames.Cards;
+    exports Model.CardGames.FTheDealer;
     opens Model.DiceGames.Opus to javafx.fxml;
     exports Model;
-    exports Controllers.HigherLower;
     exports Model.DiceGames.Treman.Rules;
-    exports Controllers.Treman;
     exports View;
     opens View to javafx.fxml;
     exports Controllers;

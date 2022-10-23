@@ -1,5 +1,6 @@
 package Controllers;
 
+import Model.Game;
 import Model.Player.IPlayer;
 import Model.Player.Player;
 import Model.Player.Players;
@@ -11,7 +12,7 @@ import javafx.scene.layout.AnchorPane;
 
 import java.awt.event.ActionEvent;
 
-public class BaseLayerController {
+public class BaseLayerController implements IController {
     SceneHandler handler;
 
     private Button addButton, removeButton;
@@ -31,6 +32,7 @@ public class BaseLayerController {
         this.startGameButton = startGameButton;
     }
 
+    @Override
     public String getFXMLName() {
         return "base-layer";
     }
@@ -46,7 +48,7 @@ public class BaseLayerController {
         int playerListSize = Players.getInstance().getListSize();
         if(name.equals("")) {
             playerName.setText("Enter a name!");
-        } else if (playerListSize < 8){
+        } else if (playerListSize < Game.getMaxPlayers()){
             if(!playerListView.getItems().contains(name)){
                 playerListView.getItems().add(name);
                 Players.getInstance().addPlayer(new Player(name));
@@ -68,7 +70,7 @@ public class BaseLayerController {
 
     public void checkIfPlayerAmountAllowed(){
         int playerListSize = Players.getInstance().getListSize();
-        if(playerListSize > 1){
+        if(playerListSize >= Game.getMinPlayers()){
             startGameButton.setVisible(true);
             startGameButton.setDisable(false);
         }

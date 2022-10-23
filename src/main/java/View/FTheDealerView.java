@@ -1,6 +1,6 @@
 package View;
 
-import Controllers.FTheDealer.FTheDealerController;
+import Controllers.FTheDealerController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;

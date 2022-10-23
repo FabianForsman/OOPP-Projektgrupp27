@@ -2,7 +2,6 @@ package Controllers;
 
 import View.AbstractGameView;
 import View.AbstractView;
-import View.IView;
 import javafx.stage.Stage;
 
 import java.util.HashMap;

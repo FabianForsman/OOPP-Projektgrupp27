@@ -1,10 +1,6 @@
 package View;
 
-import Controllers.BaseLayerController;
-import Controllers.FTheDealer.FTheDealerController;
-import Controllers.GameChooseController;
-import Controllers.HigherLower.HigherLowerController;
-import Controllers.Treman.TremanController;
+import Controllers.*;
 
 import java.io.IOException;
 
@@ -30,6 +26,8 @@ public class ViewFactory {
         return new FTheDealerView(controller);
     }
 
-
+    public static OpusView createOpusView(OpusController controller) throws IOException {
+        return new OpusView(controller);
+    }
 
 }

@@ -2,7 +2,7 @@ package Controllers;
 
 import Model.DiceGames.Opus.OpusModel;
 
-public class OpusController {
+public class OpusController implements IController{
 
 
     private SceneHandler handler;
@@ -19,6 +19,8 @@ public class OpusController {
     }
 
 
-
-
+    @Override
+    public String getFXMLName() {
+        return null;
+    }
 }

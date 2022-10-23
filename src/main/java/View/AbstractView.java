@@ -7,9 +7,9 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
-public abstract class AbstractView extends AnchorPane implements IView {
+public abstract class AbstractView extends AnchorPane {
 
-    final Scene scene;
+    private final Scene scene;
 
     protected AbstractView(String fxmlName) throws IOException {
         FXMLLoader loader = HydroApplication.loadFXML(fxmlName);
@@ -18,7 +18,6 @@ public abstract class AbstractView extends AnchorPane implements IView {
         this.scene = new Scene(root);
     }
 
-    @Override
     public Scene getHydroScene() {
         return this.scene;
     }

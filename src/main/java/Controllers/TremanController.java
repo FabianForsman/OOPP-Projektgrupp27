@@ -1,4 +1,4 @@
-package Controllers.Treman;
+package Controllers;
 import Controllers.SceneHandler;
 import Model.DiceGames.Treman.Actions.*;
 import Model.DiceGames.Treman.TremanModel;
@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Random;
 
 
-public class TremanController{
+public class TremanController implements IController{
     private Label currentTremanLabel;
     private Label currentPlayerLabel;
     private Label actionMessageLabel;
@@ -33,9 +33,9 @@ public class TremanController{
     TremanModel model;
 
     //public abstract void update(ArrayList<Image> fields);
-    Random random = new Random();
+    private Random random = new Random();
 
-    private final SceneHandler handler;
+    SceneHandler handler;
 
     /*public void injectMainController(UIController mainController){
         this.parentController = mainController;
@@ -96,6 +96,7 @@ public class TremanController{
         model.getDice().rollDie(model.getDie(i));
     }
 
+    @Override
     public String getFXMLName() {
         return "treman";
     }
