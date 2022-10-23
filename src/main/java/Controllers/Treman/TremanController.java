@@ -9,6 +9,7 @@ import Model.Player.IPlayer;
 import Model.Player.Players;
 import javafx.scene.control.*;
 import javafx.scene.image.*;
+import javafx.util.Duration;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -56,7 +57,6 @@ public class TremanController{
     public String getFXMLName() {
         return "treman";
     }
-
 
     public void displayActionMessage() {
         actionMessageLabel.setText(model.getRule());
@@ -109,7 +109,8 @@ public class TremanController{
             displaySelectedPlayer(name, currentTremanLabel);
         }
         else if(model.getAction() instanceof PassAction action) {
-            displaySelectedPlayer(name, currentPlayerLabel);
+            System.out.println("next player");
+            displaySelectedPlayer(Players.getInstance().getCurrentPlayerName(), currentPlayerLabel);
         }
     }
 
@@ -126,7 +127,7 @@ public class TremanController{
 
 
     public void setFirstDieImage(ImageView dieImage){
-        model.getDie(1).updateCurrentImagePath();
+        model.getDie(0).updateCurrentImagePath();
         InputStream stream = null;
         try {
             stream = new FileInputStream(model.getDie(0).getCurrentImagePath());
@@ -141,7 +142,7 @@ public class TremanController{
 
     // Setting the correct image for the second die based on roll
     public void setSecondDieImage(ImageView dieImage){
-        model.getDie(2).updateCurrentImagePath();
+        model.getDie(1).updateCurrentImagePath();
         InputStream stream = null;
         try {
             stream = new FileInputStream(model.getDie(1).getCurrentImagePath());
@@ -185,9 +186,8 @@ public class TremanController{
                 Image image2 = new Image(stream2);
                 img1.setImage(image1);
                 img2.setImage(image2);
-                Thread.sleep(20);
             }
-        } catch (FileNotFoundException | InterruptedException e) {
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
