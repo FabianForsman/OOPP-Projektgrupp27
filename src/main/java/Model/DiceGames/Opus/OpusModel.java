@@ -1,5 +1,5 @@
 package Model.DiceGames.Opus;
-import Model.Audio.SongPlayer;
+//import Model.Audio.SongPlayer;
 import Model.DiceGames.Dice.Die;
 import Model.Game;
 import Model.Player.IPlayer;
@@ -12,7 +12,7 @@ public class OpusModel extends Game{
     Die die = new Die();
     boolean drop = false;
     boolean running = false;
-    SongPlayer songPlayer = new SongPlayer();
+    //SongPlayer songPlayer = new SongPlayer();
     IPlayer opusCurrentPlayer;
 
 
@@ -22,23 +22,8 @@ public class OpusModel extends Game{
 
     public boolean checkIfOneSixFirstTry(int faceValue, int numberOfRolls) {
         if (numberOfRolls == 1 && (faceValue == 1 || faceValue == 6)){
-            return true;
         }
-        else
-            return false;
-    }
-
-    public void setOpusCurrentPlayer(IPlayer player){
-        opusCurrentPlayer = player;
-
-    }
-
-    public IPlayer getOpusCurrentPlayer(){
-        return opusCurrentPlayer;
-    }
-
-    public String getOpusCurrentPlayerName(){
-        return opusCurrentPlayer.getName();
+        return true;
     }
 
 
@@ -60,12 +45,6 @@ public class OpusModel extends Game{
 
 
 
-
-    @Override
-    public void nextTurn() {
-
-    }
-
     @Override
     public void restartGame() {
 
@@ -75,15 +54,6 @@ public class OpusModel extends Game{
     @Override
     public void quitGame() {
 
-
     }
-    @Override
-    public void startGame() {
-
-    }
-    @Override
-    public void startRound() {
-    }
-
 
 }

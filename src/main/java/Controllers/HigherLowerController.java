@@ -1,33 +1,31 @@
-package Controllers.HigherLower;
+package Controllers;
 
 import Controllers.SceneHandler;
 import Model.CardGames.Cards.Card;
 import Model.CardGames.HigherLower.HigherLowerModel;
-import com.example.hydrohomies.UIController;
-import javafx.scene.Scene;
 
 import java.util.ArrayList;
 
-public class HigherLowerController {
+public class HigherLowerController implements IController {
     private SceneHandler handler;
     HigherLowerModel model;
 
     public HigherLowerController(SceneHandler handler) {
         model = new HigherLowerModel();
-        this.handler =handler;
+        this.handler = handler;
 
     }
 
-    private HigherLowerModel game = new HigherLowerModel();
-
 
     public void showStartingBoard() {
-        for (ArrayList<Card> row : game.getStartingBoard()) {
+        for (ArrayList<Card> row : model.getStartingBoard()) {
             for (Card card : row) {
                 System.out.println(card.getRankValue());
             }
         }
     }
+
+    @Override
     public String getFXMLName() {
         return "higherlower";
     }

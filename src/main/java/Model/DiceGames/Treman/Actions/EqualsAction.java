@@ -1,5 +1,6 @@
 package Model.DiceGames.Treman.Actions;
 
+import Model.DiceGames.Treman.TremanModel;
 import Model.Player.IPlayer;
 
 import java.util.ArrayList;
@@ -22,5 +23,13 @@ public class EqualsAction implements IAction {
     @Override
     public String getRuleString() {
         return "Choose 2 players to give the dice to.";
+    }
+
+    public String getResult(int diceValue){
+        if(playerList.get(0) != playerList.get(1)){
+             return playerList.get(0).getName() + " and " + playerList.get(1).getName() + " drink " + diceValue;
+        } else {
+            return playerList.get(0).getName() + " drinks " + diceValue*2;
+        }
     }
 }

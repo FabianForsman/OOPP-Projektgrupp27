@@ -36,7 +36,6 @@ public class Dice {
     public void rollAllDice() {
         for(Die die : dice) {
             die.rollDie();
-            System.out.println(die.getVal());
         }
     }
 

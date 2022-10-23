@@ -8,13 +8,11 @@ import Model.DiceGames.Treman.Rules.Treman;
 import Model.Game;
 import Model.Player.IPlayer;
 import Model.Player.Players;
-import com.example.hydrohomies.UIController;
 
 import java.util.ArrayList;
 
 
 public class TremanModel extends Game{
-    private UIController parentController;
 
     private final TremanRules rules;
     private static Dice dice;
@@ -27,15 +25,13 @@ public class TremanModel extends Game{
         rules = new TremanRules();
         treman = Players.getInstance().getRandomPlayer();
         Players.getInstance().setRandomCurrentPlayer();
-
-
     }
 
     public static void setNewTreman(IPlayer player) {
         treman = player;
     }
 
-    public IPlayer getTreman() {
+    public static IPlayer getTreman() {
         return treman;
     }
 
@@ -54,7 +50,7 @@ public class TremanModel extends Game{
         IAction tremanAction = Treman.checkIfTreman(a, b);
         String tremanString = tremanAction.getRuleString();
 
-        IAction rule  = rules.r1.getRule(a, b); // Should return an action and string, an object with both.
+        IAction rule  = rules.r1.getRule(a, b); // Should return an action which contains a string, an object with both.
         String combinedString = tremanAction.getRuleString() + " " + rule.getRuleString();
 
         boolean treman = !tremanString.equals("");
@@ -87,10 +83,6 @@ public class TremanModel extends Game{
         return dice.getDiceValues();
     }
 
-    @Override
-    public void nextTurn() {
-
-    }
 
     @Override
     public void restartGame() {
@@ -99,16 +91,6 @@ public class TremanModel extends Game{
 
     @Override
     public void quitGame() {
-
-    }
-
-    @Override
-    public void startGame() {
-
-    }
-
-    @Override
-    public void startRound() {
 
     }
 }

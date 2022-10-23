@@ -1,23 +1,22 @@
 package Model;
 
 public abstract class Game implements IGame {
-    private int playerAmount;
-    private final int maxPlayers = 5;
-    private final int minPlayers = 2;
+    private static final int maxPlayers = 5;
+    private static final int minPlayers = 2;
 
     public Game() {
     }
-
-    public abstract void nextTurn();
 
     public abstract void restartGame();
 
     public abstract void quitGame();
 
-    public abstract void startGame();
+    public static int getMaxPlayers() {
+        return maxPlayers;
+    }
 
-    public abstract void startRound();
-
-
+    public static int getMinPlayers() {
+        return minPlayers;
+    }
 }
 

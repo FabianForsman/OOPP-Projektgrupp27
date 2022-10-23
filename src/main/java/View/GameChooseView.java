@@ -2,7 +2,6 @@ package View;
 
 import Controllers.GameChooseController;
 
-import com.example.hydrohomies.UIController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 

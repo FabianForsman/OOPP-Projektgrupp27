@@ -1,50 +1,43 @@
+
 package View;
 
-import Controllers.Treman.TremanController;
+import Controllers.TremanController;
 import Model.Player.Players;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 import java.util.Random;
 
-public class TremanView extends AbstractView{
-
-
+public class TremanView extends AbstractGameView{
 
     private TremanController controller;
-    private FXMLLoader fxmlLoader;
     Random random = new Random();
 
-    @FXML public AnchorPane tremanGameAnchorPane;
-    @FXML public  ImageView diceRightTremanImageView;
-    @FXML public  ImageView diceLeftTremanImageView;
+    @FXML private ListView<String> playerListView;
+    @FXML private ListView<String> selectedPlayersListView;
 
-    @FXML public ImageView diceTremanMenuButtonImageView;
-    @FXML public Label challengeLabel;
+    @FXML private Button challengeRollButton;
+    @FXML private Button rollDiceButton;
+    @FXML private Button confirmSelectedPlayersButton;
+    @FXML private Button removePlayersButton;
+    @FXML private Button addPlayerButton;
 
-    @FXML public ListView<String> playerListView;
-    @FXML public ListView<String> selectedPlayersListView;
+    @FXML private ImageView diceRightTremanImageView;
+    @FXML private ImageView diceLeftTremanImageView;
+    @FXML private ImageView diceTremanMenuButtonImageView;
+    @FXML private ImageView topLeftDice;
+    @FXML private ImageView firstDieImage;
+    @FXML private ImageView secondDieImage;
+    @FXML private Label challengeLabel;
 
-    @FXML public Button tremanRollButton;
-    @FXML public Button challengeRollButton;
-    @FXML public Button rollDiceButton;
-    @FXML public AnchorPane playerListPane;
-    @FXML public AnchorPane boardPane;
-
-    @FXML public ImageView topLeftDice;
-    @FXML public ImageView firstDieImage = new ImageView();
-    @FXML public ImageView secondDieImage;
-
-    @FXML public Label currentTremanLabel;
-    @FXML public Label currentPlayerLabel;
-    @FXML public Label actionMessageLabel;
+    @FXML private Label currentTremanLabel;
+    @FXML private Label currentPlayerLabel;
+    @FXML private Label actionMessageLabel;
 
     public TremanView(TremanController controller) throws IOException {
         super(controller.getFXMLName());
@@ -54,10 +47,16 @@ public class TremanView extends AbstractView{
 
     private void initialize() {
         controller.initializeLabels(currentTremanLabel, currentPlayerLabel, actionMessageLabel);
-        controller.populatePlayerList(playerListView);
-        setPlayerLabel(Players.getInstance().getCurrentPlayerName(), currentPlayerLabel);
-        setPlayerLabel(controller.getTremanName(), currentTremanLabel);
+        controller.initializeButtons(challengeRollButton, rollDiceButton, confirmSelectedPlayersButton, removePlayersButton, addPlayerButton);
+        controller.initializeListViews(playerListView, selectedPlayersListView);
+        controller.displaySelectedPlayer(Players.getInstance().getCurrentPlayerName(), currentPlayerLabel);
+        controller.displaySelectedPlayer(controller.getTremanName(), currentTremanLabel);
+    }
 
+    @Override
+    public void update() {
+        controller.setNormalRollingStatus();
+        controller.populatePlayerList(playerListView);
     }
 
     @FXML
@@ -67,8 +66,10 @@ public class TremanView extends AbstractView{
         controller.setSecondDieImage(diceRightTremanImageView);
     }
 
-    public void setPlayerLabel(String name, Label label){
-        controller.displaySelectedPlayer(name, label);
+    @FXML
+    public void rollDieChallenge(ActionEvent e) {
+        controller.rollDieChallenge(1);
+        controller.setSecondDieImage(diceRightTremanImageView);
     }
 
     @FXML
@@ -77,17 +78,14 @@ public class TremanView extends AbstractView{
     }
 
     @FXML
-    public void removeSelectedPlayers(ActionEvent e){
-        controller.removeSelectedPlayers(selectedPlayersListView);
+    public void removePlayer(ActionEvent e) {
+        controller.removePlayer(selectedPlayersListView);
     }
 
     @FXML
-    public void displayChallengeButton(ActionEvent e){
-        controller.displayChallengeButton(challengeRollButton);
+    public void confirmSelectedPlayers() {
+        controller.confirmSelectedPlayers();
     }
 
-    @FXML
-    public void removeChallengeButton(ActionEvent e){
-        controller.removeChallengeButton(challengeRollButton);
-    }
+
 }

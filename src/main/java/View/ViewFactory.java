@@ -1,13 +1,8 @@
 package View;
 
-import Controllers.BaseLayerController;
-import Controllers.FTheDealer.FTheDealerController;
-import Controllers.GameChooseController;
-import Controllers.HigherLower.HigherLowerController;
-import Controllers.Treman.TremanController;
+import Controllers.*;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class ViewFactory {
 
@@ -15,10 +10,9 @@ public class ViewFactory {
         return new TremanView(controller);
     }
 
-    public static BaseLayer createBaseLayerView(BaseLayerController controller) throws IOException{
-        return new BaseLayer(controller);
+    public static BaseLayerView createBaseLayerView(BaseLayerController controller) throws IOException{
+        return new BaseLayerView(controller);
     }
-
 
     public static GameChooseView createGameChooseView(GameChooseController controller) throws IOException {
         return new GameChooseView(controller);
@@ -32,6 +26,8 @@ public class ViewFactory {
         return new FTheDealerView(controller);
     }
 
-
+    public static OpusView createOpusView(OpusController controller) throws IOException {
+        return new OpusView(controller);
+    }
 
 }

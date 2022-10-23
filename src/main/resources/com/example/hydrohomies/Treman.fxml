@@ -10,12 +10,17 @@
 
 <AnchorPane fx:id="tremanGameAnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
+      <Button fx:id="challengeRollButton" layoutX="184.0" layoutY="323.0" mnemonicParsing="false" onAction="#rollDieChallenge" prefHeight="55.0" prefWidth="266.0" text="Challenge Roll">
+         <font>
+            <Font name="Comic Sans MS" size="26.0" />
+         </font>
+      </Button>
       <ImageView fitHeight="110.0" fitWidth="110.0" layoutX="2.0" layoutY="10.0" preserveRatio="true" styleClass="round_button" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@../../../resources_img/dice.png" />
          </image>
       </ImageView>
-      <Button fx:id="tremanRollButton" layoutX="183.0" layoutY="323.0" mnemonicParsing="false" onAction="#roll" prefHeight="44.0" prefWidth="265.0" text="Roll">
+      <Button fx:id="rollDiceButton" layoutX="183.0" layoutY="323.0" mnemonicParsing="false" onAction="#roll" prefHeight="44.0" prefWidth="265.0" text="Roll">
          <font>
             <Font name="Comic Sans MS" size="26.0" />
          </font>
@@ -23,7 +28,7 @@
       <Label fx:id="challengeLabel" layoutX="461.0" layoutY="24.0" prefHeight="32.0" prefWidth="145.0" />
       <ImageView fx:id="diceLeftTremanImageView" fitHeight="178.0" fitWidth="200.0" layoutX="61.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../resources_img/dice/die2.png" />
+            <Image url="@../../../resources_img/dice/die1.png" />
          </image>
       </ImageView>
       <ImageView fx:id="diceRightTremanImageView" fitHeight="178.0" fitWidth="200.0" layoutX="261.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
@@ -31,11 +36,15 @@
             <Image url="@../../../resources_img/dice/die1.png" />
          </image>
       </ImageView>
-      <ListView fx:id="playerListView" layoutX="461.0" layoutY="64.0" prefHeight="312.0" prefWidth="140.0" AnchorPane.bottomAnchor="100.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0" />
+      <ListView fx:id="playerListView" layoutX="447.0" layoutY="19.0" prefHeight="173.0" prefWidth="140.0" AnchorPane.bottomAnchor="208.0" AnchorPane.rightAnchor="19.600000000000023" AnchorPane.topAnchor="19.0" />
       <Label layoutX="141.0" layoutY="32.0" text="Current Treman:" />
       <Label fx:id="currentTremanLabel" layoutX="255.0" layoutY="32.0" text="placeholder_name" />
       <Label layoutX="141.0" layoutY="56.0" text="Current Player:" />
       <Label fx:id="currentPlayerLabel" layoutX="255.0" layoutY="56.0" text="placeholder_name" />
-      <Label fx:id="actionMessageLabel" layoutX="141.0" layoutY="97.0" text="Label" />
+      <Label fx:id="actionMessageLabel" alignment="TOP_LEFT" layoutX="141.0" layoutY="97.0" prefHeight="55.0" prefWidth="278.0" wrapText="true" />
+      <ListView fx:id="selectedPlayersListView" layoutX="447.0" layoutY="242.0" prefHeight="70.0" prefWidth="140.0" />
+      <Button fx:id="confirmSelectedPlayersButton" layoutX="487.0" layoutY="338.0" mnemonicParsing="false" onAction="#confirmSelectedPlayers" text="Confirm" />
+      <Button fx:id="addPlayerButton" layoutX="449.0" layoutY="200.0" mnemonicParsing="false" onAction="#selectPlayer" text="Add" />
+      <Button fx:id="removePlayersButton" layoutX="527.0" layoutY="200.0" mnemonicParsing="false" onAction="#removePlayer" text="Remove" />
    </children>
 </AnchorPane>

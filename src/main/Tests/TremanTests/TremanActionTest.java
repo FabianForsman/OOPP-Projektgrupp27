@@ -32,7 +32,7 @@ public class TremanActionTest {
         ChallengeAction action = new ChallengeAction();
         action.setChallengedPlayer(p1);
         assertEquals(p1, action.getChallengedPlayer());
-        assertEquals("Challenge! Give one dice to another player and have them roll it.", action.getRuleString());
+        assertEquals("Challenge! Give the right die to another player and have them roll it.", action.getRuleString());
     }
 
     @Test

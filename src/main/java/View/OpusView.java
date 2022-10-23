@@ -1,33 +1,19 @@
 package View;
 
-import Model.DiceGames.Opus.OpusController;
-import Model.Player.IPlayer;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
+import Controllers.OpusController;
 
-public class OpusView {
+import java.io.IOException;
 
-    private OpusController controller;
+public class OpusView extends AbstractGameView{
+    OpusController controller;
 
-    @FXML private Button rollDiceButton;
-    @FXML private Button opusGameStartButton;
-    @FXML private ListView<IPlayer> playerList;
-    @FXML private AnchorPane drinkMessagePane;
-    @FXML private Label drinkMessageLabel;
-    @FXML private Label currentPlayerLabel;
-    @FXML private ImageView diceImageView;
-
-    @FXML
-    public void roll(ActionEvent e) {
-        controller.roll(diceImageView);
-        //setImage
+    public OpusView(OpusController controller) throws IOException {
+        super(controller.getFXMLName());
+        this.controller = controller;
     }
 
+    @Override
+    public void update() {
 
+    }
 }

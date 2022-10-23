@@ -1,4 +1,3 @@
-import Controllers.Treman.TremanController;
 import Model.DiceGames.Treman.TremanModel;
 import Model.Player.Player;
 import Model.Player.Players;

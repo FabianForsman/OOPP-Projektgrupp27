@@ -15,4 +15,8 @@ public class NewTremanAction implements IAction{
     public String getRuleString() {
         return "New treman! Pick another player to be Treman.";
     }
+
+    public String getResult() {
+        return "New treman is: " + TremanModel.getTreman().getName();
+    }
 }

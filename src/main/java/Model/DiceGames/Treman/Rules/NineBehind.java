@@ -15,7 +15,7 @@ public class NineBehind implements IRulesChain {
     @Override
     public IAction getRule(int a, int b) {
         if (a + b == 9) {
-            return new NoAction("Nine behind. Person behind you takes one.");
+            return new NoAction("Nine behind. The previous person takes one.");
         }
         return this.chain.getRule(a, b);
     }

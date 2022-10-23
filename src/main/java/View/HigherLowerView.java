@@ -1,14 +1,13 @@
 package View;
 
-import Controllers.HigherLower.HigherLowerController;
-import Controllers.SceneHandler;
+import Controllers.HigherLowerController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
-public class HigherLowerView extends AbstractView {
+public class HigherLowerView extends AbstractGameView {
 
     private HigherLowerController controller;
     private FXMLLoader fxmlLoader;
@@ -21,5 +20,10 @@ public class HigherLowerView extends AbstractView {
     public HigherLowerView(HigherLowerController controller) throws IOException {
         super(controller.getFXMLName());
         this.controller = controller;
+    }
+
+    @Override
+    public void update() {
+
     }
 }
