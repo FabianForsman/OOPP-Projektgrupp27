@@ -12,11 +12,9 @@ public class HigherLowerController implements IController {
 
     public HigherLowerController(SceneHandler handler) {
         model = new HigherLowerModel();
-        this.handler =handler;
+        this.handler = handler;
 
     }
-
-    private HigherLowerModel game = new HigherLowerModel();
 
 
     public void showStartingBoard() {

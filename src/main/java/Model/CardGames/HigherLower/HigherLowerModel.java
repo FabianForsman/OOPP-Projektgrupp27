@@ -11,7 +11,7 @@ public class HigherLowerModel extends Game {
     private final ArrayList<ArrayList<Card>> startingBoard = new ArrayList<>();
     private final DeckOfCards deck = new DeckOfCards();
     private final Card currentCard;
-    private boolean gameAborted;
+
     private int correctGuesses = 0;
 
     public HigherLowerModel(){
@@ -111,28 +111,9 @@ public class HigherLowerModel extends Game {
 
     }
 
-
-    @Override
-    public void nextTurn() {
-
-    }
-
-
     @Override
     public void quitGame() {
 
     }
-
-    @Override
-    public void startGame() {
-
-    }
-
-    @Override
-    public void startRound() {
-
-    }
-
-
 }
 

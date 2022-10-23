@@ -45,14 +45,6 @@ public class OpusModel extends Game{
 
 
 
-
-
-
-    @Override
-    public void nextTurn() {
-
-    }
-
     @Override
     public void restartGame() {
 
@@ -62,15 +54,6 @@ public class OpusModel extends Game{
     @Override
     public void quitGame() {
 
-
     }
-    @Override
-    public void startGame() {
-
-    }
-    @Override
-    public void startRound() {
-    }
-
 
 }
