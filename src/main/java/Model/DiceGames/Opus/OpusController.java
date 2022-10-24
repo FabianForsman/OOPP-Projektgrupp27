@@ -1,5 +1,6 @@
 package Model.DiceGames.Opus;
 
+import Controllers.SceneHandler;
 import Model.Audio.SongPlayer;
 import Model.DiceGames.Dice.Dice;
 import Model.DiceGames.Dice.Die;
@@ -7,7 +8,7 @@ import Model.DiceGames.Treman.TremanModel;
 import Model.Player.IPlayer;
 import Model.Player.Players;
 import View.OpusView;
-import com.example.hydrohomies.UIController;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -30,7 +31,6 @@ import java.util.TimerTask;
 
 public class OpusController implements Initializable {
 
-    private UIController parentController;
     OpusModel model;
     OpusView view;
     Die die;
@@ -38,19 +38,24 @@ public class OpusController implements Initializable {
     int nrOfRolls = 0;
     Timer timer = new Timer();
     Random random = new Random();
+    private SceneHandler handler;
 
-    @FXML private Button rollDiceButton;
-    @FXML private Button opusGameStartButton;
-    @FXML private ComboBox<IPlayer> playerList;
-    @FXML private AnchorPane playerListPane;
-    @FXML private AnchorPane drinkMessagePane;
-    @FXML private Label drinkMessageLabel;
-    @FXML private Label currentPlayerLabel;
+    private Button rollDiceButton;
+    private Button opusGameStartButton;
+    private ComboBox<IPlayer> playerList;
+    private AnchorPane playerListPane;
+    private AnchorPane drinkMessagePane;
+    private Label drinkMessageLabel;
+    private Label currentPlayerLabel;
+
+    private ListView<String> selectedPlayersListView;
 
 
-    public OpusController(UIController parentController) {
-        this.parentController = parentController;
+
+    public OpusController(SceneHandler handler) {
         model = new OpusModel();
+        this.handler = handler;
+
     }
 
     @Override
@@ -59,14 +64,14 @@ public class OpusController implements Initializable {
     }
 
 
-    @FXML
+
     public void startGame(ActionEvent actionEvent) {
         songPlayer.playSong("C:\\Songs");
         Players.getInstance().setRandomCurrentPlayer();
     }
 
 
-    public void rollDice(ActionEvent actionEvent, IPlayer player) {
+    public void rollDice() {
 
         die.rollDie();
         nrOfRolls++;
@@ -97,21 +102,18 @@ public class OpusController implements Initializable {
         }
     }
 
-
-
-
-    public void setCurrentPlayerLabel() {
+    public void setCurrentPlayerLabel(Label currentPlayerLabel) {
         currentPlayerLabel.setText(Players.getInstance().getCurrentPlayerName());
 
     }
 
-    public void updateDrinkDisplayText() {
+    public void updateDrinkDisplayText(Label drinkMessageLabel) {
         drinkMessageLabel.setText(model.getCurrentPlayerDrinkText());
     }
 
     public void updateCurrentPlayerTexts(){
-        setCurrentPlayerLabel();
-        updateDrinkDisplayText();
+        //setCurrentPlayerLabel();
+        //updateDrinkDisplayText();
     }
 
     public void choosePlayer(IPlayer player){
@@ -119,17 +121,38 @@ public class OpusController implements Initializable {
 
     }
 
-    @FXML
-    public void displayDrinkImage(){
+    public void displayDrinkImage(AnchorPane drinkMessagePane){
         drinkMessagePane.toFront();
     }
 
 
-    public void startDropTimer() {
+    public void populatePlayerList(ListView<String> listView){
+        listView.getItems().clear();
+        for(IPlayer player : Players.getInstance().getPlayersList()) {
+            listView.getItems().add(player.getName());
+        }
+
+    }
+
+    public void selectPlayer(ListView<String> listView){
+        String name = listView.getSelectionModel().getSelectedItem();
+        IPlayer selectedPlayer = Players.getInstance().getPlayer(name);
+        displaySelectedPlayer(name, selectedPlayersListView);
+
+    }
+
+    public void displaySelectedPlayer(String name, ListView<String> playersListView) {
+        playersListView.getItems().add(name);
+
+    }
+
+
+
+    public void startDropTimer(AnchorPane drinkMessagePane) {
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
-                displayDrinkImage();}
+                displayDrinkImage(drinkMessagePane);}
         };
         long delay = 225;
         timer.schedule(task, delay);
