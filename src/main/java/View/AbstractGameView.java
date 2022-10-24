@@ -4,7 +4,12 @@ import java.io.IOException;
 
 public abstract class AbstractGameView extends AbstractView{
 
-    public AbstractGameView(String fxmlName) throws IOException {
+    /**
+     * Constructor for the abstract class AbstractGameView
+     * @param fxmlName
+     * @throws IOException
+     */
+    protected AbstractGameView(String fxmlName) throws IOException {
         super(fxmlName);
     }
 

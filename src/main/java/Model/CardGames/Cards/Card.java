@@ -1,5 +1,8 @@
 package Model.CardGames.Cards;
 
+/**
+ * Enum for the suit a card has.
+ */
 enum Suits {
     HEARTS,
     DIAMONDS,
@@ -7,6 +10,9 @@ enum Suits {
     CLUBS
 }
 
+/**
+ * Enum for the rank a card has.
+ */
 enum Ranks {
     ACE,
     TWO,
@@ -29,12 +35,17 @@ public class Card {
     private final Suits suit;
     private final Ranks rank;
 
+    /**
+     * Constructor of a card.
+     * @param suit
+     * @param rank
+     */
     public Card(Suits suit, Ranks rank) {
         this.suit = suit;
         this.rank = rank;
     }
 
-    //Temp function to test cards.
+    //Temp function to display a card in console.
     public void DisplayCard() {
         System.out.println(suit + " " + rank + " " + (rank.ordinal() + 1));
     }

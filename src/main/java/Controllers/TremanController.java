@@ -32,14 +32,10 @@ public class TremanController implements IController{
     private ListView<String> playerListView;
     TremanModel model;
 
-    //public abstract void update(ArrayList<Image> fields);
     private Random random = new Random();
 
     SceneHandler handler;
 
-    /*public void injectMainController(UIController mainController){
-        this.parentController = mainController;
-    }*/
 
     public TremanController(SceneHandler handler) {
         model = new TremanModel();
@@ -49,6 +45,11 @@ public class TremanController implements IController{
 
     public String getTremanName() {
         return model.getTremanName();
+    }
+
+    public void updatePlayerLabels() {
+        displaySelectedPlayer(Players.getInstance().getCurrentPlayerName(), currentPlayerLabel);
+        displaySelectedPlayer(model.getTremanName(), currentTremanLabel);
     }
 
     public void initializeLabels(Label currentTremanLabel, Label currentPlayerLabel, Label actionMessageLabel) {
@@ -115,7 +116,6 @@ public class TremanController implements IController{
         }
     }
 
-
     private void challengeAction() {
         displayButton(challengeRollButton);
     }
@@ -169,11 +169,7 @@ public class TremanController implements IController{
             IPlayer selectedPlayer = Players.getInstance().getPlayer(name);
             ((ChallengeAction) currentAction).setChallengedPlayer(selectedPlayer);
             challengeAction();
-
         } else if(selectedPlayersListView.getItems().size() == 1 && currentAction instanceof NewTremanAction) {
-            /*String name = selectedPlayersListView.getItems().get(0);
-            IPlayer selectedPlayer = Players.getInstance().getPlayer(name);
-            ((NewTremanAction) currentAction).setNewTreman(selectedPlayer);*/
             newTremanAction();
             setNormalRollingStatus();
         } else if(selectedPlayersListView.getItems().size() == 2) {
@@ -219,14 +215,6 @@ public class TremanController implements IController{
         String name = listView.getSelectionModel().getSelectedItem();
         IPlayer selectedPlayer = Players.getInstance().getPlayer(name);
         displaySelectedPlayer(name, selectedPlayersListView);
-        /*
-        if(currentAction instanceof EqualsAction) {
-            ((EqualsAction) currentAction).addPlayerToPlayerList(selectedPlayer);
-        }
-        else if(currentAction instanceof NewTremanAction action) {
-            action.setNewTreman(selectedPlayer);
-            displaySelectedPlayer(name, currentTremanLabel);
-        }*/
     }
 
     public void removePlayer(ListView<String> listView) {

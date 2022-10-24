@@ -5,6 +5,12 @@ import Model.DiceGames.Treman.Rules.*;
 class TremanRules {
     public IRulesChain r1;
 
+    /**
+     * Constructor for TremanRules.
+     * Initializes the chain for the Chain of Responsibility.
+     * Sets the order which the chain will pass through. Once the request is passed to an appropriate handler
+     * that is able to process it, the chain stops and the request is not passed along any further.
+     */
     public TremanRules() {
         // Initialize the chain
         this.r1 = new NewTreman();

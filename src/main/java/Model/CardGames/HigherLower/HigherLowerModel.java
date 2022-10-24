@@ -14,24 +14,37 @@ public class HigherLowerModel extends Game {
 
     private int correctGuesses = 0;
 
+    /**
+     * Constructor for HigherLowerModel
+     */
     public HigherLowerModel(){
         currentCard = deck.drawCard();
         deck.shuffle();
     }
 
+    /**
+     * Enum for which direction one wants to pass the dice.
+     */
     public enum Direction{
         LEFT,
         RIGHT
     }
 
+    /**
+     * Initializes the board for higher-lower. Places 4 cards in a row.
+     */
     public void setBoard(){
         for(int i = 0; i < 4; i++){
-            ArrayList<Card> startingCard = new ArrayList<>();
-            startingCard.add(this.deck.drawCard());
-            this.startingBoard.add(startingCard);
+            ArrayList<Card> startingCardStack = new ArrayList<>();
+            startingCardStack.add(this.deck.drawCard());
+            this.startingBoard.add(startingCardStack);
         }
     }
 
+    /**
+     * Resets the given row by removing all cards.
+     * @param row
+     */
     public void resetRow(int row){
         ArrayList<Card> currentRow = startingBoard.get(row);
         while (currentRow.size() > 0){
@@ -40,7 +53,13 @@ public class HigherLowerModel extends Game {
         }
     }
 
-
+    /**
+     * Gets the card to the most-right or most-left of the arraylist. This is used to find the value to check
+     * if the player can place their card on top of it.
+     * @param rowIndex
+     * @param direction
+     * @return
+     */
     public Card playerChoice(int rowIndex, Direction direction){
         ArrayList<Card> row = startingBoard.get(rowIndex);
 
@@ -52,7 +71,12 @@ public class HigherLowerModel extends Game {
         }
     }
 
-
+    /**
+     * Checks if the card can be placed. Placed card has to be higher than the selected card to place upon.
+     * @param existingCardValue
+     * @param placedCardValue
+     * @return
+     */
     public boolean checkIfHigher(int existingCardValue, int placedCardValue){
         return existingCardValue < placedCardValue;
     }
@@ -66,7 +90,13 @@ public class HigherLowerModel extends Game {
         this.correctGuesses = n;
     }
 
-
+    /**
+     * Processes whether the player guessed correctly or not using previously defined methods.
+     * @param placedCard
+     * @param rowIndex
+     * @param direction
+     * @return
+     */
     public String processPlayerChoice(Card placedCard, int rowIndex, Direction direction){
         Card existingCard = playerChoice(rowIndex, direction);
         if (checkIfHigher(existingCard.getRankValue(), placedCard.getRankValue())){
@@ -80,15 +110,20 @@ public class HigherLowerModel extends Game {
             }
         } else{
             setCorrectGuesses(0);
-            return sendLossMessage(startingBoard.get(rowIndex).size());
+            return sendLossMessage(rowIndex);
         }
     }
-
 
     public int getTotalCardsInRow(int rowIndex){
         return this.startingBoard.get(rowIndex).size();
     }
 
+    /**
+     * Places a card on a row, at one of its ends.
+     * @param card
+     * @param rowIndex
+     * @param direction
+     */
     public void placeCard(Card card, int rowIndex, Direction direction){
         if(direction == Direction.RIGHT) {
             startingBoard.get(rowIndex).add(0, card);
@@ -97,23 +132,12 @@ public class HigherLowerModel extends Game {
         }
     }
 
-    public String sendLossMessage(int rowSize){
-        return "Incorrect! Drink " + rowSize + " sips!";
+    public String sendLossMessage(int rowIndex){
+        return "Incorrect! Drink " + getTotalCardsInRow(rowIndex) + " sips!";
     }
 
     public ArrayList<ArrayList<Card>> getStartingBoard(){
-        return  this.startingBoard;
-    }
-
-
-    @Override
-    public void restartGame() {
-
-    }
-
-    @Override
-    public void quitGame() {
-
+        return this.startingBoard;
     }
 }
 

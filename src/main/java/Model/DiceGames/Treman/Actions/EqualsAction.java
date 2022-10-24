@@ -24,6 +24,12 @@ public class EqualsAction implements IAction {
         return "Choose 2 players to give the dice to.";
     }
 
+    /**
+     * Gets the resulting string once the 2 players are selected.
+     * Either they are different, or they are the same player.
+     * @param diceValue
+     * @return
+     */
     public String getResult(int diceValue){
         if(playerList.get(0) != playerList.get(1)){
              return playerList.get(0).getName() + " and " + playerList.get(1).getName() + " drink " + diceValue;

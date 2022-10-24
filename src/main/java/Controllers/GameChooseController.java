@@ -1,6 +1,8 @@
 package Controllers;
 
 
+import Model.CardGames.FTheDealer.FTheDealerModel;
+import Model.DiceGames.Treman.TremanModel;
 import javafx.scene.layout.AnchorPane;
 
 public class GameChooseController extends AnchorPane implements IController {
@@ -15,9 +17,16 @@ public class GameChooseController extends AnchorPane implements IController {
         return "GameChoose";
     }
 
-    public void switchToTreman(){handler.switchToGame("treman");}
+    public void switchToTreman(){
+        TremanModel.setRandomTreman();
+        TremanModel.setRandomCurrentPlayer();
+        handler.switchToGame("treman");
+    }
 
-    public void switchToOpus(){ handler.switchToGame("opus"); }
+    public void switchToOpus(){
+        FTheDealerModel.setRandomCurrentPlayer();
+        handler.switchToGame("opus");
+    }
 
     public void switchToHigherLower(){handler.switchToGame("higherlower");}
 

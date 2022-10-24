@@ -12,6 +12,10 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 public class SongPlayer {
 
+    /**
+     * Pre-made constructor for playing music.
+     * @param audioFileLocation
+     */
     public void playSong(String audioFileLocation) {
 
         File songLocation = new File(audioFileLocation);

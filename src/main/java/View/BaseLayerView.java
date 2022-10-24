@@ -15,6 +15,12 @@ public class BaseLayerView extends AbstractView {
     @FXML TextField playerNameTextField;
     @FXML Button startGameButton;
 
+    /**
+     * Constructor for BaseLayerView. Sets its controller and initializes necessary view-objects.
+     * Passes the controllers name to AbstractView
+     * @param controller
+     * @throws IOException
+     */
     public BaseLayerView(BaseLayerController controller) throws IOException {
         super(controller.getFXMLName());
         this.controller = controller;
@@ -22,6 +28,9 @@ public class BaseLayerView extends AbstractView {
         startGameButton.setVisible(false);
         startGameButton.setDisable(true);    }
 
+    /**
+     * Initializes necessary view-objects.
+     */
     private void initialize(){
         controller.initializeButtons(startGameButton);
 
@@ -36,7 +45,6 @@ public class BaseLayerView extends AbstractView {
     private void addPlayer(ActionEvent e) {
         controller.checkIfPlayerAmountAllowed();
         controller.addPlayer(playerListView, playerNameTextField);
-
     }
 
     @FXML

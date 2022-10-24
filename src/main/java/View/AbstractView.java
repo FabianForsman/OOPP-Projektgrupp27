@@ -1,6 +1,6 @@
 package View;
 
-import com.example.App.HydroApplication;
+import com.example.hydrohomies.HydroApplication;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
 import javafx.scene.layout.AnchorPane;
@@ -11,6 +11,11 @@ public abstract class AbstractView extends AnchorPane {
 
     private final Scene scene;
 
+    /**
+     * Constructor for the abstract class AbstractGameView
+     * @param fxmlName
+     * @throws IOException
+     */
     protected AbstractView(String fxmlName) throws IOException {
         FXMLLoader loader = HydroApplication.loadFXML(fxmlName);
         loader.setController(this);

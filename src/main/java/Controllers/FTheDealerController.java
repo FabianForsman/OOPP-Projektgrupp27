@@ -3,6 +3,7 @@ package Controllers;
 import Controllers.SceneHandler;
 import Model.CardGames.FTheDealer.FTheDealerModel;
 import Model.CardGames.Cards.Card;
+import Model.Player.Players;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 

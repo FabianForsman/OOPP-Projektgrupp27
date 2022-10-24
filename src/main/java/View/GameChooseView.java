@@ -19,12 +19,14 @@ public class GameChooseView extends AbstractView{
     @FXML private Button higherLowerStartButton;
     @FXML private Button fTheDealerStartButton;
 
-
-
-
     private GameChooseController gameChooseController;
     private FXMLLoader fxmlLoader;
 
+    /**
+     * Constructor for ChooseGameView. Passes the controllers name to AbstractView
+     * @param controller
+     * @throws IOException
+     */
     public GameChooseView(GameChooseController controller) throws IOException {
         super(controller.getFXMLName());
         this.gameChooseController = controller;

@@ -17,6 +17,13 @@ public class ChallengeAction implements IAction {
         return challengedPlayer;
     }
 
+    /**
+     * Gets the resulting string of how any drinks a player will take. It will either be the challenged player
+     * or the current player.
+     * @param val1
+     * @param val2
+     * @return
+     */
     public String getDrinkingCalculation(int val1, int val2) {
         int nrOfDrinks = val2 - val1;
         if (nrOfDrinks > 0) {

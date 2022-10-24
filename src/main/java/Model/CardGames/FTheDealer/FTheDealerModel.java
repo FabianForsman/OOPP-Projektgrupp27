@@ -11,15 +11,16 @@ public class FTheDealerModel extends Game {
     private final Card correctCard;
     private Card guessedCard;
     private int incorrectGuesses = 0;
-    private int incorrectPlayers = 0;
-    private FTheDealerBoard board;
+    private final FTheDealerBoard board;
 
     public FTheDealerModel() {
-        Players.getInstance().setRandomCurrentPlayer();
-        dealer = Players.getInstance().getRandomPlayer();
         board = new FTheDealerBoard();
         deck.shuffle();
-        dealerCard = deck.drawCard();
+        correctCard = deck.drawCard();
+    }
+
+    public static void setRandomCurrentPlayer() {
+        Players.getInstance().setRandomCurrentPlayer();
     }
 
     public void selectCard(Card card) {
@@ -39,9 +40,10 @@ public class FTheDealerModel extends Game {
         return String.valueOf(Math.abs(correctCard.getRankValue() - card.getRankValue()));
     }
 
+
     public String drinkCalculator(Card card) {
         if (incorrectGuesses == 0) {
-            return dealer + " takes 5.";
+            //return dealer + " takes 5.";
         } else if (incorrectGuesses == 1) {
             return Players.getInstance().getCurrentPlayerName() + " hands out 3 drinks.";
         } else {
@@ -61,7 +63,7 @@ public class FTheDealerModel extends Game {
 
 
     public void placeCardOnBoard() {
-        board.addToBoard(dealerCard);
+        //board.addToBoard(dealerCard);
         Players.getInstance().passTurnLeft();
     }
 
@@ -88,19 +90,11 @@ public class FTheDealerModel extends Game {
             return "Correct! " + drinkCalculator(guessedCard);
     }
 
-    @Override
-    public void restartGame() {
-
-    }
-
-    @Override
-    public void quitGame() {
-
-    }
     public int getGuessedSpot(){
-        return guessedSpot;
+        //return guessedSpot;
+        return 1;
     }
-    public String getDrinkCalculatorPlayer(){return drinkCalculatorPlayer();}
+    //public String getDrinkCalculatorPlayer(){return drinkCalculatorPlayer();}
 
     public void setIncorrectGuesses(int incorrectGuesses){
         this.incorrectGuesses = incorrectGuesses;

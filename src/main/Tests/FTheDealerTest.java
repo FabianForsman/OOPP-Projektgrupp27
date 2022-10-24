@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class FTheDealerTest {
-
+    /*
     Player p1 = new Player("p1");
     Player p2 = new Player("p2");
 
@@ -86,6 +86,8 @@ public class FTheDealerTest {
 
         }
     }
+
+     */
 }
 
 

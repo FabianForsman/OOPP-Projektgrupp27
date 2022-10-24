@@ -14,6 +14,9 @@ public class PassAction implements IAction{
         return returnString;
     }
 
+    /**
+     * Passes the turn from the current player to the next one in the player list.
+     */
     public void passTurn() {
         Players.getInstance().passTurnLeft();
     }

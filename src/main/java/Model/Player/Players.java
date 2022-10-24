@@ -12,11 +12,18 @@ public class Players {
 
     private static Players single_instance = null;
 
+    /**
+     * Private constructor for Player. Used internally in the class as done with the singleton-pattern.
+     */
     private Players() {
         players = new ArrayList<>();
         playerMap = new HashMap<>();
     }
 
+    /**
+     * Singleton static lazy-initialization of Players.
+     * @return
+     */
     public static Players getInstance() {
         if (single_instance == null) {
             single_instance = new Players();
@@ -24,6 +31,10 @@ public class Players {
         return single_instance;
     }
 
+    /**
+     * Adds a player to the list of IPlayers.
+     * @param player
+     */
     public void addPlayer(IPlayer player) {
         if (players.size() < 5) {
             this.players.add(player);
@@ -31,17 +42,27 @@ public class Players {
         }
     }
 
+    /**
+     * Removes a player from the list of IPlayers.
+     * @param player
+     */
     public void removePlayer(IPlayer player) {
         if (players.size() > 0)
             this.players.remove(player);
     }
 
+    /**
+     * Sets the current player to the person to the right.
+     */
     public void passTurnRight() {
         int index = getPlayerIndex(currentPlayer);
         IPlayer nextPlayer = getPlayer((index + 1) % getListSize());
         setCurrentPlayer(nextPlayer);
     }
 
+    /**
+     * Sets the current player to the person to the left.
+     */
     public void passTurnLeft() {
         int index = getPlayerIndex(currentPlayer);
         if (index == 0) {
@@ -49,9 +70,11 @@ public class Players {
         } else {
             setCurrentPlayer(getPlayer(index - 1));
         }
-        System.out.println("passed to:"+currentPlayer.getName());
     }
 
+    /**
+     * Sets the current player to a random player in the list of players."
+     */
     public void setRandomCurrentPlayer() {
         int randomIndex = random.nextInt(getListSize());
         IPlayer randomPlayer = getPlayer(randomIndex);

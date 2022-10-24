@@ -18,17 +18,25 @@ public class TremanModel extends Game{
     private static Dice dice;
     private static IPlayer treman;
 
+    /**
+     * Constructor for TremanModel.
+     */
     public TremanModel() {
-        // Players and such. Gets from previous pages.
         super();
         dice = new Dice(2);
         rules = new TremanRules();
-        treman = Players.getInstance().getRandomPlayer();
-        Players.getInstance().setRandomCurrentPlayer();
     }
 
     public static void setNewTreman(IPlayer player) {
         treman = player;
+    }
+
+    public static void setRandomCurrentPlayer() {
+        Players.getInstance().setRandomCurrentPlayer();
+    }
+
+    public static void setRandomTreman() {
+        treman = Players.getInstance().getRandomPlayer();
     }
 
     public static IPlayer getTreman() {
@@ -43,6 +51,12 @@ public class TremanModel extends Game{
         return getAction().getRuleString();
     }
 
+    /**
+     * Gets the dice values and passes them through the chain of responsibility. Depending on the result of
+     * checkIfTreman, manipulate the return-action or create a new one, as the checkIfTreman-method has
+     * specific rule-adaptations that the other treman-rules have to take into account.
+     * @return
+     */
     public IAction getAction() {
         int a = dice.getDieValue(0);
         int b = dice.getDieValue(1);
@@ -50,9 +64,7 @@ public class TremanModel extends Game{
         IAction tremanAction = Treman.checkIfTreman(a, b);
         String tremanString = tremanAction.getRuleString();
 
-        IAction rule  = rules.r1.getRule(a, b); // Should return an action which contains a string, an object with both.
-        String combinedString = tremanAction.getRuleString() + " " + rule.getRuleString();
-
+        IAction rule  = rules.r1.getRule(a, b);
         boolean treman = !tremanString.equals("");
 
         if(rule instanceof PassAction) {
@@ -83,14 +95,4 @@ public class TremanModel extends Game{
         return dice.getDiceValues();
     }
 
-
-    @Override
-    public void restartGame() {
-
-    }
-
-    @Override
-    public void quitGame() {
-
-    }
 }

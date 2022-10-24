@@ -8,11 +8,6 @@ public class Player implements IPlayer {
     }
 
     @Override
-    public void setName(String name) {
-        this.playerName = name;
-    }
-
-    @Override
     public String getName() {
         return playerName;
     }

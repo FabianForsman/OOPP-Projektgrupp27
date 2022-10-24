@@ -10,13 +10,12 @@ import java.io.IOException;
 public class HigherLowerView extends AbstractGameView {
 
     private HigherLowerController controller;
-    private FXMLLoader fxmlLoader;
 
-
-
-    @FXML public AnchorPane cardGameAnchorPane;
-
-
+    /**
+     * Constructor for HigherLowerView. Passes the controllers name to AbstractGameView.
+     * @param controller
+     * @throws IOException
+     */
     public HigherLowerView(HigherLowerController controller) throws IOException {
         super(controller.getFXMLName());
         this.controller = controller;
