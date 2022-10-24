@@ -5,8 +5,8 @@ module com.example.hydrohomies {
    // requires org.jetbrains.annotations;
 
 
-    opens com.example.hydrohomies to javafx.fxml;
-    exports com.example.hydrohomies;
+    opens com.example.App to javafx.fxml;
+    exports com.example.App;
     exports Model.Player;
     opens Model.Player to javafx.fxml;
     exports Model.CardGames.HigherLower;

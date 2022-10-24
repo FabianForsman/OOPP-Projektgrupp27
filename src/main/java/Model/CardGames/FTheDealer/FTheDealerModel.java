@@ -13,14 +13,13 @@ public class FTheDealerModel extends Game {
     private int incorrectGuesses = 0;
     private int incorrectPlayers = 0;
     private FTheDealerBoard board;
-    private static IPlayer dealer;
 
     public FTheDealerModel() {
         Players.getInstance().setRandomCurrentPlayer();
         dealer = Players.getInstance().getRandomPlayer();
         board = new FTheDealerBoard();
         deck.shuffle();
-        correctCard = deck.drawCard();
+        dealerCard = deck.drawCard();
     }
 
     public void selectCard(Card card) {
@@ -44,10 +43,11 @@ public class FTheDealerModel extends Game {
         if (incorrectGuesses == 0) {
             return dealer + " takes 5.";
         } else if (incorrectGuesses == 1) {
-            return dealer + " takes 3.";
+            return Players.getInstance().getCurrentPlayerName() + " hands out 3 drinks.";
+        } else {
+            placeCardOnBoard();
+            incorrectGuesses = 0;
         }
-        incorrectGuesses = 0;
-
         return "Too many incorrect guesses. " +
                 Players.getInstance().getCurrentPlayer().getName() +
                 " takes " + drinkCalculatorPlayer(card) + ".";
@@ -60,8 +60,8 @@ public class FTheDealerModel extends Game {
     }
 
 
-    private void placeCardOnBoard() {
-        board.addToBoard(guessedCard);
+    public void placeCardOnBoard() {
+        board.addToBoard(dealerCard);
         Players.getInstance().passTurnLeft();
     }
 
@@ -97,4 +97,8 @@ public class FTheDealerModel extends Game {
     public void quitGame() {
 
     }
+    public int getGuessedSpot(){
+        return guessedSpot;
+    }
+
 }

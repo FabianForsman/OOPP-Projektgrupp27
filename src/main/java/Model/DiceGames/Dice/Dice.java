@@ -1,6 +1,5 @@
 package Model.DiceGames.Dice;
 
-import Model.DiceGames.Treman.TremanModel;
 
 import java.util.ArrayList;
 import java.util.List;
