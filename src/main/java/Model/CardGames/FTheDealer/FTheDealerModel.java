@@ -27,6 +27,10 @@ public class FTheDealerModel extends Game {
         checkIfCorrectGuess();
     }
 
+    public Card getDealerCard(){
+        return dealerCard;
+    }
+
     private void checkIfCorrectGuess() {
         if (board.checkIfCorrectCard(guessedCard, correctCard)) {
             placeCardOnBoard();
@@ -39,7 +43,7 @@ public class FTheDealerModel extends Game {
         return String.valueOf(Math.abs(correctCard.getRankValue() - card.getRankValue()));
     }
 
-    public String drinkCalculator(Card card) {
+    public String drinkCalculator() {
         if (incorrectGuesses == 0) {
             return dealer + " takes 5.";
         } else if (incorrectGuesses == 1) {
@@ -50,7 +54,7 @@ public class FTheDealerModel extends Game {
         }
         return "Too many incorrect guesses. " +
                 Players.getInstance().getCurrentPlayer().getName() +
-                " takes " + drinkCalculatorPlayer(card) + ".";
+                " takes " + drinkCalculatorPlayer() + ".";
     }
 
     private void checkIfTooManyGuesses(int i) {
@@ -62,7 +66,10 @@ public class FTheDealerModel extends Game {
 
     public void placeCardOnBoard() {
         board.addToBoard(dealerCard);
-        Players.getInstance().passTurnLeft();
+    }
+
+    public ArrayList<ArrayList<Card>> getBoard(){
+        return board.getBoard();
     }
 
     public String checkIfFourCards() {

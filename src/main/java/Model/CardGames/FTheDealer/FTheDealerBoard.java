@@ -11,8 +11,8 @@ public class FTheDealerBoard {
         generateBoard();
     }
 
-    public boolean checkIfCorrectCard(Card card, Card correctCard) {
-        return card == correctCard;
+    public boolean checkIfCorrectCard(int guessedCard, Card correctCard) {
+        return guessedCard == correctCard.getRankValue();
     }
 
     private void generateBoard() {
@@ -23,15 +23,18 @@ public class FTheDealerBoard {
 
     public void addToBoard(Card card) {
         for(int i = 0; i < 13; i++) {
-            if (card.getRankValue() == i) {
+            if (card.getRankValue() - 1 == i) {
                 board.get(i).add(card);
                 break;
             }
         }
     }
 
-    public boolean checkIfFourCards(Card card) {
-        int index = card.getRankValue() - 1;
-        return board.get(index).size() == 4;
+    public boolean checkIfFourCards(int index) {
+        return board.get(index-1).size() == 4;
+    }
+
+    public ArrayList<ArrayList<Card>> getBoard(){
+        return board;
     }
 }
