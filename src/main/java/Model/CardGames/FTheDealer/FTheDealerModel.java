@@ -3,47 +3,48 @@ package Model.CardGames.FTheDealer;
 import Model.CardGames.Cards.DeckOfCards;
 import Model.CardGames.Cards.Card;
 import Model.Game;
-import Model.Player.IPlayer;
 import Model.Player.Players;
+
+import java.util.ArrayList;
 
 public class FTheDealerModel extends Game {
     private final DeckOfCards deck = new DeckOfCards();
-    private final Card correctCard;
-    private Card guessedCard;
+    private final Card dealerCard;
+    private int guessedSpot;
     private int incorrectGuesses = 0;
-    private final FTheDealerBoard board;
+    private int incorrectPlayers = 0;
+    private FTheDealerBoard board;
 
     public FTheDealerModel() {
+        Players.getInstance().setRandomCurrentPlayer();
         board = new FTheDealerBoard();
         deck.shuffle();
-        correctCard = deck.drawCard();
+        dealerCard = deck.drawCard();
     }
 
-    public static void setRandomCurrentPlayer() {
-        Players.getInstance().setRandomCurrentPlayer();
+    public void selectTableSpot(int index) {
+        guessedSpot = index;
     }
 
-    public void selectCard(Card card) {
-        guessedCard = card;
-        checkIfCorrectGuess();
+    public Card getDealerCard(){
+        return dealerCard;
     }
 
     private void checkIfCorrectGuess() {
-        if (board.checkIfCorrectCard(guessedCard, correctCard)) {
+        if (board.checkIfCorrectCard(guessedSpot, dealerCard)) {
             placeCardOnBoard();
         } else {
             incorrectGuesses++;
         }
     }
 
-    private String drinkCalculatorPlayer(Card card) {
-        return String.valueOf(Math.abs(correctCard.getRankValue() - card.getRankValue()));
+    private String drinkCalculatorPlayer() {
+        return String.valueOf(Math.abs(dealerCard.getRankValue() - guessedSpot));
     }
 
-
-    public String drinkCalculator(Card card) {
+    public String drinkCalculator() {
         if (incorrectGuesses == 0) {
-            //return dealer + " takes 5.";
+            return Players.getInstance().getCurrentPlayerName() + " hands out 5 drinks.";
         } else if (incorrectGuesses == 1) {
             return Players.getInstance().getCurrentPlayerName() + " hands out 3 drinks.";
         } else {
@@ -52,7 +53,7 @@ public class FTheDealerModel extends Game {
         }
         return "Too many incorrect guesses. " +
                 Players.getInstance().getCurrentPlayer().getName() +
-                " takes " + drinkCalculatorPlayer(card) + ".";
+                " takes " + drinkCalculatorPlayer() + ".";
     }
 
     private void checkIfTooManyGuesses(int i) {
@@ -63,14 +64,17 @@ public class FTheDealerModel extends Game {
 
 
     public void placeCardOnBoard() {
-        //board.addToBoard(dealerCard);
-        Players.getInstance().passTurnLeft();
+        board.addToBoard(dealerCard);
+    }
+
+    public ArrayList<ArrayList<Card>> getBoard(){
+        return board.getBoard();
     }
 
     public String checkIfFourCards() {
-        if (board.checkIfFourCards(guessedCard)) {
-            return "4 of the same! Turning " + guessedCard.getRank() +
-                    " of " + guessedCard.getSuit() + " over.";
+        if (board.checkIfFourCards(guessedSpot)) {
+            return "4 of the same! Turning " + guessedSpot +
+                    " over.";
         }
         return "";
     }
@@ -80,21 +84,29 @@ public class FTheDealerModel extends Game {
     }
 
     public String higherOrLower() {
-        if (guessedCard.getRankValue() < correctCard.getRankValue()) {
+        if (guessedSpot > dealerCard.getRankValue()) {
             incorrectGuesses++;
-            return "Correct is lower!";
-        } else if (guessedCard.getRankValue() > correctCard.getRankValue()) {
+            return "Correct card is lower!";
+        } else if (guessedSpot < dealerCard.getRankValue()) {
             incorrectGuesses++;
             return "Correct card is higher!";
         } else
-            return "Correct! " + drinkCalculator(guessedCard);
+            return "Correct! " + drinkCalculator();
     }
 
-    public int getGuessedSpot(){
-        //return guessedSpot;
-        return 1;
+    @Override
+    public void restartGame() {
+
     }
-    //public String getDrinkCalculatorPlayer(){return drinkCalculatorPlayer();}
+
+    @Override
+    public void quitGame() {
+
+    }
+    public int getGuessedSpot(){
+        return guessedSpot;
+    }
+    public String getDrinkCalculatorPlayer(){return drinkCalculatorPlayer();}
 
     public void setIncorrectGuesses(int incorrectGuesses){
         this.incorrectGuesses = incorrectGuesses;

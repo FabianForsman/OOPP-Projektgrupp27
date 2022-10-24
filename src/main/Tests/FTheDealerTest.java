@@ -40,7 +40,7 @@ public class FTheDealerTest {
         game.selectTableSpot(7);
         game.setIncorrectGuesses(2);
 
-        assertEquals("Too many incorrect guesses. " + Players.getInstance().getCurrentPlayerName() +" takes " + game.getDrinkCalculatorPlayer() + ".", game.drinkCalculator(card));
+        assertEquals("Too many incorrect guesses. " + Players.getInstance().getCurrentPlayerName() +" takes " + game.getDrinkCalculatorPlayer() + ".", game.drinkCalculator());
         }
 
 
@@ -50,25 +50,23 @@ public class FTheDealerTest {
     @Test
     void testIfFourCards() {
         FTheDealerModel game = new FTheDealerModel();
-        FTheDealerBoard board = new FTheDealerBoard();
-        game.selectTableSpot(7);
+        game.selectTableSpot(game.getDealerCard().getRankValue());
         game.placeCardOnBoard();
         game.placeCardOnBoard();
         game.placeCardOnBoard();
         game.placeCardOnBoard();
-        assertEquals(game.checkIfFourCards(), "4 of the same! Turning " + game.getDealerCard().getRankValue() + " of " + game.getDealerCard().getSuit() + " over.");
+        assertEquals(game.checkIfFourCards(), "4 of the same! Turning " + game.getDealerCard().getRankValue() + " over.");
 
     }
 
     @Test
     void testPlaceOnBoard() {
         FTheDealerModel game = new FTheDealerModel();
-        FTheDealerBoard board = new FTheDealerBoard();
         Card card = game.getDealerCard();
-        game.selectTableSpot(7);
+        game.selectTableSpot(card.getRankValue());
         game.placeCardOnBoard();
 
-        assertEquals(card, board.getBoard().);
+        assertEquals(card, game.getBoard().get(card.getRankValue()-1).get(0));
     }
 
     @Test
@@ -76,6 +74,7 @@ public class FTheDealerTest {
         FTheDealerModel game = new FTheDealerModel();
         Card card = game.getDealerCard();
         game.selectTableSpot(7);
+        card.DisplayCard();
 
         if (card.getRankValue() < game.getGuessedSpot()) {
             assertSame("Correct card is lower!", game.higherOrLower());

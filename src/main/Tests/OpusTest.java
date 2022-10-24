@@ -47,7 +47,7 @@ public class OpusTest {
     void shouldReturnDrinkMessageWithCurrentPlayersName(){
         OpusModel testPanel = new OpusModel();
         Players.getInstance().setCurrentPlayer(p1);
-        assertSame("P1 DRINKS THEIR ENTIRE GLASS", testPanel.getCurrentPlayerDrinkText());
+        assertEquals("P1 DRINKS THEIR ENTIRE GLASS", testPanel.getCurrentPlayerDrinkText());
     }
 
     @Test
