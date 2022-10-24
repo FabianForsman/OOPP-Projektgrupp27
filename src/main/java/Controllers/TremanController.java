@@ -101,33 +101,26 @@ public class TremanController implements IController{
         return "treman";
     }
 
-    public void checkAction() {
-        System.out.println("checkAction() called");
+    private void checkAction() {
         if(currentAction instanceof ChallengeAction){
-            System.out.println("Found ChallengeAction");
             setSelectingPlayerStatus();
         } else if(currentAction instanceof EqualsAction) {
-            System.out.println("Found EqualsAction");
             setSelectingPlayerStatus();
         } else if(currentAction instanceof PassAction) {
-            System.out.println("Found PassAction");
             passAction();
         } else if(currentAction instanceof NewTremanAction) {
-            System.out.println("Found NewTremanAction");
             setSelectingPlayerStatus();
         } else if(currentAction instanceof NoAction) {
-            System.out.println("Found NoAction");
-
-        } else {
-            System.out.println("wtf?");
+            //Should do nothing. There is no effect from a NoAction.
         }
     }
 
-    public void challengeAction() {
+
+    private void challengeAction() {
         displayButton(challengeRollButton);
     }
 
-    public void equalsAction() {
+    private void equalsAction() {
         IPlayer selectedPlayer1 = Players.getInstance().getPlayer(selectedPlayersListView.getItems().get(0));
         IPlayer selectedPlayer2 = Players.getInstance().getPlayer(selectedPlayersListView.getItems().get(1));
         ((EqualsAction) currentAction).addPlayerToPlayerList(selectedPlayer1);
@@ -136,12 +129,12 @@ public class TremanController implements IController{
         actionMessageLabel.setText(result);
     }
 
-    public void passAction() {
+    private void passAction() {
         ((PassAction) currentAction).passTurn();
         displaySelectedPlayer(Players.getInstance().getCurrentPlayerName(), currentPlayerLabel);
     }
 
-    public void newTremanAction() {
+    private void newTremanAction() {
         IPlayer selectedPlayer = Players.getInstance().getPlayer(selectedPlayersListView.getItems().get(0));
         ((NewTremanAction) currentAction).setNewTreman(selectedPlayer);
         displaySelectedPlayer(selectedPlayer.getName(), currentTremanLabel);
@@ -149,7 +142,7 @@ public class TremanController implements IController{
         actionMessageLabel.setText(result);
     }
 
-    public void setSelectingPlayerStatus() {
+    private void setSelectingPlayerStatus() {
         displayListView(selectedPlayersListView);
         removeButton(rollDiceButton);
         displayButton(confirmSelectedPlayersButton);
@@ -166,10 +159,10 @@ public class TremanController implements IController{
         removeButton(addPlayerButton);
     }
 
-    public void displayActionMessage(String text) {
+    private void displayActionMessage(String text) {
         actionMessageLabel.setText(text);
     }
-//detta kan ge buggar
+
     public void confirmSelectedPlayers() {
         if(selectedPlayersListView.getItems().size() == 1 && currentAction instanceof ChallengeAction) {
             String name = selectedPlayersListView.getItems().get(0);
@@ -200,22 +193,22 @@ public class TremanController implements IController{
     }
 
     //For roll-button for the challenged player.
-    public void displayButton(Button button) {
+    private void displayButton(Button button) {
         button.setDisable(false);
         button.setVisible(true);
     }
 
-    public void removeButton(Button button) {
+    private void removeButton(Button button) {
         button.setDisable(true);
         button.setVisible(false);
     }
 
-    public void displayListView(ListView<String> listView) {
+    private void displayListView(ListView<String> listView) {
         listView.setDisable(false);
         listView.setVisible(true);
     }
 
-    public void removeListView(ListView<String> listView) {
+    private void removeListView(ListView<String> listView) {
         listView.getItems().clear();
         listView.setDisable(true);
         listView.setVisible(false);
@@ -248,8 +241,6 @@ public class TremanController implements IController{
     }
 
 
-
-
     public void setFirstDieImage(ImageView dieImage){
         model.getDie(0).updateCurrentImagePath();
         InputStream stream = null;
@@ -262,7 +253,6 @@ public class TremanController implements IController{
         dieImage.setImage(image);
 
     }
-
 
     // Setting the correct image for the second die based on roll
     public void setSecondDieImage(ImageView dieImage){
@@ -277,18 +267,6 @@ public class TremanController implements IController{
         dieImage.setImage(image);
     }
 
-    // Opens the window with the player list
-    public void openPlayerListView(ListView<String> listview){
-        listview.setDisable(false);
-        listview.setVisible(true);
-    }
-
-    // Removes the list of players
-    public void closePlayerListView(ListView<String> listView) {
-        listView.setDisable(true);
-        listView.setVisible(false);
-    }
-
     public void populatePlayerList(ListView<String> listView){
         listView.getItems().clear();
         for(IPlayer player : Players.getInstance().getPlayersList()) {
@@ -296,7 +274,7 @@ public class TremanController implements IController{
         }
     }
 
-    public void rollaAnimation(ImageView img1, ImageView img2) {
+    private void rollAnimation(ImageView img1, ImageView img2) {
         try {
             for (int i = 0; i < 10; i++) {
                 FileInputStream stream = new FileInputStream("src/main/resources/resources_img/dice/die" + (random.nextInt(6) + 1) + ".png");
