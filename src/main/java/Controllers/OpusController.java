@@ -29,7 +29,9 @@ import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
-
+/**
+ * Daniel Malmgren
+ */
 public class OpusController implements IController {
 
     OpusModel model;

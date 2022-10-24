@@ -4,6 +4,10 @@ import Controllers.OpusController;
 
 import java.io.IOException;
 
+/**
+ * Daniel Malmgren
+ */
+
 public class OpusView extends AbstractGameView{
     OpusController controller;
 

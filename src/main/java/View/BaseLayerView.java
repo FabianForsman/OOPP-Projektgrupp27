@@ -8,6 +8,11 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import java.io.IOException;
 
+/**
+ * Author: Fabian Forsman
+ * Author: Daniel Malmgren
+ */
+
 public class BaseLayerView extends AbstractView {
 
     private BaseLayerController controller;

@@ -12,6 +12,10 @@ import javafx.scene.layout.AnchorPane;
 
 import java.awt.event.ActionEvent;
 
+/**
+ * Author: Fabian Forsman
+ * Author: Daniel Malmgren
+ */
 public class BaseLayerController implements IController {
     SceneHandler handler;
 
