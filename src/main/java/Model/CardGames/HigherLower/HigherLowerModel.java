@@ -6,6 +6,10 @@ import Model.Game;
 
 import java.util.ArrayList;
 
+
+/**
+ * Author: Josef Jakobson
+ * */
 public class HigherLowerModel extends Game {
 
     private final ArrayList<ArrayList<Card>> startingBoard = new ArrayList<>();

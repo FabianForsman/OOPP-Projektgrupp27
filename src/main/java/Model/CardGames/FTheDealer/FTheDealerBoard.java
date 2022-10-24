@@ -3,7 +3,9 @@ package Model.CardGames.FTheDealer;
 import Model.CardGames.Cards.Card;
 
 import java.util.ArrayList;
-
+/**
+ * Author: Julia Giaro
+ * */
 public class FTheDealerBoard {
     private final ArrayList<ArrayList<Card>> board = new ArrayList<>(13);
 

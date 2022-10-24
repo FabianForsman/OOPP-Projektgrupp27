@@ -6,7 +6,9 @@ import Model.Game;
 import Model.Player.Players;
 
 import java.util.ArrayList;
-
+/**
+ * Author: Julia Giaro
+ * */
 public class FTheDealerModel extends Game {
     private final DeckOfCards deck = new DeckOfCards();
     private final Card dealerCard;
