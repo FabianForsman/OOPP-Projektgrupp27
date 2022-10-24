@@ -26,19 +26,28 @@ public class OpusTest {
         Players.getInstance().getPlayersList().clear();
     }
 
+
     @Test
-    void testGiveDiceWhen6Or1IsRolled() {
+    void shouldReturnTrueIfOneOrSixFirstRoll(){
+        int numberOfRolls = 1;
+        int faceValue = 6;
         OpusModel testPanel = new OpusModel();
-        Players.getInstance().setCurrentPlayer(p1);
-        //testPanel.giveDice(p2, 6, 1);
-        assertSame(p2, Players.getInstance().getCurrentPlayer());
+        assertSame(true, testPanel.checkIfOneSixFirstTry(faceValue, numberOfRolls));
     }
 
     @Test
-    void displayDrinkMessageAfter3Minutes45Seconds() {
+    void shouldReturnFalseIfNotOneOrSixFirstRoll(){
+        int numberOfRolls = 2;
+        int faceValue = 6;
         OpusModel testPanel = new OpusModel();
-        //testPanel.startDropTimer();
-        //assertEquals("p2 DRINKS THEIR ENTIRE GLASS",);
+        assertSame(false, testPanel.checkIfOneSixFirstTry(faceValue,numberOfRolls));
+    }
+
+    @Test
+    void shouldReturnDrinkMessageWithCurrentPlayersName(){
+        OpusModel testPanel = new OpusModel();
+        Players.getInstance().setCurrentPlayer(p1);
+        assertSame("P1 DRINKS THEIR ENTIRE GLASS", testPanel.getCurrentPlayerDrinkText());
     }
 
     @Test
@@ -55,7 +64,7 @@ public class OpusTest {
         Die die = new Die();
         die.setFaceValue(6);
         Players.getInstance().setCurrentPlayer(p1);
-        //testPanel.checkOneOrSix();
+        testPanel.checkIfOneOrSix();
         assertSame(p2, Players.getInstance().getCurrentPlayer());
     }
 
@@ -65,9 +74,33 @@ public class OpusTest {
         Die die = new Die();
         die.setFaceValue(1);
         Players.getInstance().setCurrentPlayer(p1);
-        //testPanel.checkOneOrSix();
+        testPanel.checkIfOneOrSix();
         assertSame(p2, Players.getInstance().getCurrentPlayer());
     }
+
+    @Test
+    void setCurrentOpusPlayer(){
+        OpusModel testPanel = new OpusModel();
+        testPanel.setOpusCurrentPlayer(p1);
+        assertSame(p1, testPanel.getOpusCurrentPlayer());
+    }
+
+    @Test
+    void shouldSetOpusCurrentPlayerAtOppositeSideOfCurrentPlayer(){
+        OpusModel testPanel = new OpusModel();
+        Players.getInstance().setCurrentPlayer(p2);
+        testPanel.setOpusCurrentPlayerOppositeSide();
+        assertSame(1, Players.getInstance().getPlayerIndex(Players.getInstance().getCurrentPlayer()));
+    }
+
+    @Test
+    void getCurrentOpusPlayerName(){
+        OpusModel testPanel = new OpusModel();
+        testPanel.setOpusCurrentPlayer(p1);
+        assertSame("p1",testPanel.getOpusCurrentPlayerName());
+    }
+
+
 }
 
 

@@ -10,9 +10,9 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
-public class AudioPlayer {
+public class SongPlayer {
 
-    public static void playSong(String audioFileLocation) {
+    public void playSong(String audioFileLocation) {
 
         File songLocation = new File(audioFileLocation);
 

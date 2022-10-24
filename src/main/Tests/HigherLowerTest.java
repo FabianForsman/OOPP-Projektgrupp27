@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class HigherLowerTest {
 
 
-    @Test
+   /* @Test
     void testSetBoard(){
         HigherLowerModel game = new HigherLowerModel();
         game.setBoard();
@@ -112,5 +112,5 @@ public class HigherLowerTest {
             assertEquals(test, result);
         }
     }
-
+*/
 }
