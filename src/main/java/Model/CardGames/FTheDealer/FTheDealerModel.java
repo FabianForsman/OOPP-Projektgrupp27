@@ -16,10 +16,13 @@ public class FTheDealerModel extends Game {
     private FTheDealerBoard board;
 
     public FTheDealerModel() {
-        Players.getInstance().setRandomCurrentPlayer();
         board = new FTheDealerBoard();
         deck.shuffle();
         dealerCard = deck.drawCard();
+    }
+
+    public static void setRandomCurrentPlayer() {
+        Players.getInstance().setRandomCurrentPlayer();
     }
 
     public void selectTableSpot(int index) {
@@ -94,15 +97,6 @@ public class FTheDealerModel extends Game {
             return "Correct! " + drinkCalculator();
     }
 
-    @Override
-    public void restartGame() {
-
-    }
-
-    @Override
-    public void quitGame() {
-
-    }
     public int getGuessedSpot(){
         return guessedSpot;
     }
