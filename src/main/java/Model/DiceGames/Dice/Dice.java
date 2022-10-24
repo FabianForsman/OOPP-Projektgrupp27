@@ -4,6 +4,9 @@ package Model.DiceGames.Dice;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Fabian Forsman
+ */
 public class Dice {
     private List<Die> dice = new ArrayList<>();
 

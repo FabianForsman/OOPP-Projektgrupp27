@@ -11,7 +11,9 @@ import Model.Player.Players;
 
 import java.util.ArrayList;
 
-
+/**
+ * Fabian Forsman
+ */
 public class TremanModel extends Game{
 
     private final TremanRules rules;

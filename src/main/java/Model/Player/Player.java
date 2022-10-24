@@ -1,5 +1,8 @@
 package Model.Player;
 
+/**
+ * Author: Fabian Forsman
+ */
 public class Player implements IPlayer {
     private String playerName;
 

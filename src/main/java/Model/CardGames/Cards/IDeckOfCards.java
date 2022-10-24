@@ -1,5 +1,8 @@
 package Model.CardGames.Cards;
 
+/**
+ * Author: Fabian Forsman
+ */
 public interface IDeckOfCards {
     void showDeck();
     void shuffle();

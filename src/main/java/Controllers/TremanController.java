@@ -1,5 +1,4 @@
 package Controllers;
-import Controllers.SceneHandler;
 import Model.DiceGames.Treman.Actions.*;
 import Model.DiceGames.Treman.TremanModel;
 import Model.Player.IPlayer;
@@ -10,7 +9,6 @@ import javafx.scene.image.*;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
-import java.util.HashMap;
 import java.util.Random;
 
 

@@ -3,6 +3,9 @@ package Model.CardGames.Cards;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Author: Fabian Forsman
+ */
 public class DiscardPile {
     private List<Card> cards = new ArrayList<>();
 

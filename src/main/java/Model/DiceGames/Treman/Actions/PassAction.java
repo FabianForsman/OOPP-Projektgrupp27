@@ -2,6 +2,10 @@ package Model.DiceGames.Treman.Actions;
 
 import Model.Player.Players;
 
+/**
+ * Author: Fabian Forsman
+ * Author: Josef Jakobson
+ */
 public class PassAction implements IAction{
     private final String returnString;
 

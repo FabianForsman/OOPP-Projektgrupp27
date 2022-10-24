@@ -2,6 +2,10 @@ package Model.DiceGames.Treman;
 
 import Model.DiceGames.Treman.Rules.*;
 
+
+/**
+ * Author: Fabian Forsman
+ */
 class TremanRules {
     public IRulesChain r1;
 

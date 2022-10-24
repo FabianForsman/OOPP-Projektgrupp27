@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Author: Fabian Forsman
+ */
 public class DeckOfCards implements IDeckOfCards {
     private final List<Card> cards = new ArrayList<>();
     private final DiscardPile discardPile;

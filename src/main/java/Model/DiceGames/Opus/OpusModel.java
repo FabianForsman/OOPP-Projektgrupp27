@@ -9,6 +9,9 @@ import Model.Player.Players;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * Author: Daniel Malmgren
+ */
 public class OpusModel extends Game{
     Die die = new Die();
     private static Dice dice;

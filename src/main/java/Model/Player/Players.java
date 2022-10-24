@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
+/**
+ * Author: Fabian Forsman
+ * Author: Daniel Malmgren
+ */
 public class Players {
     ArrayList<IPlayer> players;
     private HashMap<String, IPlayer> playerMap;

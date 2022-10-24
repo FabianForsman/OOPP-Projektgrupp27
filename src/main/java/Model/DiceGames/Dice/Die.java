@@ -2,6 +2,9 @@ package Model.DiceGames.Dice;
 
 import java.util.Random;
 
+/**
+ * Fabian Forsman
+ */
 public class Die {
     private final int maxValue;
     private int faceValue;
