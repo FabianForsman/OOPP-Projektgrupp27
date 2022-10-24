@@ -13,23 +13,21 @@ public class FTheDealerModel extends Game {
     private int incorrectGuesses = 0;
     private int incorrectPlayers = 0;
     private FTheDealerBoard board;
-    public static IPlayer dealer;
 
     public FTheDealerModel() {
-        //Players.getInstance().setRandomCurrentPlayer();
-        //dealer = Players.getInstance().getRandomPlayer();
+        Players.getInstance().setRandomCurrentPlayer();
+        dealer = Players.getInstance().getRandomPlayer();
         board = new FTheDealerBoard();
         deck.shuffle();
-        correctCard = deck.drawCard();
+        dealerCard = deck.drawCard();
     }
-
 
     public void selectCard(Card card) {
         guessedCard = card;
         checkIfCorrectGuess();
     }
 
-    public void checkIfCorrectGuess() {
+    private void checkIfCorrectGuess() {
         if (board.checkIfCorrectCard(guessedCard, correctCard)) {
             placeCardOnBoard();
         } else {
@@ -37,7 +35,7 @@ public class FTheDealerModel extends Game {
         }
     }
 
-    public String drinkCalculatorPlayer(Card card) {
+    private String drinkCalculatorPlayer(Card card) {
         return String.valueOf(Math.abs(correctCard.getRankValue() - card.getRankValue()));
     }
 
@@ -45,16 +43,17 @@ public class FTheDealerModel extends Game {
         if (incorrectGuesses == 0) {
             return dealer + " takes 5.";
         } else if (incorrectGuesses == 1) {
-            return dealer + " takes 3.";
+            return Players.getInstance().getCurrentPlayerName() + " hands out 3 drinks.";
+        } else {
+            placeCardOnBoard();
+            incorrectGuesses = 0;
         }
-        incorrectGuesses = 0;
-
         return "Too many incorrect guesses. " +
                 Players.getInstance().getCurrentPlayer().getName() +
                 " takes " + drinkCalculatorPlayer(card) + ".";
     }
 
-    public void checkIfTooManyGuesses(int i) {
+    private void checkIfTooManyGuesses(int i) {
         if (i > 2) {
             Players.getInstance().passTurnLeft();
         }
@@ -62,7 +61,7 @@ public class FTheDealerModel extends Game {
 
 
     public void placeCardOnBoard() {
-        board.addToBoard(guessedCard);
+        board.addToBoard(dealerCard);
         Players.getInstance().passTurnLeft();
     }
 
@@ -74,7 +73,7 @@ public class FTheDealerModel extends Game {
         return "";
     }
 
-    public Card drawCard() {
+    private Card drawCard() {
         return deck.drawCard();
     }
 
@@ -98,4 +97,8 @@ public class FTheDealerModel extends Game {
     public void quitGame() {
 
     }
+    public int getGuessedSpot(){
+        return guessedSpot;
+    }
+
 }

@@ -15,7 +15,7 @@ public class FTheDealerBoard {
         return card == correctCard;
     }
 
-    public void generateBoard() {
+    private void generateBoard() {
         for (int i = 0; i < 13; i++) {
             board.add(new ArrayList<>(4));
         }

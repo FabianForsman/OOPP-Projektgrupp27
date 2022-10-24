@@ -1,4 +1,4 @@
-package com.example.hydrohomies;
+package com.example.App;
 
 import Controllers.*;
 import Model.Player.Player;

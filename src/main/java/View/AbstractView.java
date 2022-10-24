@@ -1,6 +1,6 @@
 package View;
 
-import com.example.hydrohomies.HydroApplication;
+import com.example.App.HydroApplication;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
 import javafx.scene.layout.AnchorPane;
