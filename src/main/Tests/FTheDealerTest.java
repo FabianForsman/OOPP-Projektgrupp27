@@ -1,5 +1,6 @@
 import Model.CardGames.Cards.Card;
 import Model.CardGames.Cards.DeckOfCards;
+import Model.CardGames.FTheDealer.FTheDealerBoard;
 import Model.CardGames.FTheDealer.FTheDealerModel;
 import Model.Player.Player;
 import Model.Player.Players;
@@ -33,17 +34,43 @@ public class FTheDealerTest {
     }
 
     @Test
-    void testCheckIfCorrectGuess(){
+    void testDrinkCalculator(){
         FTheDealerModel game = new FTheDealerModel();
+        Card card = game.getDealerCard();
+        game.selectTableSpot(7);
+        game.setIncorrectGuesses(2);
+
+        assertEquals("Too many incorrect guesses. " + Players.getInstance().getCurrentPlayerName() +" takes " + game.getDrinkCalculatorPlayer() + ".", game.drinkCalculator(card));
+        }
+
+
+
+
+
+    @Test
+    void testIfFourCards() {
+        FTheDealerModel game = new FTheDealerModel();
+        FTheDealerBoard board = new FTheDealerBoard();
+        game.selectTableSpot(7);
+        game.placeCardOnBoard();
+        game.placeCardOnBoard();
+        game.placeCardOnBoard();
+        game.placeCardOnBoard();
+        assertEquals(game.checkIfFourCards(), "4 of the same! Turning " + game.getDealerCard().getRankValue() + " of " + game.getDealerCard().getSuit() + " over.");
 
     }
 
     @Test
-    void testPlaceOnBoard(){
+    void testPlaceOnBoard() {
         FTheDealerModel game = new FTheDealerModel();
+        FTheDealerBoard board = new FTheDealerBoard();
         Card card = game.getDealerCard();
-        assertEquals(game.placeCardOnBoard() card);
+        game.selectTableSpot(7);
+        game.placeCardOnBoard();
+
+        assertEquals(card, board.getBoard().);
     }
+
     @Test
     void testLowerCard(){
         FTheDealerModel game = new FTheDealerModel();
@@ -58,22 +85,15 @@ public class FTheDealerTest {
             assertSame("Correct!  " + Players.getInstance().getCurrentPlayerName() + " hands out 5 drinks", game.higherOrLower());
 
         }
-
-
     }
-    @Test
-    void testDrinkCalculator(){
-        FTheDealerModel game = new FTheDealerModel();
-        Card card = game.getDealerCard();
-        game.selectTableSpot(5);
-        int incorrectGuesses = 1;
-    }
-
-
-
-
-
-
-
-
 }
+
+
+
+
+
+
+
+
+
+

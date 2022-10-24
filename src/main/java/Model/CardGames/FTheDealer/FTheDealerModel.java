@@ -100,5 +100,11 @@ public class FTheDealerModel extends Game {
     public int getGuessedSpot(){
         return guessedSpot;
     }
+    public String getDrinkCalculatorPlayer(){return drinkCalculatorPlayer();}
+
+    public void setIncorrectGuesses(int incorrectGuesses){
+        this.incorrectGuesses = incorrectGuesses;
+    }
+
 
 }
