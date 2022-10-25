@@ -1,1 +1,1 @@
-Input $ mvn java:run in commandline to run program
+Input $ mvn javafx:run in commandline to run program
